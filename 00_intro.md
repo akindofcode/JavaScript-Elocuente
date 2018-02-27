@@ -1,51 +1,53 @@
 {{meta {load_files: ["code/intro.js"]}}}
 
-# Introduction
+# Introducción
 
-This is a book about instructing ((computer))s. Computers are about as
-common as screwdrivers today. But they are quite a bit more complex
-than screwdrivers, and making them do the precise thing you want them
-to do isn't always easy.
+Este es un libro acerca de instruir ((computadora))s. Las computadoras son tan
+comunes como los destornilladores hoy en dia. Pero son bastante más complejas
+que los destornilladores, y hacer que hagan la cosa precisa que tu quieres
+que hagan no siempre es fácil.
 
-If the task you have for your computer is a common, well-understood
-one, such as showing you your email or acting like a calculator, you
-can open the appropriate ((application)) and get to work. But for
-unique or open ended tasks, there may not be an application.
+Si la tarea que tienes para tu computadora es común, y bien entendida,
+como mostrar tu correo electrónico o funcionar como una calculadora,
+puedes abrir la ((aplicación)) apropiada y ponerte a trabajar. Pero para
+tareas únicas o abiertas, es posible que no haya una aplicación.
 
-That is where _((programming))_ may come in. Programming is the act of
-constructing a program—a set of precise instructions, that tell a
-computer what to do. Because computers are dumb, pedantic beasts,
-programming is fundamentally tedious and frustrating.
+Ahí es donde la _((programación))_ podria entrar. La programación es el acto de
+construir un programa: un conjunto de instrucciones precisas, que le dicen a una
+computadora qué hacer. Porque las computadoras son bestias tontas y pedantes,
+la programación es fundamentalmente tediosa y frustrante.
 
 {{index [programming, "joy of"], speed}}
 
-Fortunately, if you can get over that, and maybe even enjoy the rigor
-of thinking in terms that dumb machines can deal with, programming can
-be very rewarding. It allows you to do things that would take
-_forever_ by hand in seconds. It is a way to make your computer tool
-do things that it couldn't do before. And it provides a wonderful
-exercise in abstract thinking.
+Afortunadamente, si puedes superar eso, y tal vez incluso disfrutar el rigor
+de pensar en términos que las máquinas tontas puedan manejar, la programación
+puede ser muy gratificante. Te permite hacer en segundos cosas que
+tardarian _para siempre_ a mano. Es una forma de hacer que tu herramienta
+computadora haga cosas que antes no podía hacer. Y proporciona un maravilloso
+ejercicio en pensamiento abstracto.
 
-Most programming is done with ((programming language))s. A programming
-language is an artificially constructed language used to instruct
-computers. It is interesting that the most effective way we've found
-to communicate with a computer borrows so heavily from the way we
-communicate with each other. Like human languages, computer languages
-allow words and phrases to be combined in new ways, allowing you to
-express ever new concepts.
+La mayoría de la programación se realiza con ((lenguajes de programación)).
+Un lenguaje de programación es un lenguaje construido artificialmente
+utilizado para instruir ordenadores. Es interesante que la forma más efectiva
+que hemos encontrado para comunicarnos con una computadora es bastante
+parecida a la forma que usamos para comunicarnos entre nosotros.
+Al igual que los idiomas humanos, los lenguajes de computación permiten
+que las palabras y frases se combinen de nuevas maneras,
+permitiendote expresar siempre nuevos conceptos.
 
 {{index [JavaScript, "availability of"], "casual computing"}}
 
-Language-based interfaces, which at one point were the main way in
-which people interacted with computers, have largely been replaced
-with easier, more limited interfaces. But they are still there, if you
-know where to look. One such language, JavaScript, is built into every
-modern web ((browser)) and is thus available on almost every device.
+Las interfaces basadas en lenguajes, que en un momento fueron la principal
+forma de interactuar con las computadoras para la mayoria de las personas,
+han sido en gran parte reemplazadas con interfaces más simples y limitadas.
+Pero todavía están allí, si sabes dónde mirar. Uno de esos idiomas,
+JavaScript, está integrado en cada ((navegador)) web moderno y,
+por lo tanto, está disponible en casi todos los dispositivos.
 
 {{indexsee "web browser", browser}}
 
-This book will try to make you familiar enough with this language to
-do useful and amusing things with it.
+Este libro intentará familiarizarte lo suficiente con este lenguaje para
+hacer cosas útiles y divertidas con él.
 
 ## On programming
 
