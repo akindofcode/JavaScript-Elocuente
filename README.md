@@ -3,7 +3,7 @@
 Estas son las fuentes usadas para construir la tercera edición de JavaScript
 Elocuente (http://eloquentjavascript.net).
 
-Bienvenido el feedback, en la forma de issues y pull requests.
+El feedback es bienvenido, en la forma de issues y pull requests.
 
 ## Construyendo
 
