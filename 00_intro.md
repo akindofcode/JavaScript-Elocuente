@@ -49,89 +49,91 @@ por lo tanto, está disponible en casi todos los dispositivos.
 Este libro intentará familiarizarte lo suficiente con este lenguaje para
 hacer cosas útiles y divertidas con él.
 
-## On programming
+## Acerca de la programación
 
 {{index [programming, "difficulty of"]}}
 
-Besides explaining JavaScript, I will also introduce the basic
-principles of programming. Programming, it turns out, is hard. The
-fundamental rules are typically simple and clear. But programs built
-on top of these rules tend to become complex enough to introduce their
-own rules and complexity. You're building your own maze, in a way, and
-you might just get lost in it.
+Además de explicar JavaScript, también introduciré los principios básicos
+de la programación. La programación, resulta, es difícil. Las
+reglas fundamentales son típicamente simples y claras. Pero los programas
+construidos en base a estas reglas tienden a ser lo suficientemente
+complejas como para introducir sus propias reglas y complejidad.
+Estás construyendo tu propio laberinto, de alguna manera, y
+es posible que te pierdas en él.
 
 {{index learning}}
 
-There will be times when reading this book feels terribly frustrating.
-If you are new to programming, there will be a lot of new material to
-digest. Much of this material will then be _combined_ in ways that
-require you to make additional connections.
+Habrá momentos en los que leer este libro se sentira terriblemente frustrante.
+Si eres nuevo en la programación, habrá mucho material nuevo para
+digerir. Gran parte de este material sera entonces _combinado_ en formas que
+requerirán que hagas conexiones adicionales.
 
-It is up to you to make the necessary effort. When you are struggling
-to follow the book, do not jump to any conclusions about your own
-capabilities. You are fine—you just need to keep at it. Take a break,
-reread some material, and _always_ make sure you read and understand
-the example programs and ((exercises)). Learning is hard work, but
-everything you learn is yours and will make subsequent learning
-easier.
+Depende de ti hacer el esfuerzo necesario. Cuando estes luchando
+para seguir el libro, no saltes a ninguna conclusión acerca de tus propias
+capacidades. Estás bien — solo tienes que seguir intentando.
+Toma un descanso, vuelva a leer algún material, y _siempre_ asegúrate de
+leer y comprender los programas de ejemplo y ((ejercicios)). Aprender es un
+trabajo duro, pero todo lo que aprendes se convertira en tuyo y
+el aprendimiento subsiguiente sera más fácil.
 
-{{quote {author: "Ursula K. Le Guin", title: "The Left Hand of Darkness"}
+{{quote {author: "Ursula K. Le Guin", title: "La Mano Izquierda De La Oscuridad"}
 
 {{index "Le Guin, Ursula K."}}
 
-When action grows unprofitable, gather information; when information
-grows unprofitable, sleep.
+Cuando la acción deja de servirte, reune información; cuando la información
+deja de servirte, duerme.
 
 quote}}
 
 {{index [program, "nature of"], data}}
 
-A program is many things. It is a piece of text typed by a programmer,
-it is the directing force that makes the computer do what it does, it
-is data in the computer's memory, yet it controls the actions
-performed on this same memory. Analogies that try to compare programs
-to objects we are familiar with tend to fall short. A superficially
-fitting one is that of a machine—lots of separate parts tend to be
-involved, and to make the whole thing tick, we have to consider the
-ways in which these parts interconnect and contribute to the operation
-of the whole.
+Un programa es muchas cosas. Es una pieza de texto escrita por un programador,
+es la fuerza directriz que hace que la computadora haga lo que hace,
+es datos en la memoria de la computadora, y sin embargo controla las acciones
+realizadas en esta misma memoria. Analogías que intentan comparar programas
+a objetos con los que estamos familiarizados tienden a fallar. Una analogía
+que es superficialmente adecuada es el de una máquina: muchas partes
+separadas tienden a estar involucradas, y para hacer que funcione todo,
+tenemos que considerar la formas en las que estas partes se interconectan y
+contribuyen a la operación de un todo.
 
-A ((computer)) is a machine built to act as a host for these
-immaterial machines. Computers themselves can do only stupidly
-straightforward things. The reason they are so useful is that they do
-these things at an incredibly high ((speed)). A program can
-ingeniously combine an enormous number of these simple actions in
-order to do very complicated things.
+Una ((computadora)) es una máquina construida para actuar como anfitrión para
+estas máquinas inmateriales. Las computadoras en si mismas solo pueden hacer
+cosas estúpidamente sencillas. La razón por la que son tan útiles es que hacen
+estas cosas a una ((velocidad)) increíblemente alta. Un programa puede
+combinar ingeniosamente una enorme cantidad de estas acciones simples
+para realizar cosas bastante complicadas.
 
 {{index [programming, "joy of"]}}
 
-A program is a building of thought. It is costless to build, it is
-weightless, and it grows easily under our typing hands.
+Un programa es un edificio de pensamiento. No cuesta construirlo, no pesa
+nada, y crece fácilmente bajo nuestras manos que teclean.
 
-But without care, a program's size and ((complexity)) will grow out of
-control, confusing even the person who created it. Keeping programs
-under control is the main problem of programming. When a program
-works, it is beautiful. The art of programming is the skill of
-controlling complexity. The great program is subdued—made simple in
-its complexity.
+Pero sin ningun cuidado, el tamaño de un programa y su ((complejidad))
+crecerán sin control, confundiendo incluso a la persona que lo creó.
+Mantener programas bajo control es el problema principal de la programación.
+Cuando un programa funciona, es hermoso. El arte de la programación es la
+habilidad de controlar la complejidad. Un gran programa es moderado — hecho
+simple en su complejidad.
 
 {{index "programming style", "best practices"}}
 
-Some programmers believe that this complexity is best managed by using
-only a small set of well-understood techniques in their programs. They
-have composed strict rules ("best practices") prescribing the form
-programs should have, and carefully stay within their safe little
-zone.
+Algunos programadores creen que esta complejidad se maneja mejor mediante
+el uso de solo un pequeño conjunto de técnicas bien entendidas en sus
+programas. Ellos han compuesto reglas estrictas ("mejores prácticas") que
+prescriben la forma que los programas deberían tener, y se mantienen
+cuidadosamente dentro de su pequeña y segura zona.
 
 {{index experiment}}
 
-This is not only boring, it is also ineffective. New problems often
-require new solutions. The field of programming is young and still
-developing rapidly, and is varied enough to have space for wildly
-different approaches. There are many terrible mistakes to make in
-program design, so go ahead and make them so that you understand them
-better. A sense of what a good program looks like is developed in
-practice, not learned from a list of rules.
+Esto no solo es aburrido, sino que también es ineficaz. Nuevos problemas
+a menudo requieren nuevas soluciones. El campo de la programación es joven y
+todavía se esta desarrollando rápidamente, y es lo suficientemente variado
+como para tener espacio para aproximaciones salvajemente diferentes.
+Hay muchos errores terribles que hacer en el diseño de programas, así que
+ve adelante y comételos para que los entiendas mejor. La idea de cómo se ve
+un buen programa se desarrolla al practicar, no se aprende de una lista
+de reglas.
 
 ## Why language matters
 
