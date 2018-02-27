@@ -1,13 +1,13 @@
 {{meta {docid: values}}}
 
-# Values, Types, and Operators
+# Valores, Tipos, y Operadores
 
 {{quote {author: "Master Yuan-Ma", title: "The Book of Programming", chapter: true}
 
-Below the surface of the machine, the program moves. Without effort,
-it expands and contracts. In great harmony, electrons scatter and
-regroup. The forms on the monitor are but ripples on the water. The
-essence stays invisibly below.
+El programa se mueve debajo de la superficie de la maquina. Sin esfuerzo,
+se expande y se contrae. En gran armonía, los electrones se dispersan y
+se reagrupan. Las figuras en el monitor son tan solo ondas sobre el agua.
+La escencia se mantiene invisible debajo de la superficie. 
 
 quote}}
 
@@ -17,73 +17,73 @@ quote}}
 
 {{index "binary data", data, bit, memory}}
 
-Inside the computer's world, there is only data. You can read data,
-modify data, create new data—but that which isn't data cannot be
-mentioned. All this data is stored as long sequences of bits and is
-thus fundamentally alike.
+Dentro de la realidad de la computadora, solo existe información. 
+Puedes leer información, modificar información, crear nueva 
+información-pero eso que no es información, no puede ser mencionado.
+Toda esta información esta almacenada en forma de largas secuencias 
+de bits, y es por consecuencia fundamentalmente igual.
 
 {{index CD, signal}}
 
-Bits are any kind of two-valued things, usually described as zeros and
-ones. Inside the computer, they take forms such as a high or low
-electrical charge, a strong or weak signal, or a shiny or dull spot on
-the surface of a CD. Any piece of discrete information can be reduced
-to a sequence of zeros and ones and thus represented in bits.
+Los bits son cualquier tipo de cosa de dos valores. Usualmente descritos
+en ceros y unos. Dentro de la computadora, toman formas como cargas 
+electricas altas y bajas, una señal fuerte o debil, o un punto brillante 
+u opaco en la superficie de un CD. Cualquier pedazo de information discreta
+puede ser reducido a una secuencia de ceros y unos y asi ser repsentado en bits.
 
 {{index "binary number", radix, "decimal number"}}
 
-For example, we can express the number 13 in bits. It works the same
-way as a decimal number, but instead of 10 different ((digit))s, you
-have only 2, and the weight of each increases by a factor of 2 from
-right to left. Here are the bits that make up the number 13, with the
-weights of the digits shown below them:
+Por ejemplo, podemos expresar el numero 13 en bits. Funciona de la misma 
+manera que un numero decimal, pero en vez de 10 diferentes digitos, solo
+tienes 2, y el peso de cada uno aumenta por un factor de 2 de derecha a 
+izquierda. Aquí tenemos los bits que conforman el numero 13, con el peso
+de cada digito mostrado debajo:
 
 ```{lang: null}
    0   0   0   0   1   1   0   1
  128  64  32  16   8   4   2   1
 ```
 
-So that's the binary number 00001101, or 8 + 4 + 1, or 13.
+Entonces ese es el numero binario 00001101, o 8 + 4 + 1, o 13.
 
 ## Values
 
 {{index memory, "volatile data storage", "hard drive"}}
 
-Imagine a sea of bits. An ocean of them. A typical modern computer has
-more than 30 billion bits in its volatile data storage (working
-memory). Nonvolatile storage (the hard disk or equivalent) tends to
-have yet a few orders of magnitude more.
+Imagina un mar de bits. Un oceano de ellos. Una computadora moderna 
+tradicional tiene mas de 30 billones de bits en su almacenamiento 
+volatil (memoria volatil). Almacenamiento no volatil (disco duro o equivalente)
+tiende a tener unas cuantas mas ordened de magnitud. 
 
-To be able to work with such quantities of bits without getting lost,
-we must separate them into chunks that represent pieces of
-information. In a JavaScript environment, those chunks are called
-_((value))s_. Though all values are made of bits, they play different
-roles. Every value has a ((type)) that determines its role. Some
-values are numbers, some values are pieces of text, some values are
-functions, and so on.
+Para poder trabajar con tales cantidades de bits sin perdernos,
+debemos separarlos en porciones que representen pedazos de información.
+En el entorno de JavaScript, esas porciones se llaman valores. Aunque todos 
+los valores están hechos de bits, juegan un papel diferente. Cada valor
+tiene un tipo que determina su rol. Algunos valores son numeros, otros
+son porciones de texto, otros son funciones, y asi sucesivamente.
 
 {{index "garbage collection"}}
 
-To create a value, you must merely invoke its name. This is
-convenient. You don't have to gather building material for your values
-or pay for them. You just call for one, and _woosh_, you have it. They
-are not really created from thin air, of course. Every value has to be
-stored somewhere, and if you want to use a gigantic amount of them at
-the same time, you might run out of memory. Fortunately, this is a
-problem only if you need them all simultaneously. As soon as you no
-longer use a value, it will dissipate, leaving behind its bits to be
-recycled as building material for the next generation of values.
+Para crear un valor, solo debemos de invocar su nombre. Esto es
+conveniente. No tenemos que recopilar materiales de contruccion para nuestros
+valores, o pagar por ellos. Solo llamamos su nombre, y _woosh_, lo tenemos.
+No son realmente creados de la nada, por supuesto. Cada valor tiene que estar
+almacenado en algun sitio, y si quieres usar una cantidad gigante de ellos al
+mismo tiempo, puede que te quedes sin memoria. Afortunadamente esto es un 
+problema solamente si los necesitas todos al mismo tiempo. Tan pronto como 
+no utilizes un valor, se disipará, dejando atrás sus bits para ser reciclados
+como material de construccion para la proxima generación de valores. 
 
-This chapter introduces the atomic elements of JavaScript programs,
-that is, the simple value types and the operators that can act on such
-values.
+Este capitulo introduce los elementos atomicos de programas JavaScript.
+Esto es, los tipos de valores simples y los operadores que actuan en 
+tales valores.
 
 ## Numbers
 
 {{index syntax, number, [number, notation]}}
 
-Values of the _number_ type are, unsurprisingly, numeric values. In a
-JavaScript program, they are written as follows:
+Valores del tipo _numero_ son, como es de esperar, valores numericos. 
+En un programa JavaScript, se escriben de la siguiente manera:
 
 ```
 13
@@ -91,26 +91,28 @@ JavaScript program, they are written as follows:
 
 {{index "binary number"}}
 
-Use that in a program, and it will cause the bit pattern for the
-number 13 to come into existence inside the computer's memory.
+Utiliza eso en un programa, y ocasionara que el patron de bits
+que representa el numero 13 sea creado dentro de la memoria del computador.
 
 {{index [number, representation], bit}}
 
-JavaScript uses a fixed number of bits, namely 64 of them, to store a
-single number value. There are only so many patterns you can make with
-64 bits, which means that the amount of different numbers that can be
-represented is limited. For _N_ decimal ((digit))s, the amount of
-numbers that can be represented is 10^N^. Similarly, given 64 binary
-digits, you can represent 2^64^ different numbers, which is about 18
-quintillion (an 18 with 18 zeros after it). This is a lot.
+JavaScript utiliza un numero fijo de bits, especificamente 64 de ellos,
+para almacenar un solo valor numerico. Solo existen una cantidad finita de 
+patrones que podemos crear con 64 bits, lo que significa que la cantidad de
+numeros diferentes que pueden ser representados es limitada. Para una 
+cantidad de _N_ digitos decimales, la cantidad de numeros que pueden ser
+representados es 10^N^. Similarmente, dados 64 digitos binarios, podemos 
+representar 2^64^ numeros diferentes, lo que es alrededor de 18 quintillones
+(un 18 con 18 ceros despues). Esto es muchisimo.
 
-Computer memory used to be a lot smaller, and people tended to use
-groups of 8 or 16 bits to represent their numbers. It was easy to
-accidentally _((overflow))_ such small numbers—to end up with a number
-that did not fit into the given amount of bits. Today, even computers
-that fit in your pocket have plenty of memory, so you are free to use
-64-bit chunks, and you need to worry about overflow only when dealing
-with truly astronomical numbers.
+La memoria de un computados solia ser mucho mas pequeña que en la actualidad,
+y las personas tendian a utilizar grupos de 8 o 16 bits para representar sus 
+numeros. Era común accidentalmente _((desbordar))_ esta limitacion, y terminar
+con un numero que no cupiera dentro de la cantidad dada de bits. Hoy en día, 
+aún computadoras que caben en nuestro bolsillo tienen abundante memoria, por tanto
+somos libres de usar pedazos de memoria de 64 bits, y no nos tenemos que preocupar 
+por desbordamiento de memoria, solamente cuando lidiamos con numeros verdaderamente
+astronomicos.
 
 {{index sign, "floating-point number", "fractional number", "sign bit"}}
 
