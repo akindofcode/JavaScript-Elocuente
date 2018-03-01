@@ -102,7 +102,7 @@ patrones que podemos crear con 64 bits, lo que significa que la cantidad de
 numeros diferentes que pueden ser representados es limitada. Para una 
 cantidad de _N_ digitos decimales, la cantidad de numeros que pueden ser
 representados es 10^N^. Similarmente, dados 64 digitos binarios, podemos 
-representar 2^64^ numeros diferentes, lo que es alrededor de 18 quintillones
+representar 2^64^ numeros diferentes, lo que es alrededor de 18 trillones
 (un 18 con 18 ceros despues). Esto es muchisimo.
 
 La memoria de un computados solia ser mucho mas pequeña que en la actualidad,
@@ -116,17 +116,17 @@ astronomicos.
 
 {{index sign, "floating-point number", "fractional number", "sign bit"}}
 
-Not all whole numbers below 18 quintillion fit in a JavaScript number,
-though. Those bits also store negative numbers, so one bit indicates
-the sign of the number. A bigger issue is that nonwhole numbers must
-also be represented. To do this, some of the bits are used to store
-the position of the decimal point. The actual maximum whole number
-that can be stored is more in the range of 9 quadrillion (15
-zeros)—which is still pleasantly huge.
+A pesar de esto, no todos los numeros enteros por debajo de 18 trillones caben en un
+numero de JavaScript. Esos bits también almacenan numeros negativos, entonces un bit
+indica el signo de un numero. Un problema mayor es que números no enteros tienen tambien
+que ser representados. Para hacer esto, algunos de los bits son usados para
+almacenar la pocision del punto decimal. El numero entero mas grande que puede ser
+almacenado está en el rango de 9 cuatrillónes (15 ceros)-lo cual es todavia placenteramente 
+inmenso. 
 
 {{index [number, notation]}}
 
-Fractional numbers are written by using a dot.
+Los numeros fraccionarios se escriben usando un punto.
 
 ```
 9.81
@@ -134,35 +134,35 @@ Fractional numbers are written by using a dot.
 
 {{index exponent, "scientific notation", [number, notation]}}
 
-For very big or very small numbers, you may also use scientific
-notation by adding an "e" (for "exponent"), followed by the exponent
-of the number:
+Para numeros muy grandes o muy pequeños, pudieramos también usar notación 
+científica agregando una "e" (de "exponente"), seguida por el exponente 
+del numero:
 
 ```
 2.998e8
 ```
 
-That is 2.998 × 10^8^ = 299,800,000.
+Eso es 2.998 × 10^8^ = 299,800,000.
 
 {{index pi, [number, "precision of"], "floating-point number"}}
 
-Calculations with whole numbers (also called _((integer))s_) smaller
-than the aforementioned 9 quadrillion are guaranteed to always be
-precise. Unfortunately, calculations with fractional numbers are
-generally not. Just as π (pi) cannot be precisely expressed by a
-finite number of decimal digits, many numbers lose some precision when
-only 64 bits are available to store them. This is a shame, but it
-causes practical problems only in specific situations. The important
-thing is to be aware of it and treat fractional digital numbers as
-approximations, not as precise values.
+Calculaciones con numeros enteros (también llamados _((integer))s_)
+mas pequeños de los anteriormente mencionados 9 cuatrillónes están
+garantizadas a ser siempre precisas. Desafortunadamente, calculaciones
+con numeros fraccionarios generalmente no lo son. Así como π (pi) no puede
+ser precisamente expresado por un numero finito de números decimales, 
+muchos numeros pierden alguna precisión cuando solo hay 64 bits disponibles
+para almacenarlos. Esto es una pena, pero solo causa problemas en situaciones
+especificas. Lo importante que debemos recordar es de estar conciente de esto
+y tratar numeros fraccionarios como aproximaciones, y no como valores precisos. 
 
 ### Arithmetic
 
 {{index syntax, operator, "binary operator", arithmetic, addition, multiplication}}
 
-The main thing to do with numbers is arithmetic. Arithmetic operations
-such as addition or multiplication take two number values and produce
-a new number from them. Here is what they look like in JavaScript:
+Lo que mayormente se hace con numeros es aritmética. Operaciones aritmeticas
+como adición y multiplicación, toma dos valores numéricos y produce un nuevo
+valor a raiz de lo provisto. Asi lucen en JavaScript:
 
 ```
 100 + 4 * 11
@@ -170,17 +170,16 @@ a new number from them. Here is what they look like in JavaScript:
 
 {{index [operator, application], asterisk, "plus character", "* operator", "+ operator"}}
 
-The `+` and `*` symbols are called _operators_. The first stands for
-addition, and the second stands for multiplication. Putting an
-operator between two values will apply it to those values and produce
-a new value.
+Los simbolos `+` y `*` son llamados _operadores_. El primero representa
+adición, y el segundo representa multiplicación. Colocar un operador entre
+dos valores aplicará la operacion asociada y producirá un nuevo valor. 
 
 {{index grouping, parentheses, precedence}}
 
-Does the example mean "add 4 and 100, and multiply the result by 11",
-or is the multiplication done before the adding? As you might have
-guessed, the multiplication happens first. But as in mathematics, you
-can change this by wrapping the addition in parentheses.
+Signifíca el ejemplo "agrega 4 y 100, y multiplica el resultado por 11",
+o es la multiplicación aplicada antes de la adición? Como has podido
+quizas adivinar, la multiplicación sucede primero. Pero como en matematicas,
+puedes cambiar esto envolviendo la adicion en parentesis.
 
 ```
 (100 + 4) * 11
@@ -188,51 +187,49 @@ can change this by wrapping the addition in parentheses.
 
 {{index "dash character", "slash character", division, subtraction, minus, "- operator", "/ operator"}}
 
-For subtraction, there is the `-` operator, and division can be done
-with the `/` operator.
+Para sustraer, existe el operador `-`, y para dividir existe `/`.
 
-When operators appear together without parentheses, the order in which
-they are applied is determined by the _((precedence))_ of the
-operators. The example shows that multiplication comes before
-addition. The `/` operator has the same precedence as `*`. Likewise
-for `+` and `-`. When multiple operators with the same precedence
-appear next to each other, as in `1 - 2 + 1`, they are applied left to
-right: `(1 - 2) + 1`.
+Cuando operadores aparecen juntos sin parentesis, el orden en el cual
+son aplicados es determinado por la _((precedendia))_ de los operadores.
+El operador `/` tiene la misma precedencia que `*`. Lo mismo aplica para
+`+` y `-`. Cuando operadores con la misma precedencia aparecen al lado 
+del otro, como en `1 - 2 + 1`, son aplicados de izquierda a derecha.
 
-These rules of precedence are not something you should worry about.
-When in doubt, just add parentheses.
+Estas reglas de precedencia no son algo de lo que debieras preocuparte.
+Cuando no estés seguro, solo agrega un parentesis. 
 
 {{index "modulo operator", division, "remainder operator", "% operator"}}
 
-There is one more arithmetic operator, which you might not immediately
-recognize. The `%` symbol is used to represent the _remainder_
-operation. `X % Y` is the remainder of dividing `X` by `Y`. For
-example, `314 % 100` produces `14`, and `144 % 12` gives `0`.
-Remainder's precedence is the same as that of multiplication and
-division. You'll also often see this operator referred to as _modulo_.
+Existe otro operador aritmetico que quizas no reconocerías inmediatamente.
+El symbolo `%` es utilizado para representar la operación de _residuo_.
+`X % Y` es el residuo de dividir `X` entre `Y`. Por ejemplo, `314 % 100`
+produce `14`, y `144 % 12` produce `0`. La presedencia del residuo es la 
+la misma que la multiplicación y la divición. Frecuente mente este operador
+es referido como _modulo_.
 
 ### Special numbers
 
 {{index [number, "special values"]}}
 
-There are three special values in JavaScript that are considered
-numbers but don't behave like normal numbers.
+Existen 3 valores especiales en JavaScript que son considerados 
+numeros pero no se comportan como numeros normales.
 
 {{index infinity}}
 
-The first two are `Infinity` and `-Infinity`, which represent the
-positive and negative infinities. `Infinity - 1` is still `Infinity`,
-and so on. Don't put too much trust in infinity-based computation,
-though. It isn't mathematically sound, and it will quickly lead to our
-next special number: `NaN`.
+Los primeros dos son `Infinity` y `-Intinity`, los cuales representan
+infinidad positiva e infinidad negativa. `Infinity - 1` es todavia
+`Infinity`, y asi sucesivamente. A pesar de esto, no confíes mucho 
+en computaciones que dependedn en infinidades. Esto no es matematicamente 
+confiable, y puede que muy rapidamente nos resulte en el proximo numero
+especial: `NaN`.
 
 {{index NaN, "not a number", "division by zero"}}
 
-`NaN` stands for "not a number", even though it _is_ a value of the
-number type. You'll get this result when you, for example, try to
-calculate `0 / 0` (zero divided by zero), `Infinity - Infinity`, or
-any number of other numeric operations that don't yield a meaningful
-result.
+`NaN` significa "no es un numero", aunque _sea_ un valor del tipo numerico.
+Obtendremos este resultado cuando, por ejemplo, tratamos de calcular
+`0 / 0` (cero dividido entre cero), `Infinity - Infinity`, o cualquier 
+otra cantidad de operaciones numericas que no producen un resultado
+significante.
 
 ## Strings
 
@@ -240,18 +237,19 @@ result.
 
 {{index syntax, text, character, [string, notation], "single-quote character", "double-quote character", "quotation mark", backtick}}
 
-The next basic data type is the _((string))_. Strings are used to
-represent text. They are written by enclosing their content in quotes.
+El proximo tipo de dato basico es el _((string))_. Los Strings 
+son usados para representar texto. Son escritos encerrando su contenido
+en comillas.
 
 ```
-`Down on the sea`
-"Lie on the ocean"
-'Float on the ocean'
+`Debajo en el oceano`
+"Descansa en el oceano"
+'Flotar en el oceano'
 ```
 
-You can use single quotes, double quotes, or backticks to mark
-strings, as long as the quotes at the start and the end of the string
-match.
+Puedes usar comillas simples, comillas dobles, o comillas invertidas 
+para representar strings, siempre y cuando las comillas al principio 
+y al final cuncuerden. 
 
 {{index "line break", "newline character"}}
 
