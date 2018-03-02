@@ -102,7 +102,7 @@ patrones que podemos crear con 64 bits, lo que significa que la cantidad de
 numeros diferentes que pueden ser representados es limitada. Para una 
 cantidad de _N_ digitos decimales, la cantidad de numeros que pueden ser
 representados es 10^N^. Similarmente, dados 64 digitos binarios, podemos 
-representar 2^64^ numeros diferentes, lo que es alrededor de 18 trillones
+representar 2^64^ numeros diferentes, lo que es alrededor de 18 quintillónes
 (un 18 con 18 ceros despues). Esto es muchisimo.
 
 La memoria de un computados solia ser mucho mas pequeña que en la actualidad,
@@ -116,7 +116,7 @@ astronomicos.
 
 {{index sign, "floating-point number", "fractional number", "sign bit"}}
 
-A pesar de esto, no todos los numeros enteros por debajo de 18 trillones caben en un
+A pesar de esto, no todos los numeros enteros por debajo de 18 quintillónes caben en un
 numero de JavaScript. Esos bits también almacenan numeros negativos, entonces un bit
 indica el signo de un numero. Un problema mayor es que números no enteros tienen tambien
 que ser representados. Para hacer esto, algunos de los bits son usados para
@@ -253,95 +253,100 @@ y al final cuncuerden.
 
 {{index "line break", "newline character"}}
 
-Almost anything can be put between quotes, and JavaScript will make a
-string value out of it. But a few characters are more difficult. You
-can imagine how putting quotes between quotes might be hard.
-_Newlines_ (the characters you get when you press Enter) may only be
-included when the string is quoted with backtick (`` ` ``), the other
-types of strings have to stay on a single line.
+Casi todo puede ser colocado entre comillas, y JavaScript construirá 
+un valor string a partir de ello. Pero algunos caractéres son mas dificiles.
+Te puedes imaginar que colocar comillas entre comillas podría ser dificil.
+_Newlines_ (los caracteres que obtienes cuando presionas la tecla de Enter)
+solo pueden ser incluidos cuando el string está encapsulado con comillas
+invertidas (`` ` ``), los otros typos de string deben de quedarse en una 
+sola linea.
 
 {{index [escaping, "in strings"], "backslash character"}}
 
-To make it possible to include such characters in a string, the
-following notation is used: whenever a backslash (`\`) is found inside
-quoted text, it indicates that the character after it has a special
-meaning. This is called _escaping_ the character. A quote that is
-preceded by a backslash will not end the string but be part of it.
-When an `n` character occurs after a backslash, it is interpreted as a
-newline. Similarly, a `t` after a backslash means a ((tab character)).
-Take the following string:
+Para hacer posible incluir tales caracteres en un string, la siguiente 
+notación es utilizada: cuando una barra invertida es encontrada dentro de
+un texto entre comillas, indica que el caracter que le sigue tiene un
+significado especial. Esto es referido como _escapando_ el caracter. 
+Una comilla que es precedida por una barra invertida no representará
+el final del string sino que formara parte del string. Cuado el 
+caractér de `n` ocurre despues de la barra invertida, es representado
+como un Newline (salto de linea). Similarmente, `t` despues de una barra
+invertida, significa un character de tabulación.
+Toma como referencia el siguiente string: 
 
 ```
-"This is the first line\nAnd this is the second"
+"Esta es la primera linea\nY esta es la segunda"
 ```
 
-The actual text contained is this:
+El texto actual es este: 
 
 ```{lang: null}
-This is the first line
-And this is the second
+Esta es la primera linea
+Y esta es la segunda
 ```
 
-There are, of course, situations where you want a backslash in a
-string to be just a backslash, not a special code. If two backslashes
-follow each other, they will collapse together, and only one will be
-left in the resulting string value. This is how the string "_A newline
-character is written like `"`\n`"`._" can be expressed:
+Se encuentran, por supuesto, situaciones donde queremos que una barra 
+invertida en un string solo sea una barra invertida, y no un carater
+especial. Si dos barras invertidas prosigen una a la otra, serán
+colapsadas y sólo una permanecerá en el valor resultante del string.
+Asi es como el string "_Un caracter de salto de linea es escrito
+así: `"`\n`"`._" puede ser expresado: 
 
 ```
-"A newline character is written like \"\\n\"."
+Un caracter de salto de linea es escrito así: \"\\n\"."
 ```
 
 {{id unicode}}
 
 {{index [string, representation], Unicode, character}}
 
-Strings, too, have to be modeled as a series of bits to be able to
-exist inside the computer. The way JavaScript does this is based on
-the _((Unicode))_ standard. This standard assigns a number to
-virtually every character you would ever need, including characters
-from Greek, Arabic, Japanese, Armenian, and so on. If we have a number
-for every character, a string can be described by a sequence of
-numbers.
+También strings deben de ser moldeados como una serie de bits para poder
+existir dentro del computador. La forma en la que JavaScript hace esto
+es basada en el estandard _((Unicode))_. Este estandar asigna un número a
+todo caracter que alguna vez pudieras necesitar, incluyendo caracteres en
+griego, Arabe, Japones, Armenio, y muchos más. Si tenemos un numero que 
+representa cualquier caracter, un string puede ser representado por una
+secuencia de números. 
 
 {{index "UTF-16", emoji}}
 
-And that's what JavaScript does. But there's a complication:
-JavaScript's representation uses 16 bits per number, and there are
-more than 2^16^ different characters in Unicode (about twice as many,
-at this point). So some characters, such as many emoji, take up two
-"character positions" in JavaScript strings.
+Y eso es lo que hace JavaScript. Pero hay una complicación:
+La representación de JavaScript usa 16 bits por número, y hay más
+de 2^16^ caracteres diferentes en Unicode (aproximadamente el doble).
+Entonces algúnos caracteres, como muchos emoji, necesitan ocupar el
+espacio de dos caracteres en strings JavaScript.
 
 {{index "+ operator", concatenation}}
 
-Strings cannot be divided, multiplied, or subtracted, but the `+`
-operator _can_ be used on them. It does not add, but it
-_concatenates_—it glues two strings together. The following line will
-produce the string `"concatenate"`:
+Los strings no pueden ser divididos, multiplicados, o restados, pero
+el operador `+` _puede_ ser utilizado en ellos. No los agrega, sino que 
+los _concatena_-pega dos strings juntos. La siguiente línea producirá
+el string `"concatenar"`:
 
 ```
-"con" + "cat" + "e" + "nate"
+"con" + "cat" + "e" + "nar"
 ```
 
-String values have a number of associated functions (_methods_), that
-can be used to perform other operations on them. We'll come back to
-these in [Chapter ?](data#methods).
+Los valores string tienen un conjunto de funciones (_metodos_) asociadas,
+que pueden ser usadas para ejecutar operaciones en ellos. Regresarémos
+a estas en el [Capítulo ?](data#metodos).
 
 {{index interpolation, backtick}}
 
-Strings written with single or double quotes behave very much the
-same—the only difference is in which type of quote you need to escape
-inside of them. Backtick-quoted strings, usually called _((template
-literals))_, can do a few more tricks. Apart from being able to span
-lines, they can also embed other values.
+Los strings escritos con una comilla simple o doble se comportan 
+casi de la misma manera-salvo el tipo de comilla que necesitamos 
+para escapar dentro de ellos. Strings de comillas inversas, usualmente
+llamados _((plantillas literales))_, pueden realizar unos cuantos trucos
+más. Fuera de permitir saltos de lineas, pueden tambien incrustar otros
+valores.
 
 ```
-`half of 100 is ${100 / 2}`
+`la mitad de 100 es ${100 / 2}`
 ```
 
-When you write something inside `${}` in a template literal, its
-result will be computed, converted to a string, and included at that
-position. The example produces "_half of 100 is 50_".
+Cuando escribes algo dentro de `${}` en una plantilla literal, el
+resultado será computado, convertido a string, e incluido en esa
+posición. El ejemplo anterior produce "_la mitad de 100 es 50_".
 
 ## Unary operators
 
