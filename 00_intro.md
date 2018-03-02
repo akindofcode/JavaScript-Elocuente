@@ -5,12 +5,12 @@
 Este es un libro acerca de instruir ((computadora))s. Las computadoras son tan
 comunes como los destornilladores hoy en dia. Pero son bastante más complejas
 que los destornilladores, y hacer que hagan la cosa precisa que tu quieres
-que hagan no siempre es fácil.
+hacer no siempre es fácil.
 
 Si la tarea que tienes para tu computadora es común, y bien entendida,
 como mostrar tu correo electrónico o funcionar como una calculadora,
 puedes abrir la ((aplicación)) apropiada y ponerte a trabajar. Pero para
-tareas únicas o abiertas, es posible que no haya una aplicación.
+tareas únicas o abiertas, es posible que no haya una aplicación disponible.
 
 Ahí es donde la _((programación))_ podria entrar. La programación es el acto de
 construir un programa: un conjunto de instrucciones precisas, que le dicen a una
@@ -285,7 +285,7 @@ de construcción convenientes (como `while` y `console.log`), te permite
 que definas tus propios bloques de construcción (como `suma` y `rango`),
 y hace que esos bloques sean fáciles de componer.
 
-## What is JavaScript?
+## Que es JavaScript?
 
 {{index history, Netscape, browser, "web application", JavaScript, [JavaScript, "history of"], "World Wide Web"}}
 
@@ -293,110 +293,108 @@ y hace que esos bloques sean fáciles de componer.
 
 {{indexsee Web, "World Wide Web"}}
 
-JavaScript was introduced in 1995 as a way to add programs to web
-pages in the Netscape Navigator browser. The language has since been
-adopted by all other major graphical web browsers. It has made modern
-web applications possible—applications with which you can interact
-directly, without doing a page reload for every action. But it is also
-used in more traditional websites to provide various forms of
-interactivity and cleverness.
+JavaScript se introdujo en 1995 como una forma de agregar programas a páginas web
+en el navegador Netscape Navigator. El lenguaje ha sido desde entonces
+adoptado por todos los otros navegadores web principales. Ha hecho que las 
+aplicaciones web modernas sean posibles — aplicacion con las que puedes interactuar
+directamente, sin hacer una recarga de página para cada acción. Pero tambien es
+utilizado en sitios web más tradicionales para proporcionar diversas formas de
+interactividad e ingenio.
 
 {{index Java, naming}}
 
-It is important to note that JavaScript has almost nothing to do with
-the programming language named Java. The similar name was inspired by
-marketing considerations, rather than good judgment. When JavaScript
-was being introduced, the Java language was being heavily marketed and
-was gaining popularity. Someone thought it was a good idea to try to
-ride along on this success. Now we are stuck with the name.
+Es importante tener en cuenta que JavaScript casi no tiene nada que ver con
+el lenguaje de programación llamado Java. El nombre similar fue inspirado por
+consideraciones de marketing, en lugar de buen juicio. Cuando JavaScript
+se estaba introduciendo, el lenguaje Java estaba siendo fuertemente comercializado y
+estaba ganando popularidad. Alguien pensó que era una buena idea intentar
+cabalgar sobre este éxito. Ahora estamos atrapados con el nombre.
 
 {{index ECMAScript, compatibility}}
 
-After its adoption outside of Netscape, a ((standard)) document was
-written to describe the way the JavaScript language should work, so
-that the various pieces of software that claimed to support JavaScript
-were actually talking about the same language. This is called the
-ECMAScript standard, after the Ecma International organization that
-did the standardization. In practice, the terms ECMAScript and
-JavaScript can be used interchangeably—they are two names for the same
-language.
+Después de su adopción fuera de Netscape, un documento ((estándar)) fue
+escrito para describir la forma en que debería funcionar el lenguaje JavaScript, 
+para que las diversas piezas de software que decian ser compatibles con JavaScript
+en realidad estuvieran hablando del mismo idioma. Este se llamo el
+Estándar ECMAScript, después de la organización Ecma International que
+hizo la estandarización. En la práctica, los términos ECMAScript y
+JavaScript se puede usar indistintamente — son dos nombres para el mismo
+idioma.
 
 {{index [JavaScript, "weaknesses of"], debugging}}
 
-There are those who will say _terrible_ things about the JavaScript
-language. Many of these things are true. When I was required to write
-something in JavaScript for the first time, I quickly came to despise
-it. It would accept almost anything I typed but interpret it in a way
-that was completely different from what I meant. This had a lot to do
-with the fact that I did not have a clue what I was doing, of course,
-but there is a real issue here: JavaScript is ridiculously liberal in
-what it allows. The idea behind this design was that it would make
-programming in JavaScript easier for beginners. In actuality, it
-mostly makes finding problems in your programs harder because the
-system will not point them out to you.
+Hay quienes dirán cosas _terribles_ sobre el lenguaje JavaScript. 
+Muchas de estas cosas son verdaderas. Cuando estaba comenzando a escribir
+algo en JavaScript por primera vez, rápidamente comencé a despreciarlo. 
+El lenguaje aceptaba casi cualquier cosa que escribiera, pero la interpretaba 
+de una manera que era completamente diferente de lo que queria decir.
+Por supuesto, esto tenía mucho que ver con el hecho de que no tenía idea de 
+lo que estaba haciendo, pero hay un problema real aquí: JavaScript es 
+ridículamente liberal en lo que permite. La idea detrás de este diseño era que haría
+a la programación en JavaScript más fácil para los principiantes. En realidad,
+lo que mas hace es que encontrar problemas en tus programas sea más difícil 
+porque el el sistema no los señalará por ti.
 
 {{index [JavaScript, "flexibility of"], flexibility}}
 
-This flexibility also has its advantages, though. It leaves space for
-a lot of techniques that are impossible in more rigid languages, and
-as you will see (for example in [Chapter ?](modules)) it can be used
-to overcome some of JavaScript's shortcomings. After ((learning)) the
-language properly and working with it for a while, I have learned to
-actually _like_ JavaScript.
+Sin embargo, esta flexibilidad también tiene sus ventajas. Deja espacio para
+muchas técnicas que son imposibles en idiomas más rígidos, y
+como veras (por ejemplo en el [Capítulo 10](modulos)) se pueden usar
+para superar algunas de las deficiencias de JavaScript. Después de
+((aprender)) el idioma correctamente y luego de trabajanr con el por un tiempo, 
+he aprendido a _querer_ a JavaScript.
 
 {{index future, [JavaScript, "versions of"], ECMAScript, "ECMAScript 6"}}
 
-There have been several versions of JavaScript. ECMAScript version 3
-was the widely supported version in the time of JavaScript's ascent to
-dominance, roughly between 2000 and 2010. During this time, work was
-underway on an ambitious version 4, which planned a number of radical
-improvements and extensions to the language. Changing a living, widely
-used language in such a radical way turned out to be politically
-difficult, and work on the version 4 was abandoned in 2008, leading to
-the much less ambitious version 5 coming out in 2009. Then, in 2015, a
-major update, including some of the ideas planned for version 4, was
-made. Since then we've had new, small updates every year.
+Ha habido varias versiones de JavaScript. ECMAScript versión 3
+fue la versión mas ampliamente compatible en el momento del ascenso de JavaScript a
+su dominio, aproximadamente entre 2000 y 2010. Durante este tiempo, se trabajo
+en marcha hacia una ambiciosa versión 4, que planeaba una serie de radicales
+mejoras y extensiones al lenguaje. Cambiar un lenguaje vivo y ampliamente
+utilizado de una manera tan radical resultó ser políticamente
+difícil, y el trabajo en la versión 4 fue abandonado en 2008, lo que llevó a
+la versión 5 mucho menos ambiciosa que saldria en el 2009. Luego, en 2015, una
+actualización importante, incluyendo algunas de las ideas planificadas para la versión 4, fue
+realizada. Desde entonces hemos tenido actualizaciones nuevas y pequeñas cada año.
 
-The fact that the language is evolving means that browsers have to
-constantly keep up, and if you're using an older one, it may not
-support every feature. The language designers are careful to not make
-any changes that could break existing programs, so new browsers can
-still run old programs. In this book, I will use the 2017 version of
-JavaScript.
+El hecho de que el lenguaje esté evolucionando significa que los navegadores deben
+constantemente mantenerse al día, y si estás usando uno más antiguo, puede que este no
+soporte todas las mejoras. Los diseñadores de lenguajes tienen cuidado de no realizar
+cualquier cambio que pueda romper los ya programas existentes, de manera
+que los nuevos navegadores puedan todavía ejecutar programas viejos. En este libro, usaré la versión 2017 de JavaScript.
 
 {{index [JavaScript, "uses of"]}}
 
-Web browsers are not the only platforms on which JavaScript is used.
-Some databases, such as MongoDB and CouchDB, use JavaScript as their
-scripting and query language. Several platforms for desktop and server
-programming, most notably the ((Node.js)) project (the subject of
-[Chapter ?](node)) provide an environment for programming JavaScript
-outside of the browser.
+Los navegadores web no son las únicas plataformas en las que se usa JavaScript.
+Algunas bases de datos, como MongoDB y CouchDB, usan JavaScript como su
+lenguaje de scripting y consultas. Varias plataformas para programación de 
+escritorio y servidores, más notablemente el proyecto ((Node.js)) (el tema del
+[Capítulo 20](Node)) proporcionan un entorno para programar en JavaScript
+fuera del navegador.
 
-## Code, and what to do with it
+## Código, y qué hacer con él
 
 {{index "reading code", "writing code"}}
 
-Code is the text that makes up programs. Most chapters in this book
-contain quite a lot of it. I believe reading code and writing ((code))
-are indispensable parts of ((learning)) to program, so try to not just
-glance over the examples. Read them attentively and understand them.
-This may be slow and confusing at first, but I promise that you will
-quickly get the hang of it. The same goes for the ((exercises)). Don't
-assume you understand them until you've actually written a working
-solution.
+Código es el texto que compone los programas. La mayoría de los capítulos en este libro
+contienen bastante de el. Creo que leer código y escribir ((código))
+son partes indispensables del ((aprendizaje)) para programar, así que trata de no solo
+echar un vistazo a los ejemplos. Léelos atentamente y entiéndelos.
+Esto puede ser algo lento y confuso al principio, pero te prometo que rápidamente 
+vas coger el truco. Lo mismo ocurre con los ((ejercicios)). No hagas la
+suposición de que los entiendes hasta que hayas escrito una solución funcional.
 
 {{index interpretation}}
 
-I recommend you try your solutions to exercises in an actual
-JavaScript interpreter. That way, you'll get immediate feedback on
-whether what you are doing is working, and, I hope, you'll be tempted
-to ((experiment)) and go beyond the exercises.
+Te recomiendo que pruebes tus soluciones a los ejercicios en un intérprete real
+de JavaScript. De esta forma, obtendrás realimentación inmediata acerca de que
+si esta funcionando lo que estás haciendo, y, espero, serás tentado
+a ((experimentar)) e ir más allá de los ejercicios.
 
 {{if interactive
 
-When reading this book in your browser, you can edit (and run) all
-example programs by clicking them.
+Al leer este libro en tu navegador, puedes editar (y ejecutar) todos los
+programas de ejemplo haciendo clic en ellos.
 
 if}}
 
@@ -404,106 +402,103 @@ if}}
 
 {{index download, sandbox, "running code"}}
 
-The easiest way to run the example code in the book, and to experiment
-with it, is to look it up in the online version of the book at
-[_eloquentjavascript.net_](https://eloquentjavascript.net/). There, you
-can click any code example to edit and run it and to see the output it
-produces. To work on the exercises, go to
+La forma más fácil de ejecutar el código de ejemplo en el libro y experimentar
+con él, es buscarlo en la versión en línea del libro en
+[_eloquentjavascript.net_] (https://eloquentjavascript.net/). Alli
+puedes hacer clic en cualquier ejemplo de código para editar y ejecutarlo 
+y para ver el resultado que produce. Para trabajar en los ejercicios, ve a
 [_eloquentjavascript.net/code_](https://eloquentjavascript.net/code),
-which provides starting code for each coding exercise and allows you
-to look at the solutions.
+que proporciona el código de inicio para cada ejercicio de programación 
+y te permite ver las soluciones.
 
 if}}
 
 {{index "developer tools", "JavaScript console"}}
 
-If you want to run the programs defined in this book outside of the
-book's sandbox, some care is required. Many examples stand on their
-own and should work in any JavaScript environment. But code in later
-chapters is often written for a specific environment (the browser or
-Node.js) and can run only there. In addition, many chapters define
-bigger programs, and the pieces of code that appear in them depend on
-each other or on external files. The
-[sandbox](https://eloquentjavascript.net/code) on the website provides
-links to Zip files containing all of the scripts and data files
-necessary to run the code for a given chapter.
+Si deseas ejecutar los programas definidos en este libro fuera de
+la caja de arena del libro, se requiere cierto cuidado. Muchos ejemplos se mantienen
+por si mismos y deberían de funcionar en cualquier entorno de JavaScript. 
+Pero código en capítulos mas avanzados a menudo se escribe para un entorno específico (el navegador o Node.js) y solo puede ser ejecutado allí. Además, muchos capítulos definen
+programas más grandes, y las piezas de código que aparecen en ellos dependen de
+otras o de archivos externos. La [caja de arena] (https://eloquentjavascript.net/code) 
+en el sitio web proporciona enlaces a archivos Zip que contienen todos 
+los scripts y archivos de datos necesarios para ejecutar el código de
+un capítulo determinado.
 
-## Overview of this book
+## Descripción general de este libro
 
-This book contains roughly three parts. The first 12 chapters discuss
-the JavaScript language itself. The next seven chapters are about web
-((browsers)) and the way JavaScript is used to program them. Finally,
-two chapters are devoted to ((Node.js)), another environment to
-program JavaScript in.
+Este libro contiene aproximadamente tres partes. Los primeros 12 capítulos discuten
+el lenguaje JavaScript en sí. Los siguientes siete capítulos son acerca de los
+((navegadores)) web y la forma en la que JavaScript es usado para programarlos. 
+Finalmente, dos capítulos están dedicados a ((Node.js)), otro entorno en donde
+programar JavaScript.
 
-Throughout the book, there are five _project chapters_, which describe
-larger example programs to give you a taste of real programming. In
-order of appearance, we will work through building a [robot](robot), a
-[programming language](language), a [platform game](game), a [paint
-program](paint), and a [dynamic website](skillsharing).
+A lo largo del libro, hay cinco _capítulos de proyectos_, que describen
+programas de ejemplo más grandes para darte una idea de la programación real. En
+orden de aparición, trabajaremos en la construcción de un [robot](robot), un
+[lenguaje de programación](lenguaje), un [juego de plataforma](juego), un 
+[programa de paint](paint) y un [sitio web dinámico](skillsharing).
 
-The language part of the book starts with four chapters to introduce
-the basic structure of the JavaScript language. They introduce
-[control structures](program_structure) (such as the `while` word you
-saw in this introduction), [functions](functions) (writing your own
-building blocks), and [data structures](data). After these, you will
-be able to write simple programs. Next, Chapters [?](higher_order) and
-[?](object) introduce techniques to use functions and objects to write
-more _abstract_ code and thus keep complexity under control.
+La parte del lenguaje del libro comienza con cuatro capítulos para presentar
+la estructura básica del lenguaje de JavaScript. Estos introducen
+[estrocturas de control](estructura_de_programa) (como la palabra `while`
+que ya viste en esta introducción), [funciones](funciones) (escribir tus propios
+bloques de construcción), y [estructuras de datos](datos). Después de estos, seras
+capaz de escribir programas simples. Luego, los Capítulos 5(orden_superior) y
+6(objeto) introducen técnicas para usar funciones y objetos y asi escribir
+código más _abstracto_ y de manera que puedas mantener la complejidad bajo control.
 
-After a [first project chapter](robot), the first part of the book
-continues with chapters on [error handling and fixing](error), on
-[regular expressions](regexp) (an important tool for working with
-text), on [modularity](modules) (another defense against complexity),
-and on [asynchronous programming](async) (dealing with events that
-take time). The [second project chapter](language) concludes the first
-part of the book.
+Después de un [primer capítulo de proyecto](robot), la primera parte del libro
+continúa con los capítulos sobre [manejo y solución de errores](error), en
+[expresiones regulares](regexp) (una herramienta importante para trabajar con
+texto), en [modularidad](modulos) (otra defensa contra la complejidad),
+y en [programación asincrónica](async) (que se encarga de eventos que
+toman tiempo). El [segundo capítulo de proyecto](lenguaje) concluye la primera
+parte del libro.
 
-The second part, Chapters [?](browser) to [?](paint), describes the
-tools that browser JavaScript has access to. You'll learn to display
-things on the screen (Chapters [?](dom) and [?](canvas)), respond to
-user input ([Chapter ?](event)), and communicate over the network
-([Chapter ?](http)). There are again two project chapters in this
-part.
+La segunda parte, Capítulos 13(navegador) a 19(paint), describe las
+herramientas a las que el JavaScript en un navegador tiene acceso. Aprenderás a mostrar
+cosas en la pantalla (Capítulos 14(dom) y 17(canvas)), responder a
+entradas de usuario ([Capitulo 15](evento)), y a comunicarte a través de la red
+([Capitulo 18](http)). Hay dos capítulos de proyectos en este parte.
 
-After that, [Chapter ?](node) describes Node.js, and [Chapter
-?](skillsharing) builds a small web system using that tool.
+Después de eso, el [Capítulo 20] (Nodo) describe Node.js, y el [Capitulo 21](skillsharing) construye un pequeño sistema web usando esta herramienta.
 
 {{if commercial
 
-Finally, [Chapter ?](fast) describes some of the considerations that
-come up when optimizing JavaScript programs for speed.
+Finalmente, el [Capítulo 22](rapido) describe algunas de las consideraciones que
+aparecen cuando se optimizan los programas de JavaScript para tener mas velocidad.
 
 if}}
 
-## Typographic conventions
+## Convenciones tipográficas
 
 {{index "factorial function"}}
 
-In this book, text written in a `monospaced` font will represent
-elements of programs—sometimes they are self-sufficient fragments, and
-sometimes they just refer to part of a nearby program. Programs (of
-which you have already seen a few), are written as follows:
+En este libro, el texto escrito en una fuente 'monoespaciada' representará
+elementos de programas — a veces son fragmentos autosuficientes, y
+a veces solo se refieren a partes de un programa cercano. Los programas (de
+los que ya has visto algunos), se escriben de la siguiente manera:
 
 ```
-function factorial(n) {
-  if (n == 0) {
+function factorial(numero) {
+  if (numero == 0) {
     return 1;
   } else {
-    return factorial(n - 1) * n;
+    return factorial(numero - 1) * numero;
   }
 }
 ```
 
 {{index "console.log"}}
 
-Sometimes, in order to show the output that a program produces, the
-expected output is written after it, with two slashes and an arrow in
-front.
+Algunas veces, para mostrar el resultado que produce un programa,
+la salida esperada se escribe después de el, con dos slashes y una flecha en
+frente.
 
 ```
 console.log(factorial(8));
 // → 40320
 ```
 
-Good luck!
+Buena suerte!
