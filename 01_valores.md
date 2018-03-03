@@ -352,9 +352,9 @@ posición. El ejemplo anterior produce "_la mitad de 100 es 50_".
 
 {{index operator, "typeof operator", type}}
 
-Not all operators are symbols. Some are written as words. One example
-is the `typeof` operator, which produces a string value naming the
-type of the value you give it.
+No todo los operadores son simbolos. Algunos se escriben como palabras.
+Un ejemplo es el operador `typeof`, que produce un string con el nombre
+del tipo de valor que le mandemos.
 
 ```
 console.log(typeof 4.5)
@@ -367,17 +367,17 @@ console.log(typeof "x")
 
 {{id "console.log"}}
 
-We will use `console.log` in example code to indicate that we want to
-see the result of evaluating something. More about that in the [next
-chapter](program_structure).
+Usaremos `console.log` en los ejemplos de codigo para indicar que
+lo que queremos es ver es el resultado de alguna evaluación.
+Expandiremos en esto en el [proximo capitulo](program_structure).
 
 {{index negation, "- operator", "binary operator", "unary operator"}}
 
-The other operators we saw all operated on two values, but `typeof`
-takes only one. Operators that use two values are called _binary_
-operators, while those that take one are called _unary_ operators. The
-minus operator can be used both as a binary operator and as a unary
-operator.
+Los operadores que hemos visto hasta ahora todos operaban en does valores,
+pero `typeof` sola opera con un valor. Los operadores que usan dos valores
+son llamados _binarios_, mientras que aquellos operadores que usan uno son
+llamados _unarios_. El operador menos puede ser usado como operador binario
+o como operador unario.
 
 ```
 console.log(- (10 - 2))
@@ -388,16 +388,16 @@ console.log(- (10 - 2))
 
 {{index Boolean, operator, true, false, bit}}
 
-It is often useful to have a value that distinguishes between only two
-possibilities, like "yes" and "no" or "on" and "off". For this
-purpose, JavaScript has a _Boolean_ type, which has just two values:
-true and false, which are written as those words.
+Es frecuentemente util tener un valor que distigue entre solo dos
+posibilidades, como "si", y "no", o "encendido" y "apagado". Para este
+proposito, JavaScript tiene el tipo _Boolean_, que tiene dos valores:
+verdadero (`true`) y falso (`false`) que se escriben de la misma forma.
 
 ### Comparison
 
 {{index comparison}}
 
-Here is one way to produce Boolean values:
+Aqui se muestra una forma de producir valores Booleanos:
 
 ```
 console.log(3 > 2)
@@ -408,12 +408,12 @@ console.log(3 < 2)
 
 {{index [comparison, "of numbers"], "> operator", "< operator", "greater than", "less than"}}
 
-The `>` and `<` signs are the traditional symbols for "is greater
-than" and "is less than", respectively. They are binary operators.
-Applying them results in a Boolean value that indicates whether they
-hold true in this case.
+Los signos `>` y `<` son tradicionalmente symbolos para "mayor que"
+y "menor que", respectivamente. Ambos son operadores binarios. 
+Aplicarlos resulta en un valor Boolean que indica si la condicion
+se cumple.
 
-Strings can be compared in the same way.
+Los Strings pueden ser comparados de la misma forma.
 
 ```
 console.log("Aardvark" < "Zoroaster")
@@ -422,27 +422,29 @@ console.log("Aardvark" < "Zoroaster")
 
 {{index [comparison, "of strings"]}}
 
-The way strings are ordered is roughly alphabetic, but not really what
-you'd expect to see in a dictionary: uppercase letters are always
-"less" than lowercase ones, so `"Z" < "a"`, and non-alphabetic
-characters (!, -, and so on) are also included in the ordering. When
-comparing strings, JavaScript goes over the characters from left to
-right, comparing the ((Unicode)) codes one by one.
+La forma en la que los strings son ordenados, es aproximadamente alfabetica,
+aunque no realmente de la misma forma que esperaríamos ver en un diccionario:
+letras mayusculas son siempre "menores que" letras minusculas, así que `"Z" < "a"`,
+y caracteres no alfabéticos como `!`, `-`, y demas, son tambíen incluidos en el 
+ordenamiento. Cuando comparamos strings, JavaScript evalua los caracteres 
+de izquierda a derecha, comparando los codicos ((Unicode)) uno por uno.
 
 {{index equality, ">= operator", "<= operator", "== operator", "!= operator"}}
 
-Other similar operators are `>=` (greater than or equal to), `<=`
-(less than or equal to), `==` (equal to), and `!=` (not equal to).
+Otros operadores similares son `>=` (mayor o igual que), `<=` (menor y igual que),
+`==` (igual a), y `!=` (no igual a).
 
 ```
-console.log("Itchy" != "Scratchy")
+console.log("Irritante" != "Arañoso")
 // → true
-console.log("Apple" == "Orange")
+console.log("Manzana" == "Naranja")
 // → false
 ```
 
 {{index [comparison, "of NaN"], NaN}}
 
+Solo hay un valor en JavaScript que no es igual a si mismo, y este es
+`NaN` ("no es numero").
 There is only one value in JavaScript that is not equal to itself, and
 that is `NaN` ("not a number").
 
@@ -451,22 +453,22 @@ console.log(NaN == NaN)
 // → false
 ```
 
-`NaN` is supposed to denote the result of a nonsensical computation,
-and as such, it isn't equal to the result of any _other_ nonsensical
-computations.
+`NaN` esta supuesto a denotar el resultado de una computación sin sentido,
+y como tal, no es igual al resultado de ninguna _otra_ comptacion sin sentido.
 
 ### Logical operators
 
 {{index reasoning, "logical operators"}}
 
-There are also some operations that can be applied to Boolean values
-themselves. JavaScript supports three logical operators: _and_, _or_,
-and _not_. These can be used to "reason" about Booleans.
+Tambien existen algunas operaciones que pueden ser aplicadas a valores
+Boolean. JavaScript soporta tres operadores logicos: _and_, _or_, y _not_.
+Estos pueden ser usados para "razonar" balores Boolean.
 
 {{index "&& operator", "logical and"}}
 
-The `&&` operator represents logical _and_. It is a binary operator,
-and its result is true only if both the values given to it are true.
+El operador `&&` representa el operador logico _and_. Es un operador
+binario, y su resultado es verdadero solo si ambos de los valores
+dados son verdaderos.
 
 ```
 console.log(true && false)
@@ -477,8 +479,8 @@ console.log(true && true)
 
 {{index "|| operator", "logical or"}}
 
-The `||` operator denotes logical _or_. It produces true if either of
-the values given to it is true.
+El operador `||` representa el operador logico _or_. Lo que produce es
+verdadero si cualquiera de los valores dados es verdadero.
 
 ```
 console.log(false || true)
@@ -489,19 +491,20 @@ console.log(false || false)
 
 {{index negation, "! operator"}}
 
-_Not_ is written as an exclamation mark (`!`). It is a unary operator
-that flips the value given to it—`!true` produces `false` and `!false`
-gives `true`.
+_Not_ se escribe como un signo de exclamación (`!`). Es un operador
+unario que voltea el valor dado-`!true` produce `false` y `!false`
+produce `true`.
 
 {{index precedence}}
 
-When mixing these Boolean operators with arithmetic and other
-operators, it is not always obvious when parentheses are needed. In
-practice, you can usually get by with knowing that of the operators we
-have seen so far, `||` has the lowest precedence, then comes `&&`,
-then the comparison operators (`>`, `==`, and so on), and then the
-rest. This order has been chosen such that, in typical expressions
-like the following one, as few parentheses as possible are necessary:
+Cuando estos operadores Boolean son mezclados con otro tipo de
+operadores, no es siempre obvio cuando son necesarios los parentesis.
+En la practiva, puedes usualmente manejarte bien sabiendo que de
+los operadores que hemos visto hasta ahora, `||` tiene menor precedencia,
+luego le sigue `&&`, luego le siguen los operadores de comparación
+(`>`, `==`, y demas), y luego el resto. Este orden ha sido determinado para
+que en expresiones como la siguiente, la menos cantidad de parentesis es
+requerida:
 
 ```
 1 + 1 == 2 && 10 * 10 > 50
@@ -509,9 +512,9 @@ like the following one, as few parentheses as possible are necessary:
 
 {{index "conditional execution", "ternary operator", "?: operator", "conditional operator", "colon character", "question mark"}}
 
-The last logical operator I will discuss is not unary, not binary, but
-_ternary_, operating on three values. It is written with a question
-mark and a colon, like this:
+El ultimo operador logico que discutiremos no es unario, tampoco binario,
+pero ternario, esto es, que opera en tres valores. Es escrito con un
+signo de interrocación y dos puntos, de esta forma: 
 
 ```
 console.log(true ? 1 : 2);
@@ -520,36 +523,36 @@ console.log(false ? 1 : 2);
 // → 2
 ```
 
-This one is called the _conditional_ operator (or sometimes just
-_ternary_ operator since it is the only such operator in the
-language). The value on the left of the question mark "picks" which of
-the other two values will come out. When it is true, it chooses the
-middle value, and when it is false, the value on the right.
+Este es llamado el operador _condicional_ (o algunas veces simplemente
+operador _ternario_ ya que solo existe uno de este tipo). El valor a la
+izquierda del signo de interrogación "decide" cual de los otros dos valores
+sera retornado. Cuando es verdadero, elije el valor de en medio, y cuando es
+falso, el valor de la derecha.
 
 ## Empty values
 
 {{index undefined, null}}
 
-There are two special values, written `null` and `undefined`, that are
-used to denote the absence of a _meaningful_ value. They are
-themselves values, but they carry no information.
+Existen dos valores especiales, escritos `null` y `undefined`, que son
+usados para denotar la ausencia de un valor _significativo_. Son en si mismo
+valores, pero no traen consigo información.
 
-Many operations in the language that don't produce a meaningful value
-(you'll see some later) yield `undefined` simply because they have to
-yield _some_ value.
+Muchos de los operadores en el lenguage que no producen un valor significativo
+(veremos algunos mas adelante), producen `undefined` simplemente porque tienen
+que producir _algun_ valor.
 
-The difference in meaning between `undefined` and `null` is an accident
-of JavaScript's design, and it doesn't matter most of the time. In the cases
-where you actually have to concern yourself with these values, I
-recommend treating them as mostly interchangeable.
+La diferencia en significado entre `undefined`y `null`es un accidente del
+diseño de JavaScript, y realmente no importa la mayor parte del tiempo. 
+En los casos donde realmente tendríamos que preocuparnos por estos valores, 
+mayormente recomiendo tratarlos como intercambiables.
 
 ## Automatic type conversion
 
 {{index NaN, "type coercion"}}
 
-In the introduction, I mentioned that JavaScript goes out of its way
-to accept almost any program you give it, even programs that do odd
-things. This is nicely demonstrated by the following expressions:
+En la introducción, he mencionado que JavaScript trata mucho de aceptar
+casi cualquier programa que le demos, aún programas que hacen cosas
+extrañas. Esto es bien demostrado por la proxima expresión:
 
 ```
 console.log(8 * null)
@@ -566,14 +569,14 @@ console.log(false == 0)
 
 {{index "+ operator", arithmetic, "* operator", "- operator"}}
 
-When an operator is applied to the "wrong" type of value, JavaScript
-will quietly convert that value to the type it needs, using a set of
-rules that often aren't what you want or expect. This is called
-_((type coercion))_. The `null` in the first expression becomes `0`,
-and the `"5"` in the second expression becomes `5` (from string to
-number). Yet in the third expression, `+` tries string concatenation
-before numeric addition, so the `1` is converted to `"1"` (from number
-to string).
+Cuando un operador es aplicado el tipo de valor "incorrecto", JvasScript
+calladamente convertirá ese valor al tipo que necesita, utilizando una
+seria de reglas que frecuentemente no dan el resultado que quisieras
+o esperarías. Esto es llamado _((coherción de tipo))_. El `null`
+en la primera expresión se torna `0`, y el `"5"`en la segunda expresión
+se torna `5` (de string a numero). Sin embargo, en la tercera expresión,
+`+` trata concatenación de string antes de adicion numerica, entonces
+el `1` es convertido a `"1"` (de numero a string)
 
 {{index "type coercion", [number, "conversion to"]}}
 
