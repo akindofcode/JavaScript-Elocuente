@@ -46,7 +46,7 @@ de cada digito mostrado debajo:
 
 Entonces ese es el numero binario 00001101, o 8 + 4 + 1, o 13.
 
-## Values
+## Valores
 
 {{index memory, "volatile data storage", "hard drive"}}
 
@@ -78,7 +78,7 @@ Este capitulo introduce los elementos atomicos de programas JavaScript.
 Esto es, los tipos de valores simples y los operadores que actuan en 
 tales valores.
 
-## Numbers
+## Números
 
 {{index syntax, number, [number, notation]}}
 
@@ -156,7 +156,7 @@ para almacenarlos. Esto es una pena, pero solo causa problemas en situaciones
 especificas. Lo importante que debemos recordar es de estar conciente de esto
 y tratar numeros fraccionarios como aproximaciones, y no como valores precisos. 
 
-### Arithmetic
+### Aritmética
 
 {{index syntax, operator, "binary operator", arithmetic, addition, multiplication}}
 
@@ -207,7 +207,7 @@ produce `14`, y `144 % 12` produce `0`. La presedencia del residuo es la
 la misma que la multiplicación y la divición. Frecuente mente este operador
 es referido como _modulo_.
 
-### Special numbers
+### Números especiales
 
 {{index [number, "special values"]}}
 
@@ -348,7 +348,7 @@ Cuando escribes algo dentro de `${}` en una plantilla literal, el
 resultado será computado, convertido a string, e incluido en esa
 posición. El ejemplo anterior produce "_la mitad de 100 es 50_".
 
-## Unary operators
+## Operadores unarios
 
 {{index operator, "typeof operator", type}}
 
@@ -384,7 +384,7 @@ console.log(- (10 - 2))
 // → -8
 ```
 
-## Boolean values
+## Valores Boolean
 
 {{index Boolean, operator, true, false, bit}}
 
@@ -393,7 +393,7 @@ posibilidades, como "si", y "no", o "encendido" y "apagado". Para este
 proposito, JavaScript tiene el tipo _Boolean_, que tiene dos valores:
 verdadero (`true`) y falso (`false`) que se escriben de la misma forma.
 
-### Comparison
+### Compraración
 
 {{index comparison}}
 
@@ -456,7 +456,7 @@ console.log(NaN == NaN)
 `NaN` esta supuesto a denotar el resultado de una computación sin sentido,
 y como tal, no es igual al resultado de ninguna _otra_ comptacion sin sentido.
 
-### Logical operators
+### Operadores logicos
 
 {{index reasoning, "logical operators"}}
 
@@ -529,7 +529,7 @@ izquierda del signo de interrogación "decide" cual de los otros dos valores
 sera retornado. Cuando es verdadero, elije el valor de en medio, y cuando es
 falso, el valor de la derecha.
 
-## Empty values
+## Valores vacios
 
 {{index undefined, null}}
 
@@ -546,7 +546,7 @@ diseño de JavaScript, y realmente no importa la mayor parte del tiempo.
 En los casos donde realmente tendríamos que preocuparnos por estos valores, 
 mayormente recomiendo tratarlos como intercambiables.
 
-## Automatic type conversion
+## Conversión de tipo automatica
 
 {{index NaN, "type coercion"}}
 
@@ -561,7 +561,7 @@ console.log("5" - 1)
 // → 4
 console.log("5" + 1)
 // → 51
-console.log("five" * 2)
+console.log("cinco" * 2)
 // → NaN
 console.log(false == 0)
 // → true
@@ -580,22 +580,23 @@ el `1` es convertido a `"1"` (de numero a string)
 
 {{index "type coercion", [number, "conversion to"]}}
 
-When something that doesn't map to a number in an obvious way (such as
-`"five"` or `undefined`) is converted to a number, you get the value
-`NaN`. Further arithmetic operations on `NaN` keep producing `NaN`, so
-if you find yourself getting one of those in an unexpected place, look
-for accidental type conversions.
+
+Cuando algo que no se traduce a un numero de manera obvia (tal como
+`"cinco"` o `undefined`) es convertido a un numero, obtemenos el valor
+`NaN`. Operaciones aritmeticas subsecuentes con `NaN`, continuan
+produciendo `NaN`, asi que si te encuentras obteniendo uno de estos en
+lugares inesperados, busca por coerciones de tipo accidentales.
 
 {{index null, undefined, [comparison, "of undefined values"], "== operator"}}
 
-When comparing values of the same type using `==`, the outcome is easy
-to predict: you should get true when both values are the same, except
-in the case of `NaN`. But when the types differ, JavaScript uses a
-complicated and confusing set of rules to determine what to do. In
-most cases, it just tries to convert one of the values to the other
-value's type. However, when `null` or `undefined` occurs on either
-side of the operator, it produces true only if both sides are one of
-`null` or `undefined`.
+Cuando se utiliza `==` para comparar valores del mismo tipo, el desenlace
+es facil de predecir: debemos de obtener verdadero cuando ambos valores
+son lo mismo, excepto en el caso de `NaN`. Pero cuando los tipos difieren,
+JavaScript utiliza una serie de reglas complicadas y confusas para determinar
+que hacer. En el mayor de los casos, solo trata de convertir uno de estos valores
+al tipo del otro valor. Sin embargo, cuando `null` o `undefined` ocurren en
+cualquiera de los extremos del operador, produce verdadero solo si el otro lado
+es o `null` o `undefined`.
 
 ```
 console.log(null == undefined);
@@ -604,91 +605,91 @@ console.log(null == 0);
 // → false
 ```
 
-That behavior is often useful. When you want to test whether a value
-has a real value instead of `null` or `undefined`, you can compare it
-to `null` with the `==` (or `!=`) operator.
+Este comportamiento es frecuentemente util. Cuando queremos probar
+si un valor tiene un valor real en vez de `null` o `undefined`, podemos
+compararlos con `null` usando el operador `==` (o `!=`).
 
 {{index "type coercion", [Boolean, "conversion to"], "=== operator", "!== operator", comparison}}
 
-But what if you want to test whether something refers to the precise
-value `false`? The rules for converting strings and numbers to Boolean
-values state that `0`, `NaN`, and the empty string (`""`) count as
-`false`, while all the other values count as `true`. Because of this,
-expressions like `0 == false` and `"" == false` are also true. When
-you do _not_ want any automatic type conversions to happen, there are
-two additional operators: `===` and `!==`. The first tests whether a
-value is _precisely_ equal to the other, and the second tests whether
-it is not precisely equal. So `"" === false` is false as expected.
+Pero que pasa si queremos probar algo que se refiere precisamente
+al valor `false`? Las reglas para convertir strings y numeros a valores
+Boolean, dice que `0`, `NaN`, y el string vacio (`""`) cuentan como `false`,
+mientras que todos los otros valores cuentan como `true`. Debido a esto, 
+expresiones como `0 == false`, y `"" == false` son tambien verdaderas.
+Cuando no queremos ninguna conversion de tipo automatica, existen otros
+dos operadores adicionales: `===` y `!==`. El primero prueba si un valor
+es _precisamente_ igual al otro, y el segundo prueba si un valor no es
+precisamente igual. Entonces `"" === false` es falso, como es de esperarse.
 
-I recommend using the three-character comparison operators defensively to
-prevent unexpected type conversions from tripping you up. But when you're
-certain the types on both sides will be the same, there is no problem with
-using the shorter operators.
+Recomiendo usar el operador de comparación de tres caracteres defensivamente
+para prevenir que conversiones de tipo inesperadas te estorben. Pero cuando
+estés seguro de que el tipo va a ser el mismo en ambos lados, no es problematico
+utilizar los operadores cortos.
 
-### Short-circuiting of logical operators
+### Corto circuito de operadores logicos
 
 {{index "type coercion", [Boolean, "conversion to"], operator}}
 
-The logical operators `&&` and `||` handle values of different types
-in a peculiar way. They will convert the value on their left side to
-Boolean type in order to decide what to do, but depending on the
-operator and the result of that conversion, they return either the
-_original_ left-hand value or the right-hand value.
+Los operadores logicos `&&` y `||`, manejan valores de diferentes tipos
+de una forma peculiar. No convertirán el valor en su lado izquierdo a un
+tipo Boolean para decidir que hacer, pero dependiendo del operador y el
+resultado de la conversión, devolverán o el valor _original_ de la izquierda
+o el valor de la derecha.
 
 {{index "|| operator"}}
 
-The `||` operator, for example, will return the value to its left when
-that can be converted to true and will return the value on its right
-otherwise. This has the expected effect when the values are Boolean,
-and does something analogous for values of other types.
+El operador `||`, por ejemplo, devolverá el valor de su izquierda cuando
+este puede ser convertido a verdadero y de ser lo contrario devolvera
+el valor de la derecha. Esto tiene el efecto esperado cuando los valores
+son Boolean, pero se comporta de forma analoga con valores de otros tipos.
 
 ```
-console.log(null || "user")
-// → user
-console.log("Agnes" || "user")
+console.log(null || "usuario")
+// → usuario
+console.log("Agnes" || "usuario")
 // → Agnes
 ```
 
 {{index "default value"}}
 
-We can use this functionality as a way to fall back on a default
-value. If you have a value that might be empty, you can put `||` after
-it with a replacement value. If the initial value can be converted to
-false, you'll get the replacement instead.
-
+Podemos utilizar esta funcionalidad como una forma de recurrir a 
+un valor por defecto. Si tenemos un valor que puede estar vacio,
+podemos usar `||` despues de este para remplazarlo con otro valor.
+Si el valor inicial puede ser convertido a falso, obtendremos el
+reemplazo en su lugar.
+-
 {{index "&& operator"}}
 
-The `&&` operator works similarly, but the other way around. When the
-value to its left is something that converts to false, it returns that
-value, and otherwise it returns the value on its right.
+El operador `&&` funciona similarmente, pero de forma opuesta.
+Cuando el valor a su derecha es algo que se convierte a falso, devuelve
+ese valor, y de lo contrario, devuelve el valor a su derecha.
 
-Another important property of these two operators is that the part to
-their right is evaluated only when necessary. In the case of `true ||
-X`, no matter what `X` is—even if it's a piece of program that does
-something _terrible_—the result will be true, and `X` is never
-evaluated. The same goes for `false && X`, which is false and will
-ignore `X`. This is called _((short-circuit evaluation))_.
+Otra propiedad importante de estos dos operadores es que la parte
+de su derecha solo es evaluada si es necesario. En el caso de
+de `true || X`, no importa que sea `X`, aun si es un programa
+que hace algo _terrible_-el resultado será verdadero, y `X` nunca
+es evaluado. Lo mismo sucede con `false && X`, que es falso e ignorará
+`X`. Esto es llamado _((evaluacion de corto circuito))_.
 
 {{index "ternary operator", "?: operator", "conditional operator"}}
 
-The conditional operator works in a similar way. Of the second and
-third value, only the one that is selected is evaluated.
+El operador condicional funciona de manera similar. Del segundo y
+tercer valor, solo el que es seleccionado es evaluado.
 
-## Summary
+## Sumarizacion
 
-We looked at four types of JavaScript values in this chapter: numbers,
-strings, Booleans, and undefined values.
+Observamos cuatro tipos de valores JavaScript en este capítulo: numeros,
+textos (`strigs`), Booleans, y valores indefinidos (`undefined`)
 
-Such values are created by typing in their name (`true`, `null`) or
-value (`13`, `"abc"`). You can combine and transform values with
-operators. We saw binary operators for arithmetic (`+`, `-`, `*`, `/`,
-and `%`), string concatenation (`+`), comparison (`==`, `!=`, `===`,
-`!==`, `<`, `>`, `<=`, `>=`), and logic (`&&`, `||`), as well as
-several unary operators (`-` to negate a number, `!` to negate
-logically, and `typeof` to find a value's type) and a ternary operator
-(`?:`) to pick one of two values based on a third value.
+Tales valores son creados escribiendo en su numbre (`true`, `null`)
+o valores (`13`, `"abc"`). Puedes combinar y transformar valores con
+operadores. Vimos operadores binarios para aritmetica (`+`, `-`, `*`, `/`,
+y `%`), y logica (`&&`, `||`), así también como varios otros operadores
+unarios (`-` para negar un numero, `!` para negar logica, y `typeof`
+para encontrar el valor de un tipo) y un operador ternario (`?:`) para
+elejir uno de dos valores basandose en un tercer valor.
 
-This gives you enough information to use JavaScript as a pocket
-calculator, but not much more. The [next
-chapter](program_structure) will start tying
-these expressions together into basic programs.
+Esto te dá la información suficiente para usar JavaScript como una
+calculadora de bolsillo, pero no para mucho más. El [next 
+chapter](program_structure) empezará amarrando estas expresiones
+juntas para formar programas basicos.
