@@ -1,138 +1,139 @@
-# Functions
+# Funciones
 
 {{quote {author: "Donald Knuth", chapter: true}
 
-People think that computer science is the art of geniuses but the
-actual reality is the opposite, just many people doing things that
-build on each other, like a wall of mini stones.
+La gente piensa que las ciencias de la computación son el arte de los genios,
+pero la realidad verdadera es lo opuesto, estas solo consisten en mucha gente
+haciendo cosas que se construyen una sobre la otra, al igual que un muro
+hecho de piedras pequeñas.
 
 quote}}
 
 {{index "Knuth, Donald"}}
 
-{{figure {url: "img/chapter_picture_3.jpg", alt: "Fern leaves with a fractal shape", chapter: framed}}}
+{{figure {url: "img/chapter_picture_3.jpg", alt: "Hojas de helecho con forma de fractal", chapter: framed}}}
 
 {{index function, "code structure"}}
 
-Functions are the bread and butter of JavaScript programming. The
-concept of wrapping a piece of program in a value has many uses. It
-gives us a way to structure larger programs, to reduce repetition, to
-associate names with subprograms, and to isolate these subprograms
-from each other.
+Las funciones son el pan y la mantequilla de la programación en JavaScript.
+El concepto de envolver una pieza de programa en un valor tiene muchos usos.
+Esto nos da una forma de estructurar programas más grandes, de reducir la
+repetición, de asociar nombres con subprogramas y de aislar estos subprogramas
+entre ellos.
 
-The most obvious application of functions is defining new
-((vocabulary)). Creating new words in prose is usually bad style. But
-in programming, it is indispensable.
+La aplicación más obvia de las funciones es definir nuevo
+((vocabulario)). Crear nuevas palabras en prosa suele ser un mal estilo. Pero
+en la programación, es indispensable.
 
 {{index abstraction, vocabulary}}
 
-Typical adult English speakers have some 20,000 words in their
-vocabulary. Few programming languages come with 20,000 commands built
-in. And the vocabulary that _is_ available tends to be more precisely
-defined, and thus less flexible, than in human language. Therefore, we
-usually _have_ to introduce new concepts to avoid repeating ourselves
-too much.
+En promedio, un tipico adulto que hable inglés tiene unas 20,000 palabras en su
+vocabulario. Pocos lenguajes de programación vienen con 20,000 comandos
+ya incorporados en el. Y el vocabulario que _está_ disponible tiende a ser
+más precisamente definido, y por lo tanto menos flexible, que en el lenguaje
+humano. Por lo tanto, nosotros por lo general _tenemos_ que introducir nuevos
+conceptos para evitar repetirnos demasiado.
 
-## Defining a function
+## Definiendo una función
 
 {{index "square example", [function, definition]}}
 
-A function definition is a regular ((binding)) where the value of the
-binding is a function. For example, this code defines `square` to
-refer to a function that produces the square of a given number:
+Una definición de función es un ((enlace)) regular donde el valor de
+el enlace es una función. Por ejemplo, este código define `cuadrado` para
+referirse a una función que produce el cuadrado de un número dado:
 
 ```
-const square = function(x) {
+const cuadrado = function(x) {
   return x * x;
 };
 
-console.log(square(12));
+console.log(cuadrado(12));
 // → 144
 ```
 
 {{indexsee braces, "curly braces"}}
 {{index "curly braces", block, syntax, "function keyword", [function, body], [function, "as value"]}}
 
-A function is created with an expression that starts with the keyword
-`function`. Functions have a set of _((parameter))s_ (in this case,
-only `x`) and a _body_, which contains the statements that are to be
-executed when the function is called. The function body of a function
-created this way must always be wrapped in braces, even when it
-consists of only a single ((statement)).
+Una función se crea con una expresión que comienza con la palabra clave
+`function`. Las funciones tienen un conjunto de _((parámetro))s_ (en este caso,
+solo `x`) y un _cuerpo_, que contiene las declaraciones que deben ser
+ejecutadas cuando se llame a la función. El cuerpo de la función de una función
+creada de esta manera siempre debe estar envuelto en llaves, incluso cuando
+consista en una sola ((declaración)).
 
 {{index "power example"}}
 
-A function can have multiple parameters or no parameters at all. In
-the following example, `makeNoise` does not list any parameter names,
-whereas `power` lists two:
+Una función puede tener múltiples parámetros o ningún parámetro en absoluto. En
+el siguiente ejemplo, `hacerSonido` no lista ningún nombre de parámetro,
+mientras que `potencia` enumera dos:
 
 ```
-const makeNoise = function() {
+const hacerSonido = function() {
   console.log("Pling!");
 };
 
-makeNoise();
+hacerSonido();
 // → Pling!
 
-const power = function(base, exponent) {
-  let result = 1;
-  for (let count = 0; count < exponent; count++) {
-    result *= base;
+const potencia = function(base, exponente) {
+  let resultado = 1;
+  for (let cuenta = 0; cuenta < exponente; cuenta++) {
+    resultado *= base;
   }
-  return result;
+  return resultado;
 };
 
-console.log(power(2, 10));
+console.log(potencia(2, 10));
 // → 1024
 ```
 
 {{index "return value", "return keyword", undefined}}
 
-Some functions produce a value, such as `power` and `square`, and some
-don't, such as `makeNoise`, whose only result is a ((side effect)). A
-`return` statement determines the value the function returns. When
-control comes across such a statement, it immediately jumps out of the
-current function and gives the returned value to the code that called
-the function. A `return` keyword without an expression after it will
-cause the function to return `undefined`. Functions that don't have a
-`return` statement at all, such as `makeNoise`, similarly return
+Algunas funciones producen un valor, como `potencia` y `cuadrado`, y algunas
+no, como `hacerSonido`, cuyo único resultado es un ((efecto secundario)). Una
+declaración de `return` determina el valor que es retornado por la función.
+Cuando control se encuentre con tal declaración, inmediatamente salta de la
+función actual y da el valor retornado al código que llamó
+la función. Una declaración `return` sin una expresión después de ella
+hace que la función devuelva `undefined`. Funciones que no tienen una
+declaración `return` en absoluto, como `hacerSonido`, similarmente retornan
 `undefined`.
 
-## Parameters and scopes
+## Parámetros y alcances
 
 {{index parameter, [function, application], [binding, "from parameter"]}}
 
-Parameters to a function behave like regular bindings, but their
-initial values are given by the _caller_ of the function, not the code
-in the function itself.
+Los parámetros de una función se comportan como enlaces regulares, pero sus
+valores iniciales están dados por el _llamador_ de la función, no por el código
+en la función en sí.
 
 {{indexsee "top-level scope", "global scope"}}
 {{index "var keyword", "global scope", [binding, global], [binding, "scope of"]}}
 
-Each ((binding)) has a _((scope))_, which is the part of the program
-in which the binding is visible. For bindings defined outside of any
-function or block, the scope is the whole program—you can refer to
-them wherever you want. These are called _global_.
+Cada ((enlace)) tiene un _((alcace))_, que correspone a la parte del programa
+en donde el enlace es visible. Para enlaces definidos fuera de cualquier
+función o bloque, el alcance es todo el programa — puedes referirte a ellos
+en donde quieras. Estos son llamados _globales_.
 
 {{index "local scope", [binding, local]}}
 
-But bindings created for function ((parameter))s or declared inside a
-function can only be referenced in that function. These are called
-_local_. Every time the function is called, new instances of these
-bindings are created. This provides some isolation between
-functions—each function call acts in its own little world (its local
-environment), and can often be understood without knowing a lot about
-what's going on in the global environment.
+Pero los enlaces creados como ((parámetro))s de función o declarados dentro de
+una función solo puede ser referenciados en esa función. Estos se llaman
+_locales_. Cada vez que se llame a la función, se crean
+nuevas instancias de estos enlaces. Esto proporciona cierto aislamiento entre
+funciones — cada llamada de función actúa sobre su pequeño propio mundo (su
+entorno local), y a menudo puede ser entendida sin saber mucho acerca de
+qué está pasando en el entorno global.
 
 {{index "let keyword", "const keyword", "var keyword"}}
 
-Bindings declared with `let` and `const` are in fact local to the
-_((block))_ that they are declared in, so if you create one of those
-inside of a loop, the code before and after the loop cannot "see" it.
-In pre-2015 JavaScript, only functions created new scopes, so
-old-style bindings, created with the `var` keyword, are visible
-throughout the whole function that they appear in—or throughout the
-global scope, if they are not in a function.
+Los enlaces declarados con `let` y `const` son, de hecho, locales al
+_((bloque))_ donde esten declarados, así que si creas uno de esos
+dentro de un bucle, el código antes y después del bucle no puede "verlos".
+En JavaScript anterior a 2015, solo las funciones creaban nuevos alcances,
+por lo que enlaces de estilo-antiguo, creados con la palabra clave `var`,
+son visibles a lo largo de toda la función en la que aparecen — o en todo el
+alcance global, si no están dentro de una función.
 
 ```
 let x = 10;
@@ -142,75 +143,75 @@ if (true) {
   console.log(x + y + z);
   // → 60
 }
-// y is not visible here
+// "y" no es visible desde aqui
 console.log(x + z);
 // → 40
 ```
 
 {{index [binding, visibility]}}
 
-Each ((scope)) can "look out" into the scope around it, so `x` is
-visible inside the block in the example. The exception is when
-multiple bindings have the same name—in that case, code can only see
-the innermost one. For example, when the code inside the `halve`
-function refers to `n`, it is seeing its _own_ `n`, not the global
-`n`.
+Cada ((alcance)) puede "mirar afuera" hacia al alcance que lo rodee, por lo
+que `x` es visible dentro del bloque en el ejemplo. La excepción es cuando
+enlaces múltiples tienen el mismo nombre — en ese caso, el código solo
+puede ver al enlace más interno. Por ejemplo, cuando el código dentro de la
+función `dividirEnDos` se refiere a `numero`, está viendo su _propio_ `numero`,
+no al `numero` global .
 
 ```
-const halve = function(n) {
-  return n / 2;
+const dividirEnDos = function(numero) {
+  return numero / 2;
 };
 
-let n = 10;
-console.log(halve(100));
+let numero = 10;
+console.log(dividirEnDos(100));
 // → 50
 ```
 
 {{id scoping}}
 
-### Nested scope
+### Alcance anidado
 
 {{index [nesting, "of functions"], [nesting, "of scope"], scope, "inner function", "lexical scoping"}}
 
-JavaScript distinguishes not just between _global_ and _local_
-bindings. Blocks and functions can be created inside other blocks and
-functions, producing multiple degrees of locality.
+JavaScript no solo distingue entre enlaces _global_ y _local_.
+Bloques y funciones se pueden crear dentro de otros bloques y
+funciones, produciendo múltiples grados de localidad.
 
 {{index "landscape example"}}
 
-For example, this function—which outputs the ingredients needed to
-make a batch of hummus—has another function inside it:
+Por ejemplo, esta función — que produce los ingredientes necesarios para
+hacer un lote de humus — tiene otra función dentro de ella:
 
 ```
-const hummus = function(factor) {
-  const ingredient = function(amount, unit, name) {
-    let ingredientAmount = amount * factor;
-    if (ingredientAmount > 1) {
-      unit += "s";
+const humus = function(factor) {
+  const ingrediente = function(cantidad, unidad, nombre) {
+    let cantidadIngrediente = cantidad * factor;
+    if (cantidadIngrediente > 1) {
+      unidad += "s";
     }
-    console.log(`${ingredientAmount} ${unit} ${name}`);
+    console.log(`${cantidadIngrediente} ${unidad} ${nombre}`);
   };
-  ingredient(1, "can", "chickpeas");
-  ingredient(0.25, "cup", "tahini");
-  ingredient(0.25, "cup", "lemon juice");
-  ingredient(1, "clove", "garlic");
-  ingredient(2, "tablespoon", "olive oil");
-  ingredient(0.5, "teaspoon", "cumin");
+  ingrediente(1, "lata", "garbanzos");
+  ingrediente(0.25, "taza", "tahini");
+  ingrediente(0.25, "taza", "jugo de limón");
+  ingrediente(1, "clavo", "ajo");
+  ingrediente(2, "cucharada", "aceite de oliva");
+  ingrediente(0.5, "cucharadita", "comino");
 };
 ```
 
 {{index [function, scope], scope}}
 
-The code inside the `ingredient` function can see the `factor` binding
-from the outer function. But its local bindings, such as `unit` or
-`ingredientAmount`, are not visible in the outer function.
+El código dentro de la función `ingrediente` puede ver el enlace `factor`
+de la función externa. Pero sus enlaces locales, como `unidad` o
+`cantidadIngrediente`, no son visibles para la función externa.
 
-In short, each local scope can also see all the local scopes that
-contain it. The set of bindings visible inside a block is determined
-by the place of that block in the program text. All bindings from
-blocks _around_ it are visible—both those in blocks that enclose it
-and those at the top level of the program. This approach to binding
-visibility is called _((lexical scoping))_.
+En resumen, cada alcance local puede ver también todos los alcances locales que
+lo contengan. El conjunto de enlaces visibles dentro de un bloque
+está determinado por el lugar de ese bloque en el texto del programa.
+Todas los enlaces de los bloques _alrededor_ de el son visibles — tanto aquellos
+en bloques que lo encierran y aquellos en el nivel superior del programa.
+Este enfoque a la visibilidad de enlaces es llamado _((alcance léxico))_.
 
 ## Functions as values
 
