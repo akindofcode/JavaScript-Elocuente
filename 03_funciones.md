@@ -213,287 +213,287 @@ Todas los enlaces de los bloques _alrededor_ de el son visibles — tanto aquell
 en bloques que lo encierran y aquellos en el nivel superior del programa.
 Este enfoque a la visibilidad de enlaces es llamado _((alcance léxico))_.
 
-## Functions as values
+## Funciones como valores
 
 {{index [function, "as value"]}}
 
-Function ((binding))s usually simply act as names for a specific piece
-of the program. Such a binding is defined once and never changed. This
-makes it easy to confuse the function and its name.
+Los ((enlace))s de función simplemente actúan como nombres para
+una pieza específica del programa. Tal enlace se define una vez y nunca cambia.
+Esto hace que sea fácil confundir la función y su nombre.
 
 {{index [binding, assignment]}}
 
-But the two are different. A function value can do all the things that
-other values can do—you can use it in arbitrary ((expression))s, not
-just call it. It is possible to store a function value in a new
-binding, pass it as an argument to a function, and so on. Similarly, a
-binding that holds a function is still just a regular binding and can
-be assigned a new value, like so:
+Pero los dos son diferentes. Un valor de función puede hacer todas las cosas que
+otros valores pueden hacer — puedes usarlo en ((expresion))es arbitrarias, no
+solo llamarlo. Es posible almacenar un valor de función en un nuevo
+enlace, pasarlo como argumento a una función, y así sucesivamente.
+Del mismo modo, un enlace que referencia a una función sigue siendo solo
+un enlace regular y se le puede asignar un nuevo valor, asi:
 
 ```{test: no}
-let launchMissiles = function() {
-  missileSystem.launch("now");
+let lanzarMisiles = function() {
+  sistemaDeMisiles.lanzar("ahora");
 };
-if (safeMode) {
-  launchMissiles = function() {/* do nothing */};
+if (modoSeguro) {
+lanzarMisiles = function() {/* no hacer nada */};
 }
 ```
 
 {{index [function, "higher-order"]}}
 
-In [Chapter ?](higher_order), we will discuss the interesting things
-that can be done by passing around function values to other functions.
+En el [Capitulo 5](orden_superior), discutiremos las cosas interesantes
+que se pueden hacer pasando valores de función a otras funciones.
 
-## Declaration notation
+## Notación de declaración
 
 {{index syntax, "function keyword", "square example", [function, definition], [function, declaration]}}
 
-There is a slightly shorter way to create a function binding. When the
-`function` keyword is used at the start of a statement, it works
-differently.
+Hay una forma ligeramente más corta de crear un enlace de función. Cuando
+la palabra clave `function` es usada al comienzo de una declaración, funciona
+de una manera diferente.
 
 ```{test: wrap}
-function square(x) {
+function cuadrado(x) {
   return x * x;
 }
 ```
 
 {{index future, "execution order"}}
 
-This is a function _declaration_. The statement defines the binding
-`square` and points it at the given function. This is slightly easier
-to write, and doesn't require a semicolon after the function.
+Esta es una _declaración_ de función. La declaración define el enlace
+`cuadrado` y lo apunta a la función dada. Esto es un poco mas facil
+de escribir, y no requiere un punto y coma después de la función.
 
-There is one subtlety with this form of function definition.
+Hay una sutileza con esta forma de definir una función.
 
 ```
-console.log("The future says:", future());
+console.log("El futuro dice:", futuro());
 
-function future() {
-  return "You'll never have flying cars";
+function futuro() {
+  return "Nunca tendras autos voladores";
 }
 ```
 
-This code works, even though the function is defined _below_ the code
-that uses it. Function declarations are not part of the regular
-top-to-bottom flow of control. They are conceptually moved to the top
-of their scope and can be used by all the code in that scope. This is
-sometimes useful because it gives us the freedom to order code in a
-way that seems meaningful, without worrying about having to define all
-functions before they are used.
+Este código funciona, aunque la función esté definida _debajo_ del código
+que lo usa. Las declaraciones de funciones no son parte del flujo de control
+regular de arriba hacia abajo. Estas se trasladan conceptualmente a la cima
+de su alcance y pueden ser utilizadas por todo el código en ese alcance. Esto es
+a veces útil porque nos da la libertad de ordenar el código en una forma
+que nos parezca significativa, sin preocuparnos por tener que definir todas
+las funciones antes de que sean utilizadas.
 
-## Arrow functions
+## Funciones de flecha
 
 {{index function, "arrow function"}}
 
-There's a third notation for functions, which looks very different
-from the others. Instead of the `function` keyword, it uses an arrow
-(`=>`) made up of equals and greater than characters (not to be
-confused with the greater-than-or-equal operator, which is written
+Hay una tercera notación para funciones, que se ve muy diferente
+de las otras. En lugar de la palabra clave `function`, usa una flecha
+(`=>`) compuesta de los caracteres igual y mayor que (no debe ser
+confundida con el operador igual o mayor que, que se escribe
 `>=`).
 
 ```{test: wrap}
-const power = (base, exponent) => {
-  let result = 1;
-  for (let count = 0; count < exponent; count++) {
-    result *= base;
+const potencia = (base, exponente) => {
+  let resultado = 1;
+  for (let cuenta = 0; cuenta < exponente; cuenta++) {
+    resultado *= base;
   }
-  return result;
+  return resultado;
 };
 ```
 
 {{index [function, body]}}
 
-The arrow comes _after_ the list of parameters, and is followed by the
-function's body. It expresses something like "this input (the
-((parameter))s) produces this result (the body)".
+La flecha viene _después_ de la lista de parámetros, y es seguida por
+el cuerpo de la función. Expresa algo así como "esta entrada (los
+((parámetro))s) produce este resultado (el cuerpo)".
 
 {{index "curly braces", "square example"}}
 
-When there is only one parameter name, the ((parentheses)) around the
-parameter list can be omitted. If the body is a single expression,
-rather than a ((block)) in braces, that expression will be returned
-from the function. So these two definitions of `square` do the same
-thing:
+Cuando solo hay un nombre de parámetro, los ((paréntesis)) alrededor de
+la lista de parámetros pueden ser omitidos. Si el cuerpo es una sola expresión,
+en lugar de un ((bloque)) en llaves, esa expresión será retornada por parte
+de la función. Estas dos definiciones de `cuadrado` hacen la misma
+cosa:
 
 ```
-const square1 = (x) => { return x * x; };
-const square2 = x => x * x;
+const cuadrado1 = (x) => { return x * x; };
+const cuadrado2 = x => x * x;
 ```
 
-When an arrow function has no parameters at all, its parameter list is
-just an empty set of ((parentheses)).
+Cuando una función de flecha no tiene parámetros, su lista de parámetros es
+solo un conjunto vacío de ((paréntesis)).
 
 ```
-const horn = () => {
+const bocina = () => {
   console.log("Toot");
 };
 ```
 
 {{index verbosity}}
 
-There's no very good reason to have both arrow functions and
-`function` expressions in the language. Apart from a minor detail,
-which we'll discuss in [Chapter ?](object), they do the same thing.
-Arrow functions were added in 2015, mostly to make it possible to
-write small function expressions in a less verbose way. We'll be using
-them a lot in [Chapter ?](higher_order).
+No hay una buena razón para tener ambas funciones de flecha y
+expresiones `function` en el lenguaje. Aparte de un detalle menor,
+que discutiremos en [Capítulo 6](objeto), estas hacen lo mismo.
+Las funciones de flecha se agregaron en 2015, principalmente para que fuera
+posible escribir pequeñas expresiones de funciones de una manera menos
+verbosa. Las usaremos mucho en el [Capitulo 5](orden_superior).
 
 {{id stack}}
 
-## The call stack
+## La pila de llamadas
 
 {{indexsee stack, "call stack"}}
 {{index "call stack", [function, application]}}
 
-The way control flows through functions is somewhat involved. Let's
-take a closer look at it. Here is a simple program that makes a few
-function calls:
+La forma en que el control fluye a través de las funciones está algo
+involucrado. Vamos a écharle un vistazo más de cerca. Aquí hay un simple
+programa que hace unas cuantas llamadas de función:
 
 ```
-function greet(who) {
-  console.log("Hello " + who);
+function saludar(quien) {
+  console.log("Hola " + quien);
 }
-greet("Harry");
-console.log("Bye");
+saludar("Harry");
+console.log("Adios");
 ```
 
 {{index "control flow", "execution order", "console.log"}}
 
-A run through this program goes roughly like this: the call to `greet`
-causes control to jump to the start of that function (line 2). The
-function calls `console.log`, which takes control, does its job, and
-then returns control to line 2. There it reaches the end of the
-`greet` function, so it returns to the place that called it, which is
-line 4. The line after that calls `console.log` again. After that
-returns, the program reaches its end.
+Un recorrido por este programa es más o menos así: la llamada a `saludar`
+hace que el control salte al inicio de esa función (línea 2).
+La función llama `console.log`, que toma el control, hace su trabajo, y
+luego retorna el control a la línea 2. Allí llega al final de la
+función `saludar`, por lo que vuelve al lugar que la llamó, que es la
+línea 4. La línea que sigue llama a `console.log` nuevamente. Después
+que esta función retorna, el programa llega a su fin.
 
-We could show the flow of control schematically like this:
+Podríamos mostrar el flujo de control esquemáticamente de esta manera:
 
 ```{lang: null}
-top
-   greet
+parte superior
+   saludar
         console.log
-   greet
-top
+   saludar
+parte superior
    console.log
-top
+parte superior
 ```
 
 {{index "return keyword", memory}}
 
-Because a function has to jump back to the place that called it when
-it returns, the computer must remember the context from which the call
-happened. In one case, `console.log` has to return to the `greet`
-function when it is done. In the other case, it returns to the end of
-the program.
+Porque una función tiene que regresar al lugar donde fue llamada cuando
+esta retorna, la computadora debe recordar el contexto de donde
+sucedió la llamada. En un caso, `console.log` tiene que volver a la
+función `saludar` cuando está lista. En el otro caso, vuelve al final del
+programa.
 
-The place where the computer stores this context is the _((call
-stack))_. Every time a function is called, the current context is
-stored on top of this "stack". When a function returns, it removes the
-top context from the stack and uses that to continue execution.
+El lugar donde la computadora almacena este contexto es en la _((pila de
+llamadas))_. Cada vez que se llama a una función, el contexto actual es
+almacenado en la parte superior de esta "pila". Cuando una función retorna,
+elimina el contexto superior de la pila y lo usa para continuar la ejecución.
 
 {{index "infinite loop", "stack overflow", recursion}}
 
-Storing this stack requires space in the computer's memory. When the
-stack grows too big, the computer will fail with a message like "out
-of stack space" or "too much recursion". The following code
-illustrates this by asking the computer a really hard question, which
-causes an infinite back-and-forth between two functions. Rather, it
-_would_ be infinite, if the computer had an infinite stack. As it is,
-we will run out of space, or "blow the stack".
+Almacenar esta pila requiere espacio en la memoria de la computadora. Cuando
+la pila crece demasiado grande, la computadora fallará con un mensaje como
+"fuera de espacio de pila" o "demasiada recursividad". El siguiente código
+ilustra esto haciendo una pregunta realmente difícil a la computadora, que
+causara un ir y venir infinito entre las dos funciones. Mejor dicho,
+_sería_ infinito, si la computadora tuviera una pila infinita. Como son
+las cosas, nos quedaremos sin espacio, o "explotaremos la pila".
 
 ```{test: no}
-function chicken() {
-  return egg();
+function gallina() {
+  return huevo();
 }
-function egg() {
-  return chicken();
+function huevo() {
+  return gallina();
 }
-console.log(chicken() + " came first.");
+console.log(gallina() + " vino primero.");
 // → ??
 ```
 
-## Optional Arguments
+## Argumentos Opcionales
 
 {{index argument, [function, application]}}
 
-The following code is allowed and executes without any problem:
+El siguiente código está permitido y se ejecuta sin ningún problema:
 
 ```
-function square(x) { return x * x; }
-console.log(square(4, true, "hedgehog"));
+function cuadrado(x) { return x * x; }
+console.log(cuadrado(4, true, "erizo"));
 // → 16
 ```
 
-We defined `square` with only one ((parameter)). Yet when we call it
-with three, the language doesn't complain. It ignores the extra
-arguments and computes the square of the first one.
+Definimos `cuadrado` con solo un ((parámetro)). Sin embargo, cuando lo llamamos
+con tres, el lenguaje no se queja. Ignora los argumentos extra
+y calcula el cuadrado del primero.
 
 {{index undefined}}
 
-JavaScript is extremely broad-minded about the number of arguments you
-pass to a function. If you pass too many, the extra ones are ignored.
-If you pass too few, the missing parameters get assigned the value
+JavaScript es de extremadamente mente-abierta sobre la cantidad de argumentos
+que puedes pasar a una función. Si pasa demasiados, los adicionales se ignoran.
+Si pasas muy pocos, a los parámetros faltantes se les asigna el valor
 `undefined`.
 
-The downside of this is that it is possible—likely, even—that you'll
-accidentally pass the wrong number of arguments to functions. And no
-one will tell you about it.
+La desventaja de esto es que es posible, incluso probable, que
+accidentalmente pases la cantidad incorrecta de argumentos a las funciones.
+Y nadie te contará acerca de eso.
 
-The upside is that this behavior can be used to allow a function to be
-called with different amounts of arguments. For example this `minus`
-function tries to imitate the `-` operator by acting on either one or
-two arguments.
+La ventaja es que este comportamiento se puede usar para permitir que
+una función sea llamada con diferentes cantidades de argumentos. Por ejemplo,
+esta función `menos` intenta imitar al operador `-` actuando en uno o
+dos argumentos
 
 ```
-function minus(a, b) {
+function menos(a, b) {
   if (b === undefined) return -a;
   else return a - b;
 }
 
-console.log(minus(10));
+console.log(menos(10));
 // → -10
-console.log(minus(10, 5));
+console.log(menos(10, 5));
 // → 5
 ```
 
 {{id power}}
 {{index "optional argument", "default value", parameter, "= operator"}}
 
-Often, when a function allows you to omit some arguments, those will
-get default values when not given. If you write an `=` operator after
-a parameter, followed by an expression, the value of that expression
-will replace the argument when it is not given.
+A menudo, cuando una función te permite omitir algunos argumentos, esos
+obtendran valores predeterminados cuando no se les da ninguno.
+Si escribes un operador `=` después un parámetro, seguido de una expresión,
+el valor de esa expresión reemplazará al argumento cuando este no es dado.
 
 {{index "power example"}}
 
-For example, this version of `power` makes its second argument
-optional. If you don't provide it, it will default to two and the
-function will behave like `square`.
+Por ejemplo, esta versión de `potencia` hace que su segundo argumento
+sea opcional. Si este no es proporcionado, se establecerá en dos y
+la función se comportará como `cuadrado`.
 
 ```{test: wrap}
-function power(base, exponent = 2) {
-  let result = 1;
-  for (let count = 0; count < exponent; count++) {
-    result *= base;
+function potencia(base, exponente = 2) {
+  let resultado = 1;
+  for (let cuenta = 0; cuenta < exponente; cuenta++) {
+    resultado *= base;
   }
-  return result;
+  return resultado;
 }
 
-console.log(power(4));
+console.log(potencia(4));
 // → 16
-console.log(power(2, 6));
+console.log(potencia(2, 6));
 // → 64
 ```
 
 {{index "console.log"}}
 
-In the [next chapter](data#rest_parameters), we will see a way in
-which a function body can get at the whole list of arguments it was
-passed. This is helpful because it makes it possible for a function to
-accept any number of arguments. For example, `console.log` does
-this—it outputs all of the values it is given.
+En el [próximo capítulo](data#rest_parameters), veremos una forma en el
+que el cuerpo de una función puede obtener una lista de todos los argumentos
+que son pasados. Esto es útil porque hace posible que una función
+acepte cualquier cantidad de argumentos. Por ejemplo, `console.log` hace
+esto — retorna en la consola todos los valores que se le dan.
 
 ```
 console.log("C", "O", 2);
