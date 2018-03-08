@@ -16,7 +16,7 @@ quote}}
 En este capítulo comenzamos a hacer cosas que pueden ser realmente consideradas como
 _programación_. Ampliaremos nuestro dominio del lenguaje Javascript
 más allá de los nombres y de los fragmentos de sentencias vistos hasta hora, hasta
-el punto de poder expresarnos en una prosa fluida y llena de sentido.
+el punto de poder expresarnos con una prosa llena de sentido.
 
 ## Expressions and statements
 
