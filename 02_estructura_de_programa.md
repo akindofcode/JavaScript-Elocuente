@@ -13,10 +13,10 @@ quote}}
 
 {{figure {url: "img/chapter_picture_2.jpg", alt: "Tentacles holding objects", chapter: framed}}}
 
-In this chapter, we start to do things that can actually be called
-_programming_. We will expand our command of the JavaScript language
-beyond the nouns and sentence fragments we've seen so far, to the
-point where we can express meaningful prose.
+En este capítulo comenzamos a hacer cosas que pueden ser realmente consideradas como
+_programación_. Ampliaremos nuestro dominio del lenguaje Jacascript
+más allá de los nombres y de los fragmentos de sentencias vistos hasta hora, hasta
+el punto de poder expresarnos en una prosa fluida y llena de sentido.
 
 ## Expressions and statements
 
