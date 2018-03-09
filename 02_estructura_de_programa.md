@@ -18,14 +18,14 @@ _programación_. Ampliaremos nuestro dominio del lenguaje Javascript
 más allá de los nombres y de los fragmentos de sentencias vistos hasta hora, hasta
 el punto de poder expresarnos con una prosa llena de sentido.
 
-## Expressions and statements
+## Expresiones y sentencias
 
 {{index grammar, syntax, [code, "structure of"], grammar, [JavaScript, syntax]}}
 
-In [Chapter ?](values), we made values and applied operators to them
-to get new values. Creating values like this is the main substance of
-any JavaScript program. But that substance has to be framed in a
-larger structure to be useful. So that's what we'll get to next.
+En el [Chapter ?](values), creamos valores y les aplicamos operadores
+para obtener nuevos valores. Esta creación de valores es la esencia de
+cualquier programa JavaScript. Pero esa esencia, para ser útil, ha de estar enmarcada en una
+estructura más amplia. Así que eso es lo que veremos a continuación.
 
 {{index "literal expression"}}
 
