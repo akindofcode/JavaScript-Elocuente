@@ -88,16 +88,16 @@ tienden a provocar errores. Así que en este libro cada sentencia que necesite
 un punto y coma lo tendrá. Te recomiendo que hagas lo mismo, al menos hasta
 que hayas aprendido más acerca de las sutilezas de los puntos y coma ausentes.
 
-## Bindings
+## Asignaciones
 
 {{indexsee variable, binding}}
 {{index syntax, [binding, definition], "side effect", memory}}
 
-How does a program keep an internal ((state))? How does it remember
-things? We have seen how to produce new values from old values, but
-this does not change the old values, and the new value has to be
-immediately used or it will dissipate again. To catch and hold values,
-JavaScript provides a thing called a _binding_, or _variable_.
+¿Cómo mantiene un programa un ((estado interno))? ¿Cómo recuerda las
+cosas? Hemos visto como producir nuevos valores a partir de viejos valores, pero
+esto no modifica los valores antiguos, y los nuevos valores han de ser usados
+inmediatamente o volverán a desaparecer. Para capturar y mantener valores,
+Javascript facilita una herramienta llamada _asignación_, o _variable_.
 
 ```
 let caught = 5 * 5;
