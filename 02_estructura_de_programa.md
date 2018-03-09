@@ -80,6 +80,14 @@ in this book, every statement that needs a semicolon will always get
 one. I recommend you do the same, at least until you've learned more
 about the subtleties of missing semicolons.
 
+En algunos casos, JavaScript nos permite omitir el punto y coma al final
+de una sentencia. En otros casos, es necesario, o la  siguiente
+((línea)) será tratada como parte de la misma sentencia. Las reglas que
+determinan cuando se puede omitir el punto y coma son algo complejas y
+tienden a provocar errores. Así que en este libro cada sentencia que necesite
+un punto y coma lo tendrá. Te recomiendo que hagas lo mismo, al menos hasta
+que hayas aprendido más acerca de las sutilezas de los puntos y coma ausentes.
+
 ## Bindings
 
 {{indexsee variable, binding}}
