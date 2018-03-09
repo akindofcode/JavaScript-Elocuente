@@ -45,9 +45,9 @@ expresiones para describir operaciones computacionales arbitrariamente complejas
 
 {{index statement, semicolon, program}}
 
-If an expression corresponds to a sentence fragment, a JavaScript
-_statement_ corresponds to a full sentence. A program is a list of
-statements.
+Si una expresión se corresponde con un fragmento de sentencia, una _sentencia_ 
+JavaScript se corresponde con una sentencia completa. Un programa es una lista de
+sentencias.
 
 {{index syntax}}
 
