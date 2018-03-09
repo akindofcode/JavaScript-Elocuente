@@ -29,11 +29,11 @@ estructura más amplia. Así que eso es lo que veremos a continuación.
 
 {{index "literal expression"}}
 
-A fragment of code that produces a value is called an
-_((expression))_. Every value that is written literally (such as `22`
-or `"psychoanalysis"`) is an expression. An expression between
-((parentheses)) is also an expression, as is a ((binary operator))
-applied to two expressions or a ((unary operator)) applied to one.
+Un fragmento de código que genera un valor se denomina
+_((expresión))_. Cada valor escrito literalmente (tal que `22`
+o `"psicoanálisis"`) es una expresión. Una expresión entre
+((paréntesis)) también es una expresión, com también los es un ((operador binario))
+aplicado a dos expresiones o un ((operador unario)) aplicado a una.
 
 {{index [nesting, "of expressions"], "human language"}}
 
