@@ -59,16 +59,16 @@ Esto es un programa:
 !false;
 ```
 
-It is a useless program, though. An ((expression)) can be content to
-just produce a value, which can then be used by the enclosing code. A
-((statement)) stands on its own, so it amounts to something only if it
-affects the world. It could display something on the screen—that
-counts as changing the world—or it could change the internal state of
-the machine in a way that will affect the statements that come after
-it. These changes are called _((side effect))s_. The statements in the
-previous example just produce the values `1` and `true` and then
-immediately throw them away. This leaves no impression on the world at
-all. When you run this program, nothing observable happens.
+Ahora bien, se trata de un programa sin ninguna utilidad. Una ((expresión)) puede conformarse con
+solo producir un valor, que puede entonces ser usado por el código. Una
+((sentencia)) se vale por sí misma, así que tiene sentido solamente si
+afecta al mundo. Podría mostrar algo en pantalla-eso
+cuenta como cambiar el mundo-o podría cambiar el estado interno de
+la máquina de manera que afecte a las sentencias que se ejecutarán
+despues. Estos cambios son conocidos como _((efectos secundario))s_. Las sentencias en el
+ejemplo anterior tan sólo producen los valores `1` and `true` e
+inmediatamente los descartan. Esto no deja ningun rastro en el mundo.
+Cuando ejecutamos este programa, no se produce ningun efecto observable.
 
 {{index "programming style", "automatic semicolon insertion", semicolon}}
 
