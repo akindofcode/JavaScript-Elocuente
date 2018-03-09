@@ -37,11 +37,11 @@ aplicado a dos expresiones o un ((operador unario)) aplicado a una.
 
 {{index [nesting, "of expressions"], "human language"}}
 
-This shows part of the beauty of a language-based interface.
-Expressions can contain other expressions in a way very similar to the
-way subsentences in human languages are nested—a subsentence can
-contain its own subsentences, and so on. This allows us to build
-expressions that describe arbitrarily complex computations.
+Esto nos muestra parte de la belleza de un interfaz basado en el lenguaje.
+Las expresiones pueden contener otras expresiones de una manera muy similar al
+anidamiento de subsentencias en el lenguaje humano—una subsentencia puede
+contener sus propias subsentencias, y así continuamente. Esto nos permite construir
+expresiones para describir operaciones computacionales arbitrariamente complejas.
 
 {{index statement, semicolon, program}}
 
