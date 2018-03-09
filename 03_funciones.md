@@ -500,192 +500,192 @@ console.log("C", "O", 2);
 // → C O 2
 ```
 
-## Closure
+## Cierre
 
 {{index "call stack", "local binding", [function, "as value"], scope}}
 
-The ability to treat functions as values combined with the fact that
-local bindings are re-created every time a function is called brings
-up an interesting question. What happens to local bindings when the
-function call that created them is no longer active?
+La capacidad de tratar a las funciones como valores combinado con el hecho de
+que los enlaces locales se vuelven a crear cada vez que se una función es
+llamada, trae a la luz una pregunta interesante ¿Qué sucede con los
+enlaces locales cuando la llamada de función que los creó ya no está activa?
 
-The following code shows an example of this. It defines a function,
-`wrapValue`, which creates a local binding. It then returns a function
-that accesses and returns this local binding.
+El siguiente código muestra un ejemplo de esto. Define una función,
+`envolverValor`, que crea un enlace local. Luego devuelve una función
+que accede y devuelve este enlace local.
 
 ```
-function wrapValue(n) {
+function envolverValor(n) {
   let local = n;
   return () => local;
 }
 
-let wrap1 = wrapValue(1);
-let wrap2 = wrapValue(2);
-console.log(wrap1());
+let envolver1 = envolverValor(1);
+let envolver2 = envolverValor(2);
+console.log(envolver1());
 // → 1
-console.log(wrap2());
+console.log(envolver2());
 // → 2
 ```
 
-This is allowed and works as you'd hope—both instances of the binding
-can still be accessed. This situation is a good demonstration of the
-fact that local bindings are created anew for every call, and
-different calls can't trample on one another's local bindings.
+Esto está permitido y funciona como es de esperar — ambas instancias de
+los enlaces todavía se pueden acceder. Esta situación es una buena
+demostración del hecho de que los enlaces locales se crean de nuevo para
+cada llamada, y que las diferentes llamadas no pueden pisotear los enlaces
+locales entre sí.
 
-This feature—being able to reference a specific instance of a local
-binding in an enclosing scope—is called _((closure))_. A function that
-_closes over_ some local bindings is called _a_ closure. This behavior
-not only frees you from having to worry about lifetimes of bindings
-but also makes it possible to use function values in some creative
-ways.
+Esta característica — poder hacer referencia a una instancia específica
+de un enlace local en un alcance adjunto — se llama _((cierre))_.
+Una función que _cierra sobre_ algunos enlaces locales se llama _un_
+cierre. Este comportamiento no solo te libera de tener que preocuparte
+por la duración de los enlaces pero también hace posible usar valores de
+funciones en algunas formas bastante creativas.
 
 {{index "multiplier function"}}
 
-With a slight change, we can turn the previous example into a way to
-create functions that multiply by an arbitrary amount.
+Con un ligero cambio, podemos convertir el ejemplo anterior en una forma de
+crear funciones que multiplican por una cantidad arbitraria.
 
 ```
-function multiplier(factor) {
+function multiplicador(factor) {
   return number => number * factor;
 }
 
-let twice = multiplier(2);
-console.log(twice(5));
+let doble = multiplicador(2);
+console.log(doble(5));
 // → 10
 ```
 
 {{index [binding, "from parameter"]}}
 
-The explicit `local` binding from the `wrapValue` example isn't really
-needed since a parameter is itself a local binding.
+El enlace explícito `local` del ejemplo `envolverValor` no es realmente
+necesario ya que un parámetro es en sí mismo un enlace local.
 
 {{index [function, "model of"]}}
 
-Thinking about programs like this takes some practice. A good mental
-model is to think of function values as containing both the code in
-their body and the environment in which they are created. When called,
-the function body sees its original environment, not the environment
-in which the call is made.
+Pensar en programas de esta manera requiere algo de práctica. Un buen modelo
+mental es pensar en los valores de función como que contienen tanto el código en
+su cuerpo tanto como al entorno en el que se crean. Cuando son llamadas,
+el cuerpo de la función ve su entorno original, no el entorno
+en el que se realiza la llamada.
 
-In the example, `multiplier` is called, and creates an environment in
-which its `factor` parameter is bound to 2. The function value it
-returns, which is stored in `twice`, remembers this environment. So
-when that is called, it multiplies its argument by 2.
+En el ejemplo, se llama a `multiplicador` y esta crea un entorno en el
+que su parámetro `factor` está ligado a 2. El valor de función que
+regresa, el cual se almacena en `doble`, recuerda este entorno. Asi que
+cuando es es llamada, multiplica su argumento por 2.
 
-## Recursion
+## Recursión
 
 {{index "power example", "stack overflow", recursion, [function, application]}}
 
-It is perfectly okay for a function to call itself, as long as it
-doesn't do it so often it overflows the stack. A function that calls
-itself is called _recursive_. Recursion allows some functions to be
-written in a different style. Take, for example, this alternative
-implementation of `power`:
+Está perfectamente bien que una función se llame a sí misma, siempre que
+no lo haga tan a menudo que desborde la pila. Una función que se llama
+a si misma es llamada _recursiva_. La recursión permite que algunas
+funciones sean escritas en un estilo diferente. Mira, por ejemplo,
+esta implementación alternativa de `potencia`:
 
 ```{test: wrap}
-function power(base, exponent) {
-  if (exponent == 0) {
+function potencia(base, exponente) {
+  if (exponente == 0) {
     return 1;
   } else {
-    return base * power(base, exponent - 1);
+    return base * potencia(base, exponente - 1);
   }
 }
 
-console.log(power(2, 3));
+console.log(potencia(2, 3));
 // → 8
 ```
 
 {{index loop, readability, mathematics}}
 
-This is rather close to the way mathematicians define exponentiation
-and arguably describes the concept more clearly than the looping
-variant. The function calls itself multiple times with ever smaller
-exponents to achieve the repeated multiplication.
+Esta es bastante parecida a la forma en que los matemáticos definen
+la exponenciación y posiblemente describa el concepto más claramente que
+la variante con el bucle. La función se llama a si misma muchas veces con
+cada vez exponentes más pequeños para lograr la multiplicación repetida.
 
 {{index [function, application], efficiency}}
 
-But this implementation has one problem: in typical JavaScript
-implementations, it's about 3 times slower than the looping version.
-Running through a simple loop is generally cheaper than calling a
-function multiple times.
+Pero esta implementación tiene un problema: en las implementaciones típicas de
+JavaScript, es aproximadamente 3 veces más lenta que la versión que usa un
+bucle. Correr a través de un bucle simple es generalmente más barato en
+terminos de memoria que llamar a una función multiples veces.
 
 {{index optimization}}
 
-The dilemma of speed versus ((elegance)) is an interesting one. You
-can see it as a kind of continuum between human-friendliness and
-machine-friendliness. Almost any program can be made faster by making
-it bigger and more convoluted. The programmer has to decide on an
-appropriate balance.
+El dilema de la velocidad versus ((elegancia)) es interesante.
+Puedes verlo como una especie de compromiso entre accesibilidad-humana y
+accesibilidad-maquina. Casi cualquier programa se puede hacer más
+rápido haciendolo más grande y complicado. El programador tiene que
+decidir sobre cual es un equilibrio apropiado.
 
-In the case of the `power` function, the inelegant (looping) version
-is still fairly simple and easy to read. It doesn't make much sense to
-replace it with the recursive version. Often, though, a program deals
-with such complex concepts that giving up some efficiency in order to
-make the program more straightforward is helpful.
+En el caso de la función `potencia`, la versión poco elegante (con el bucle)
+sigue siendo bastante simple y fácil de leer. No tiene mucho sentido
+reemplazarla con la versión recursiva. A menudo, sin embargo, un programa trata
+con conceptos tan complejos que renunciar a un poco de eficiencia con el fin de
+hacer que el programa sea más sencillo es útil.
 
 {{index profiling}}
 
-Worrying about efficiency can be a distraction. It's yet another
-factor that complicates program design, and when you're doing
-something that's already difficult, that extra thing to worry about
-can be paralyzing.
+Preocuparse por la eficiencia puede ser una distracción. Es otro factor más
+que complica el diseño del programa, y ​​cuando estás haciendo
+algo que ya es difícil, algo más de lo que preocuparse puede ser paralizante
 
 {{index "premature optimization"}}
 
-Therefore, always start by writing something that's correct and easy
-to understand. If you're worried that it's too slow—which it usually
-isn't, since most code simply isn't executed often enough to take any
-significant amount of time—you can measure afterwards, and improve it
-if necessary.
+Por lo tanto, siempre comienza escribiendo algo que sea correcto y fácil de
+comprender. Si te preocupa que sea demasiado lento — que generalmente
+no lo es, ya que la mayoría del código simplemente no se ejecuta con la
+suficiente frecuencia como para tomar cantidades significativas de tiempo —
+puedes medir luego y mejorarlo si necesario.
 
 {{index "branching recursion"}}
 
-Recursion is not always just an inefficient alternative to looping.
-Some problems are really easier to solve with recursion than with
-loops. Most often these are problems that require exploring or
-processing several "branches", each of which might branch out again
-into even more branches.
+La recursión no siempre es solo una alternativa ineficiente al bucle.
+Algunos problemas son realmente más fáciles de resolver con recursión que con
+bucles. En la mayoría de los casos, estos son problemas que requieren explorar o
+procesar varias "ramas", cada una de las cuales podría ramificarse de nuevo
+en aún más ramas.
 
 {{id recursive_puzzle}}
 {{index recursion, "number puzzle example"}}
 
-Consider this puzzle: by starting from the number 1 and repeatedly
-either adding 5 or multiplying by 3, an infinite amount of new numbers
-can be produced. How would you write a function that, given a number,
-tries to find a sequence of such additions and multiplications that
-produce that number?
+Considera este acertijo: comenzando desde el número 1 y repetidamente
+agregando 5 o multiplicando por 3, una cantidad infinita de números nuevos
+pueden ser producidos. ¿Cómo escribirías una función que, dado un número,
+intente encontrar una secuencia de tales adiciones y multiplicaciones que
+produzca ese número?
 
-For example, the number 13 could be reached by first multiplying by 3
-and then adding 5 twice, whereas the number 15 cannot be reached at
-all.
+Por ejemplo, se puede llegar al número 13 multiplicando primero por 3
+y luego agregando 5 dos veces, mientras que el número 15 no puede ser
+alcanzado de ninguna manera.
 
-Here is a recursive solution:
+Aquí hay una solución recursiva:
 
 ```
-function findSolution(target) {
-  function find(current, history) {
-    if (current == target) {
-      return history;
-    } else if (current > target) {
+function encontrarSolucion(objetivo) {
+  function encontrar(actual, historia) {
+    if (actual == objetivo) {
+      return historia;
+    } else if (actual > objetivo) {
       return null;
     } else {
-      return find(current + 5, `(${history} + 5)`) ||
-             find(current * 3, `(${history} * 3)`);
+      return encontrar(actual + 5, `(${historia} + 5)`) ||
+             encontrar(actual * 3, `(${historia} * 3)`);
     }
   }
-  return find(1, "1");
+  return encontrar(1, "1");
 }
 
-console.log(findSolution(24));
+console.log(encontrarSolucion(24));
 // → (((1 * 3) + 5) * 3)
 ```
 
-Note that this program doesn't necessarily find the _shortest_
-sequence of operations. It is satisfied when it finds any sequence at
-all.
+Ten en cuenta que este programa no necesariamente encuentra la secuencia de
+operaciones _mas corta_. Está satisfecho cuando encuentra cualquier secuencia
+que funcione.
 
-It is okay if you don't see how it works right away. Let's work
-through it, since it makes for a great exercise in recursive thinking.
+Está bien si no ves cómo funciona el programa de inmediato. Vamos a trabajar
+a través de él, ya que es un gran ejercicio de pensamiento recursivo.
 
 The inner function `find` does the actual recursing. It takes two
 ((argument))s, the current number and a string that records how we
