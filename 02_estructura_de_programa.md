@@ -51,8 +51,8 @@ sentencias.
 
 {{index syntax}}
 
-The simplest kind of statement is an expression with a semicolon after
-it. This is a program:
+El tipo más sencillo de sentencia es una expresión con un punto y coma después.
+Esto es un programa:
 
 ```
 1;
