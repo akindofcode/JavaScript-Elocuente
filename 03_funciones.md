@@ -681,33 +681,38 @@ console.log(encontrarSolucion(24));
 ```
 
 Ten en cuenta que este programa no necesariamente encuentra la secuencia de
-operaciones _mas corta_. Está satisfecho cuando encuentra cualquier secuencia
-que funcione.
+operaciones _mas corta_. Este está satisfecho cuando encuentra cualquier
+secuencia que funcione.
 
 Está bien si no ves cómo funciona el programa de inmediato. Vamos a trabajar
 a través de él, ya que es un gran ejercicio de pensamiento recursivo.
 
-The inner function `find` does the actual recursing. It takes two
-((argument))s, the current number and a string that records how we
-reached this number. If it finds a solution, it returns a string that
-shows how to get to the target. If no solution can be found starting
-from this number, it returns `null`.
+La función interna `encontrar` es la que hace uso de la recursión real.
+Esta toma dos ((argumento))s, el número actual y un string que registra cómo
+se ha alcanzado este número. Si encuentra una solución, devuelve un string que
+muestra cómo llegar al objetivo. Si no puede encontrar una solución
+a partir de este número, retorna `null`.
 
 {{index null, "|| operator", "short-circuit evaluation"}}
 
-To do this, the function performs one of three actions. If the current
-number is the target number, the current history is a way to reach
-that target, so it is returned. If the current number is greater than
-the target, there's no sense in further exploring this branch since
-both adding and multiplying will only make the number bigger, so it
-returns `null`. And finally, if we're still below the target number,
-the function tries both possible paths that start from the current
-number by calling itself twice, once for addition and once for
-multiplication. If the first call returns something that is not
-`null`, it is returned. Otherwise, the second call is returned,
-regardless of whether it produces a string or `null`.
+Para hacer esto, la función realiza una de tres acciones. Si el número actual
+es el número objetivo, la historia actual es una forma de llegar
+ese objetivo, por lo que se devuelve. Si el número actual es mayor que
+el objetivo, no tiene sentido seguir explorando esta rama ya que
+tanto agregar como multiplicar solo aumentará el número, por lo que
+retorna `null`. Y finalmente, si aún estamos por debajo del número objetivo,
+la función intenta ambos caminos posibles que comienzan desde el número actual
+llamandose a sí misma dos veces, una para agregar y otra para
+multiplicar. Si la primera llamada devuelve algo que no es
+`null`, esta es retornada. De lo contrario, se retorna la segunda llamada,
+independientemente de si produce un string o el valor `null`.
 
 {{index "call stack"}}
+
+Para comprender mejor cómo esta función produce el efecto que estamos
+buscando, veamos todas las llamadas a `encontrar` que se hacen cuando
+buscamos una solución para el número 13.
+
 
 To better understand how this function produces the effect we're
 looking for, let's look at all the calls to `find` that are made when
@@ -729,203 +734,221 @@ find(1, "1")
         found!
 ```
 
-The indentation indicates the depth of the call stack. The first time
-`find` is called it starts by calling itself to explore the solution
-that starts with `(1 + 5)`. That call will further recurse to explore
-_every_ continued solution that yields a number less than or equal to
-the target number. Since it doesn't find one that hits the target, it
-returns `null` back to the first call. There the `||` operator causes
-the call that explores `(1 * 3)` to happen. This search has more
-luck—its first recursive call, through yet _another_ recursive call,
-hits upon the target number. That innermost call returns a string, and
-each of the `||` operators in the intermediate calls pass that string
-along, ultimately returning the solution.
+```{lang: null}
+encontrar(1, "1")
+  encontrar(6, "(1 + 5)")
+    encontrar(11, "((1 + 5) + 5)")
+      encontrar(16, "(((1 + 5) + 5) + 5)")
+        muy grande
+      encontrar(33, "(((1 + 5) + 5) * 3)")
+        muy grande
+    encontrar(18, "((1 + 5) * 3)")
+      muy grande
+  encontrar(3, "(1 * 3)")
+    encontrar(8, "((1 * 3) + 5)")
+      encontrar(13, "(((1 * 3) + 5) + 5)")
+        ¡encontrado!
+```
 
-## Growing functions
+La indentación indica la profundidad de la pila de llamadas. La primera vez
+que `encontrar` es llamada comienza llamandose a sí misma para explorar
+la solución que comienza con `(1 + 5)`. Esa llamada hara uso de la recursión
+aún más para explorar _cada_ solución continuada que produce un número menor
+o igual a el número objetivo. Como no encuentra uno que llegue al objetivo,
+retorna `null` a la primera llamada. Ahí el operador `||` genera la llamada
+que explora `(1 * 3)` para que esta suceda. Esta búsqueda tiene más
+suerte — su primera llamada recursiva, a través de _otra_ llamada recursiva,
+encuentra al número objetivo. Esa llamada más interna devuelve un string, y
+cada uno de los operadores `||` en las llamadas intermedias pasa ese string
+a lo largo, en última instancia retornando la solución.
+
+## Funciones crecientes
 
 {{index [function, definition]}}
 
-There are two more or less natural ways for functions to be introduced
-into programs.
+Hay dos formas más o menos naturales para que las funciones sean
+introducidas en los programas.
 
 {{index repetition}}
 
-The first is that you find yourself writing very similar code multiple
-times. We'd prefer not to do that. Having more code means more space
-for mistakes to hide and more material to read for people trying to
-understand the program. So we take the repeated functionality, find a
-good name for it, and put it into a function.
+La primera es que te encuentras escribiendo código muy similar múltiples
+veces. Preferiríamos no hacer eso. Tener más código significa más espacio
+para que los errores se oculten y más material para leer para las personas
+que intenten entender el programa. Entonces tomamos la funcionalidad repetida,
+buscamos un buen nombre para ella, y la ponemos en una función.
 
-The second way is that you find you need some functionality that you
-haven't written yet and that sounds like it deserves its own function.
-You'll start by naming the function, and you'll then write its body.
-You might even start writing code that uses the function before you
-actually define the function itself.
+La segunda forma es que encuentres que necesitas alguna funcionalidad que
+aún no has escrito y parece que merece su propia función.
+Comenzarás por nombrar a la función y luego escribirás su cuerpo.
+Incluso podrías comenzar a escribir código que usa la función antes que
+definas a la función en sí misma.
 
 {{index [function, naming], [binding, naming]}}
 
-How difficult it is to find a good name for a function is a good
-indication of how clear a concept it is that you're trying to wrap.
-Let's go through an example.
+Lo difícil que es encontrar un buen nombre para una función es una buena
+indicación de cuán claro es el concepto que está tratando de envolver.
+Veamos un ejemplo.
 
 {{index "farm example"}}
 
-We want to write a program that prints two numbers, the numbers of
-cows and chickens on a farm, with the words `Cows` and `Chickens`
-after them, and zeros padded before both numbers so that they are
-always three digits long.
+Queremos escribir un programa que imprima dos números, los números de
+vacas y pollos en una granja, con las palabras `Vacas` y `Pollos`
+después de ellos, y ceros acolchados antes de ambos números para que
+siempre tengan tres dígitos de largo.
 
 ```{lang: null}
-007 Cows
-011 Chickens
+007 Vacas
+011 Pollos
 ```
 
-This asks for a function of two arguments. Let's get coding.
+Esto pide una función de dos argumentos. Vamos a programar.
 
 ```
-function printFarmInventory(cows, chickens) {
-  let cowString = String(cows);
-  while (cowString.length < 3) {
-    cowString = "0" + cowString;
+function imprimirInventarioGranja(vacas, pollos) {
+  let stringVaca = String(vacas);
+  while (stringVaca.length < 3) {
+    stringVaca = "0" + stringVaca;
   }
-  console.log(`${cowString} Cows`);
-  let chickenString = String(chickens);
-  while (chickenString.length < 3) {
-    chickenString = "0" + chickenString;
+  console.log(`${stringVaca} Vacas`);
+  let stringPollos = String(pollos);
+  while (stringPollos.length < 3) {
+    stringPollos = "0" + stringPollos;
   }
-  console.log(`${chickenString} Chickens`);
+  console.log(`${stringPollos} Pollos`);
 }
-printFarmInventory(7, 11);
+imprimirInventarioGranja(7, 11);
 ```
 
 {{index ["length property", "for string"], "while loop"}}
 
-Writing `.length` after a string expression will give us the length of
-that string. Thus, the `while` loops keep adding zeros in front of the
-number strings until they are at least three characters long.
+Escribir `.length` después de una expresión de string nos dará la longitud de
+dicho string Por lo tanto, los bucles `while` seguiran sumando ceros delante
+del string de numeros hasta que tenga al menos tres caracteres de longitud.
 
-Mission accomplished! But just as we are about to send the farmer the
-code (along with a hefty invoice), she calls and tells us she's also
-started keeping pigs, and couldn't we please extend the software to
-also print pigs?
+¡Misión cumplida! Pero justo cuando estamos por enviar el código a la
+agricultora (junto con una considerable factura), ella nos llama y nos dice
+que ella también comenzó a criar cerdos, y no podríamos extender
+el software para imprimir cerdos también?
 
 {{index "copy-paste programming"}}
 
-We sure can. But just as we're in the process of copying and pasting
-those four lines one more time, we stop and reconsider. There has to
-be a better way. Here's a first attempt:
+Claro que podemos. Pero justo cuando estamos en el proceso de copiar y pegar
+esas cuatro líneas una vez más, nos detenemos y reconsideramos. Tiene que haber
+una mejor manera. Aquí hay un primer intento:
 
 ```
-function printZeroPaddedWithLabel(number, label) {
-  let numberString = String(number);
-  while (numberString.length < 3) {
-    numberString = "0" + numberString;
+function imprimirEtiquetaAlcochadaConCeros(numero, etiqueta) {
+  let stringNumero = String(numero);
+  while (stringNumero.length < 3) {
+    stringNumero = "0" + stringNumero;
   }
-  console.log(`${numberString} ${label}`);
+  console.log(`${stringNumero} ${etiqueta}`);
 }
 
-function printFarmInventory(cows, chickens, pigs) {
-  printZeroPaddedWithLabel(cows, "Cows");
-  printZeroPaddedWithLabel(chickens, "Chickens");
-  printZeroPaddedWithLabel(pigs, "Pigs");
+function imprimirInventarioGranja(vacas, pollos, cerdos) {
+  imprimirEtiquetaAlcochadaConCeros(vacas, "Vacas");
+  imprimirEtiquetaAlcochadaConCeros(pollos, "Pollos");
+  imprimirEtiquetaAlcochadaConCeros(cerdos, "Cerdos");
 }
 
-printFarmInventory(7, 11, 3);
+imprimirInventarioGranja(7, 11, 3);
 ```
 
 {{index [function, naming]}}
 
-It works! But that name, `printZeroPaddedWithLabel`, is a little
-awkward. It conflates three things—printing, zero-padding, and adding
-a label—into a single function.
+¡Funciona! Pero ese nombre, `imprimirEtiquetaAlcochadaConCeros`, es un poco
+incómodo. Combina tres cosas: impresión, alcochar con ceros y añadir
+una etiqueta en una sola función.
 
 {{index "zeroPad function"}}
 
-Instead of lifting out the repeated part of our program wholesale,
-let's try to pick out a single _concept_.
+En lugar de eliminar la parte repetida de nuestro programa al por mayor,
+intentemos elegir un solo _concepto_.
 
 ```
-function zeroPad(number, width) {
-  let string = String(number);
-  while (string.length < width) {
+function alcocharConCeros(numero, amplitud) {
+  let string = String(numero);
+  while (string.length < amplitud) {
     string = "0" + string;
   }
   return string;
 }
 
-function printFarmInventory(cows, chickens, pigs) {
-  console.log(`${zeroPad(cows, 3)} Cows`);
-  console.log(`${zeroPad(chickens, 3)} Chickens`);
-  console.log(`${zeroPad(pigs, 3)} Pigs`);
+function imprimirInventarioGranja(vacas, pollos, cerdos) {
+  console.log(`${alcocharConCeros(vacas, 3)} Vacas`);
+  console.log(`${alcocharConCeros(pollos, 3)} Pollos`);
+  console.log(`${alcocharConCeros(cerdos, 3)} Cerdos`);
 }
 
-printFarmInventory(7, 16, 3);
+imprimirInventarioGranja(7, 16, 3);
 ```
 
 {{index readability, "pure function"}}
 
-A function with a nice, obvious name like `zeroPad` makes it easier
-for someone who reads the code to figure out what it does. And such a
-function is useful in more situations than just this specific program.
-For example, you could use it to help print nicely aligned tables of
-numbers.
+Una función con un nombre agradable y obvio como `alcocharConCeros` hace
+que sea más fácil de entender lo que hace para alguien que lee el código.
+Y tal función es útil en situaciones más alla de este programa en específico.
+Por ejemplo, podrías usarla para ayudar a imprimir tablas de
+números de una manera alineada.
 
 {{index [interface, design]}}
 
-How smart and versatile _should_ our function be? We could write
-anything, from a terribly simple function that can only pad a number
-to be three characters wide, to a complicated generalized
-number-formatting system that handles fractional numbers, negative
-numbers, alignment of decimal dots, padding with different characters,
-and so on.
+¿Que tan inteligente y versátil _deberia_ ser nuestra función? Podríamos
+escribir cualquier cosa, desde una función terriblemente simple que solo
+pueda alcochar un número para que tenga tres caracteres de ancho,
+a un complicado sistema generalizado de formateo de números que maneje
+números fraccionarios, números negativos, alineación de puntos decimales,
+relleno con diferentes caracteres, y así sucesivamente.
 
-A useful principle is not to add cleverness unless you are absolutely
-sure you're going to need it. It can be tempting to write general
-"((framework))s" for every bit of functionality you come across.
-Resist that urge. You won't get any real work done, you'll just be
-writing code that you never use.
+Un principio útil es no agregar mucho ingenio a menos que estes absolutamente
+seguro de que lo vas a necesitar. Puede ser tentador escribir "((framework))s"
+generalizados para cada funcionalidad que encuentres.
+Resiste ese impulso. No realizarás ningún trabajo real de esta manera,
+solo estarás escribiendo código que nunca usarás.
 
 {{id pure}}
-## Functions and side effects
+## Funciones y efectos secundarios
 
 {{index "side effect", "pure function", [function, purity]}}
 
-Functions can be roughly divided into those that are called for their
-side effects and those that are called for their return value. (Though
-it is definitely also possible to have both side effects and return a
-value.)
+Las funciones se pueden dividir aproximadamente en aquellas que se llaman
+por su efectos secundarios y aquellas que son llamadas por su valor de
+retorno. (Aunque definitivamente también es posible tener tanto efectos
+secundarios como devolver un valor en una misma función.)
 
 {{index reuse}}
 
-The first helper function in the ((farm example)),
-`printZeroPaddedWithLabel`, is called for its side effect: it prints a
-line. The second version, `zeroPad`, is called for its return value.
-It is no coincidence that the second is useful in more situations than
-the first. Functions that create values are easier to combine in new
-ways than functions that directly perform side effects.
+La primera función auxiliar en el ((ejemplo de la granja)),
+`imprimirEtiquetaAlcochadaConCeros`, se llama por su efecto secundario:
+imprime una línea. La segunda versión, `alcocharConCeros`, se llama por su
+valor de retorno. No es coincidencia que la segunda sea útil en más situaciones
+que la primera. Las funciones que crean valores son más fáciles de combinar
+en nuevas formas que las funciones que directamente realizan efectos
+secundarios.
 
 {{index substitution}}
 
-A _pure_ function is a specific kind of value-producing function that
-not only has no side effects but also doesn't rely on side effects
-from other code—for example, it doesn't read global bindings whose
-value might change. A pure function has the pleasant property that,
-when called with the same arguments, it always produces the same value
-(and doesn't do anything else). A call to such a function can be
-substituted by its return value without changing the meaning of the
-code. When you are not sure that a pure function is working correctly,
-you can test it by simply calling it, and know that if it works in
-that context, it will work in any context. Nonpure functions tend to
-require more scaffolding to test.
+Una función _pura_ es un tipo específico de función de producción-de-valores
+que no solo no tiene efectos secundarios pero que tampoco depende de los
+efectos secundarios de otro código — por ejemplo, no lee enlaces globales cuyos
+valores pueden cambiar. Una función pura tiene la propiedad agradable de que
+cuando se le llama con los mismos argumentos, siempre produce el mismo valor
+(y no hace nada más). Una llamada a tal función puede ser sustituida por
+su valor de retorno sin cambiar el significado del código.
+Cuando no estás seguro de que una función pura esté funcionando
+correctamente, puedes probarla simplemente llamándola, y saber que si
+funciona en ese contexto, funcionará en cualquier contexto. Las funciones
+no puras tienden a requerir más configuración para poder ser probadas.
 
 {{index optimization, "console.log"}}
 
-Still, there's no need to feel bad when writing functions that are not
-pure or to wage a holy war to purge them from your code. Side effects
-are often useful. There'd be no way to write a pure version of
-`console.log`, for example, and `console.log` is good to have. Some
-operations are also easier to express in an efficient way when we use
-side effects, so computing speed can be a reason to avoid purity.
+Aún así, no hay necesidad de sentirse mal cuando escribas funciones que no son
+puras o de hacer una guerra santa para purgarlas de tu código.
+Los efectos secundarios a menudo son útiles. No habría forma de escribir una
+versión pura de `console.log`, por ejemplo, y `console.log` es bueno de tener.
+Algunas operaciones también son más fáciles de expresar en una manera
+eficiente cuando usamos efectos secundarios, por lo que la velocidad de
+computación puede ser una razón para evitar la pureza.
 
 ## Summary
 
