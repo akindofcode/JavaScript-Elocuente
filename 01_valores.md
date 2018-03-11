@@ -679,7 +679,7 @@ tercer valor, solo el que es seleccionado es evaluado.
 ## Resumen
 
 Observamos cuatro tipos de valores JavaScript en este capítulo: números,
-textos (`strigs`), Booleans, y valores indefinidos (`undefined`)
+textos (`strings`), Booleans, y valores indefinidos (`undefined`)
 
 Tales valores son creados escribiendo su nombre (`true`, `null`)
 o valor (`13`, `"abc"`). Puedes combinar y transformar valores con
