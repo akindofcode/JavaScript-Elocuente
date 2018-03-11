@@ -72,14 +72,6 @@ Cuando ejecutamos este programa, no se produce ningun efecto observable.
 
 {{index "programming style", "automatic semicolon insertion", semicolon}}
 
-In some cases, JavaScript allows you to omit the semicolon at the end
-of a statement. In other cases, it has to be there, or the next
-((line)) will be treated as part of the same statement. The rules for
-when it can be safely omitted are somewhat complex and error-prone. So
-in this book, every statement that needs a semicolon will always get
-one. I recommend you do the same, at least until you've learned more
-about the subtleties of missing semicolons.
-
 En algunos casos, JavaScript nos permite omitir el punto y coma al final
 de una sentencia. En otros casos, es necesario, o la  siguiente
 ((línea)) será tratada como parte de la misma sentencia. Las reglas que
