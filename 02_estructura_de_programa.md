@@ -65,7 +65,7 @@ solo producir un valor, que puede entonces ser usado por el código. Una
 afecta al mundo. Podría mostrar algo en pantalla-eso
 cuenta como cambiar el mundo-o podría cambiar el estado interno de
 la máquina de manera que afecte a las sentencias que se ejecutarán
-despues. Estos cambios son conocidos como _((efectos secundario))s_. Las sentencias en el
+despues. Estos cambios son conocidos como _((efectos secundario))s_. Las sentencias del
 ejemplo anterior tan sólo producen los valores `1` and `true` e
 inmediatamente los descartan. Esto no deja ningun rastro en el mundo.
 Cuando ejecutamos este programa, no se produce ningun efecto observable.
@@ -80,7 +80,7 @@ tienden a provocar errores. Así que en este libro cada sentencia que necesite
 un punto y coma lo tendrá. Te recomiendo que hagas lo mismo, al menos hasta
 que hayas aprendido más acerca de las sutilezas de los puntos y coma ausentes.
 
-## Asignaciones
+## Variables
 
 {{indexsee variable, binding}}
 {{index syntax, [binding, definition], "side effect", memory}}
