@@ -122,6 +122,11 @@ that value forever. The `=` operator can be used at any time on
 existing bindings to disconnect them from their current value and have
 them point to a new one.
 
+Cuando una variable apunta a un valor, esto no significa que esté atada a
+ese valor para siempre. El operador `=` puede ser usado en cualquier momento sobre
+una variable existente para desconectarla de su valor actual y hacer
+que apunte a uno nuevo.
+
 ```
 let mood = "light";
 console.log(mood);
