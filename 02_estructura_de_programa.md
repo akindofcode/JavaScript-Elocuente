@@ -139,9 +139,9 @@ mismo valor. Un programa sólo puede acceder a los valores que tiene sujetos.
 Cuando necesitas recordar algo, haces crecer un tentaculo para sujetarlo
 o reutilizas uno de los tentaculos existentes.
 
-Let's look at another example. To remember the number of dollars that
-Luigi still owes you, you create a binding. And then when he pays back
-$35, you give this binding a new value.
+Veamos otro ejemplo. Para recordar el número de dólares que
+Luigi aún nos debe, creamos una variable. Y cuando nos devuelve
+$35, le damos a esta variable un nuevo valor.
 
 ```
 let luigisDebt = 140;
