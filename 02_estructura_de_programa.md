@@ -117,11 +117,6 @@ console.log(ten * ten);
 
 {{index "= operator", assignment, [binding, assignment]}}
 
-When a binding points at a value, that does not mean it is tied to
-that value forever. The `=` operator can be used at any time on
-existing bindings to disconnect them from their current value and have
-them point to a new one.
-
 Cuando una variable apunta a un valor, esto no significa que esté atada a
 ese valor para siempre. El operador `=` puede ser usado en cualquier momento sobre
 una variable existente para desconectarla de su valor actual y hacer
@@ -138,11 +133,11 @@ console.log(mood);
 
 {{index [binding, "model of"], "tentacle (analogy)"}}
 
-You should imagine bindings as tentacles, rather than boxes. They do
-not _contain_ values; they _grasp_ them—two bindings can refer to the
-same value. A program can only access the values that it still has a
-hold on. When you need to remember something, you grow a tentacle to
-hold on to it or you reattach one of your existing tentacles to it.
+Deberías imaginar las variables como tentáculos, y no como cajas. No
+_contienen_ valores; los _agarran_-dos variables pueden hacer referencia al
+mismo valor. Un programa sólo puede acceder a los valores que tiene sujetos.
+Cuando necesitas recordar algo, haces crecer un tentaculo para sujetarlo
+o reutilizas uno de los tentaculos existentes.
 
 Let's look at another example. To remember the number of dollars that
 Luigi still owes you, you create a binding. And then when he pays back
