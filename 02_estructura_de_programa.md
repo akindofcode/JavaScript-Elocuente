@@ -152,9 +152,9 @@ console.log(luigisDebt);
 
 {{index undefined}}
 
-When you define a binding without giving it a value, the tentacle has
-nothing to grasp, so it ends in thin air. If you ask for the value of
-an empty binding, you'll get the value `undefined`.
+Cuando definimos una variable sin darle un valor, el tentaculo no tiene
+nada que sujetar, así que termina en el aire vacio. Si pedimos el valor de
+una variable vacia, obtendremos el valor `undefined`.
 
 {{index "let keyword"}}
 
