@@ -105,9 +105,9 @@ darle un valor de inmediato, por un operador `=` y una expresión.
 La sentencia anterior crea una variable llamada `caught` y la usa
 para almacenar el valor del número resultante de multiplicar 5 por 5.
 
-After a binding has been defined, its name can be used as an
-((expression)). The value of such an expression is the value the
-binding currently holds. Here's an example:
+Una vez que se ha definido una variable, su nombre puede ser usado como
+una expresión. El valor de dicha expresión es el valor que
+contiene en ese momento. He aquí un ejemplo:
 
 ```
 let ten = 10;
