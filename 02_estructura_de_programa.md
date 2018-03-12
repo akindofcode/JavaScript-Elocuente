@@ -97,10 +97,10 @@ let caught = 5 * 5;
 
 {{index "let keyword"}}
 
-That's a second kind of ((statement)). The special word
-(_((keyword))_) `let` indicates that this sentence is going to define
-a binding. It is followed by the name of the binding and, if we want
-to immediately give it a value, by an `=` operator and an expression.
+Éste es otro tipo de ((sentencia)). La palabra especial
+(_((keyword))_) `let` indica que esta sentencia va a definir
+una asignación. Le sigue el nombre de la variable y, si queremos
+darle un valor de inmediato, por un operador `=` y una expresión.
 
 The previous statement creates a binding called `caught` and uses it
 to grab hold of the number that is produced by multiplying 5 by 5.
