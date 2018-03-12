@@ -404,7 +404,7 @@ if}}
 
 La forma más fácil de ejecutar el código de ejemplo en el libro y experimentar
 con él, es buscarlo en la versión en línea del libro en
-[_eloquentjavascript.net_] (https://eloquentjavascript.net/). Alli
+[_eloquentjavascript.net_](https://eloquentjavascript.net/). Alli
 puedes hacer clic en cualquier ejemplo de código para editar y ejecutarlo 
 y para ver el resultado que produce. Para trabajar en los ejercicios, ve a
 [_eloquentjavascript.net/code_](https://eloquentjavascript.net/code),
@@ -420,7 +420,7 @@ la caja de arena del libro, se requiere cierto cuidado. Muchos ejemplos se manti
 por si mismos y deberían de funcionar en cualquier entorno de JavaScript. 
 Pero código en capítulos mas avanzados a menudo se escribe para un entorno específico (el navegador o Node.js) y solo puede ser ejecutado allí. Además, muchos capítulos definen
 programas más grandes, y las piezas de código que aparecen en ellos dependen de
-otras o de archivos externos. La [caja de arena] (https://eloquentjavascript.net/code) 
+otras o de archivos externos. La [caja de arena](https://eloquentjavascript.net/code) 
 en el sitio web proporciona enlaces a archivos Zip que contienen todos 
 los scripts y archivos de datos necesarios para ejecutar el código de
 un capítulo determinado.
@@ -462,7 +462,7 @@ cosas en la pantalla (Capítulos 14(dom) y 17(canvas)), responder a
 entradas de usuario ([Capitulo 15](evento)), y a comunicarte a través de la red
 ([Capitulo 18](http)). Hay dos capítulos de proyectos en este parte.
 
-Después de eso, el [Capítulo 20] (Nodo) describe Node.js, y el [Capitulo 21](skillsharing) construye un pequeño sistema web usando esta herramienta.
+Después de eso, el [Capítulo 20](Nodo) describe Node.js, y el [Capitulo 21](skillsharing) construye un pequeño sistema web usando esta herramienta.
 
 {{if commercial
 
