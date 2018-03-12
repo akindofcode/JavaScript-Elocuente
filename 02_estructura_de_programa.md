@@ -102,8 +102,8 @@ let caught = 5 * 5;
 una asignación. Le sigue el nombre de la variable y, si queremos
 darle un valor de inmediato, por un operador `=` y una expresión.
 
-The previous statement creates a binding called `caught` and uses it
-to grab hold of the number that is produced by multiplying 5 by 5.
+La sentencia anterior crea una variable llamada `caught` y la usa
+para almacenar el valor del número resultante de multiplicar 5 por 5.
 
 After a binding has been defined, its name can be used as an
 ((expression)). The value of such an expression is the value the
