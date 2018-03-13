@@ -299,10 +299,10 @@ y hace que esos bloques sean fáciles de componer.
 
 {{indexsee Web, "World Wide Web"}}
 
-JavaScript se introdujo en 1995 como una forma de agregar programas a páginas web
+JavaScript se introdujo en 1995 como una forma de agregar programas a las páginas web
 en el navegador Netscape Navigator. El lenguaje ha sido desde entonces
 adoptado por todos los otros navegadores web principales. Ha hecho que las 
-aplicaciones web modernas sean posibles — aplicacion con las que puedes interactuar
+aplicaciones web modernas sean posibles—aplicaciones con las que puedes interactuar
 directamente, sin hacer una recarga de página para cada acción. Pero tambien es
 utilizado en sitios web más tradicionales para proporcionar diversas formas de
 interactividad e ingenio.
@@ -312,8 +312,8 @@ interactividad e ingenio.
 Es importante tener en cuenta que JavaScript casi no tiene nada que ver con
 el lenguaje de programación llamado Java. El nombre similar fue inspirado por
 consideraciones de marketing, en lugar de buen juicio. Cuando JavaScript
-se estaba introduciendo, el lenguaje Java estaba siendo fuertemente comercializado y
-estaba ganando popularidad. Alguien pensó que era una buena idea intentar
+se estaba introduciendo, el lenguaje Java estaba siendo fuertemente publicitado y
+estaba ganando popularidad. Alguien pensó que seria una buena idea intentar
 cabalgar sobre este éxito. Ahora estamos atrapados con el nombre.
 
 {{index ECMAScript, compatibility}}
@@ -324,7 +324,7 @@ para que las diversas piezas de software que decian ser compatibles con JavaScri
 en realidad estuvieran hablando del mismo idioma. Este se llamo el
 Estándar ECMAScript, después de la organización Ecma International que
 hizo la estandarización. En la práctica, los términos ECMAScript y
-JavaScript se puede usar indistintamente — son dos nombres para el mismo
+JavaScript se puede usar indistintamente—son dos nombres para el mismo
 idioma.
 
 {{index [JavaScript, "weaknesses of"], debugging}}
@@ -339,7 +339,7 @@ lo que estaba haciendo, pero hay un problema real aquí: JavaScript es
 ridículamente liberal en lo que permite. La idea detrás de este diseño era que haría
 a la programación en JavaScript más fácil para los principiantes. En realidad,
 lo que mas hace es que encontrar problemas en tus programas sea más difícil 
-porque el el sistema no los señalará por ti.
+porque el sistema no los señalará por ti.
 
 {{index [JavaScript, "flexibility of"], flexibility}}
 
@@ -347,27 +347,29 @@ Sin embargo, esta flexibilidad también tiene sus ventajas. Deja espacio para
 muchas técnicas que son imposibles en idiomas más rígidos, y
 como veras (por ejemplo en el [Capítulo 10](modulos)) se pueden usar
 para superar algunas de las deficiencias de JavaScript. Después de
-((aprender)) el idioma correctamente y luego de trabajanr con el por un tiempo, 
+((aprender)) el idioma correctamente y luego de trabajar con el por un tiempo, 
 he aprendido a _querer_ a JavaScript.
 
 {{index future, [JavaScript, "versions of"], ECMAScript, "ECMAScript 6"}}
 
-Ha habido varias versiones de JavaScript. ECMAScript versión 3
+Han habido varias versiones de JavaScript. ECMAScript versión 3
 fue la versión mas ampliamente compatible en el momento del ascenso de JavaScript a
 su dominio, aproximadamente entre 2000 y 2010. Durante este tiempo, se trabajo
-en marcha hacia una ambiciosa versión 4, que planeaba una serie de radicales
-mejoras y extensiones al lenguaje. Cambiar un lenguaje vivo y ampliamente
+en marcha hacia una ambiciosa versión 4, que planeaba una serie de mejoras 
+radicales y extensiones al lenguaje. Cambiar un lenguaje vivo y ampliamente
 utilizado de una manera tan radical resultó ser políticamente
 difícil, y el trabajo en la versión 4 fue abandonado en 2008, lo que llevó a
 la versión 5 mucho menos ambiciosa que saldria en el 2009. Luego, en 2015, una
-actualización importante, incluyendo algunas de las ideas planificadas para la versión 4, fue
-realizada. Desde entonces hemos tenido actualizaciones nuevas y pequeñas cada año.
+actualización importante, incluyendo algunas de las ideas planificadas para la 
+versión 4, fue realizada. 
+Desde entonces hemos tenido nuevas y pequeñas actualizaciones cada año.
 
 El hecho de que el lenguaje esté evolucionando significa que los navegadores deben
-constantemente mantenerse al día, y si estás usando uno más antiguo, puede que este no
+mantenerse constantemente al día, y si estás usando uno más antiguo, puede que este no
 soporte todas las mejoras. Los diseñadores de lenguajes tienen cuidado de no realizar
 cualquier cambio que pueda romper los ya programas existentes, de manera
-que los nuevos navegadores puedan todavía ejecutar programas viejos. En este libro, usaré la versión 2017 de JavaScript.
+que los nuevos navegadores puedan todavía ejecutar programas viejos. En este libro, 
+estare usando la versión 2017 de JavaScript.
 
 {{index [JavaScript, "uses of"]}}
 
