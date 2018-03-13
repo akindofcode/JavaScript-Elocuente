@@ -65,8 +65,8 @@ Además de explicar JavaScript, también introduciré los principios básicos
 de la programación. La programación, resulta, es difícil. Las
 reglas fundamentales son típicamente simples y claras. Pero los programas
 construidos en base a estas reglas tienden a ser lo suficientemente
-complejas como para introducir sus propias reglas y complejidad.
-Estás construyendo tu propio laberinto, de alguna manera, y
+complejos como para introducir sus propias reglas y complejidad.
+En una alguna manera, estás construyendo tu propio laberinto, y
 es posible que te pierdas en él.
 
 {{index learning}}
@@ -78,9 +78,9 @@ requerirán que hagas conexiones adicionales.
 
 Depende de ti hacer el esfuerzo necesario. Cuando estes luchando
 para seguir el libro, no saltes a ninguna conclusión acerca de tus propias
-capacidades. Estás bien — solo tienes que seguir intentando.
-Toma un descanso, vuelva a leer algún material, y _siempre_ asegúrate de
-leer y comprender los programas de ejemplo y ((ejercicios)). Aprender es un
+capacidades. Estás bien—solo tienes que seguir intentando.
+Toma un descanso, vuelva a leer algún material, y asegúrate de
+leer y comprender los programas de ejemplo y los ((ejercicios)). Aprender es
 trabajo duro, pero todo lo que aprendes se convertira en tuyo y
 el aprendimiento subsiguiente sera más fácil.
 
@@ -98,18 +98,18 @@ quote}}
 Un programa es muchas cosas. Es una pieza de texto escrita por un programador,
 es la fuerza directriz que hace que la computadora haga lo que hace,
 es datos en la memoria de la computadora, y sin embargo controla las acciones
-realizadas en esta misma memoria. Analogías que intentan comparar programas
+realizadas en esta misma memoria. Las analogías que intentan comparar programas
 a objetos con los que estamos familiarizados tienden a fallar. Una analogía
-que es superficialmente adecuada es el de una máquina: muchas partes
+que es superficialmente adecuada es la de una máquina—muchas partes
 separadas tienden a estar involucradas, y para hacer que funcione todo,
 tenemos que considerar la formas en las que estas partes se interconectan y
 contribuyen a la operación de un todo.
 
-Una ((computadora)) es una máquina construida para actuar como anfitrión para
-estas máquinas inmateriales. Las computadoras en si mismas solo pueden hacer
+Una ((computadora)) es una máquina construida para actuar como anfitrión de
+estas máquinas inmateriales. Las computadoras por si mismas solo pueden hacer
 cosas estúpidamente sencillas. La razón por la que son tan útiles es que hacen
 estas cosas a una ((velocidad)) increíblemente alta. Un programa puede
-combinar ingeniosamente una enorme cantidad de estas acciones simples
+combinar ingeniosamente una cantidad enorme de estas acciones simples
 para realizar cosas bastante complicadas.
 
 {{index [programming, "joy of"]}}
@@ -119,9 +119,9 @@ nada, y crece fácilmente bajo nuestras manos que teclean.
 
 Pero sin ningun cuidado, el tamaño de un programa y su ((complejidad))
 crecerán sin control, confundiendo incluso a la persona que lo creó.
-Mantener programas bajo control es el problema principal de la programación.
+Mantener a los programas bajo control es el problema principal de la programación.
 Cuando un programa funciona, es hermoso. El arte de la programación es la
-habilidad de controlar la complejidad. Un gran programa es moderado — hecho
+habilidad de controlar la complejidad. Un programa excelente es moderado—hecho
 simple en su complejidad.
 
 {{index "programming style", "best practices"}}
@@ -130,17 +130,17 @@ Algunos programadores creen que esta complejidad se maneja mejor mediante
 el uso de solo un pequeño conjunto de técnicas bien entendidas en sus
 programas. Ellos han compuesto reglas estrictas ("mejores prácticas") que
 prescriben la forma que los programas deberían tener, y se mantienen
-cuidadosamente dentro de su pequeña y segura zona.
+cuidadosamente dentro de su zona pequeña y segura.
 
 {{index experiment}}
 
-Esto no solo es aburrido, sino que también es ineficaz. Nuevos problemas
-a menudo requieren nuevas soluciones. El campo de la programación es joven y
+Esto no solo es aburrido, sino que también es ineficaz. Problemas nuevos
+a menudo requieren soluciones nuevas. El campo de la programación es joven y
 todavía se esta desarrollando rápidamente, y es lo suficientemente variado
 como para tener espacio para aproximaciones salvajemente diferentes.
-Hay muchos errores terribles que hacer en el diseño de programas, así que
+Hay muchos errores terribles que realizar cuando estas diseñando un programa, así que
 ve adelante y comételos para que los entiendas mejor. La idea de cómo se ve
-un buen programa se desarrolla al practicar, no se aprende de una lista
+un buen programa se desarrolla practicando, no se aprende de una lista
 de reglas.
 
 ## Por qué el lenguaje importa
