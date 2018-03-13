@@ -384,20 +384,21 @@ fuera del navegador.
 
 {{index "reading code", "writing code"}}
 
-Código es el texto que compone los programas. La mayoría de los capítulos en este libro
+_Código_ es el texto que compone los programas. La mayoría de los capítulos en este libro
 contienen bastante de el. Creo que leer código y escribir ((código))
 son partes indispensables del ((aprendizaje)) para programar, así que trata de no solo
 echar un vistazo a los ejemplos. Léelos atentamente y entiéndelos.
 Esto puede ser algo lento y confuso al principio, pero te prometo que rápidamente 
 vas coger el truco. Lo mismo ocurre con los ((ejercicios)). No hagas la
-suposición de que los entiendes hasta que hayas escrito una solución funcional.
+suposición de que los entiendes hasta que hayas escrito una solución funcional
+para resolverlos.
 
 {{index interpretation}}
 
 Te recomiendo que pruebes tus soluciones a los ejercicios en un intérprete real
 de JavaScript. De esta forma, obtendrás realimentación inmediata acerca de que
-si esta funcionando lo que estás haciendo, y, espero, serás tentado
-a ((experimentar)) e ir más allá de los ejercicios.
+si esta funcionando lo que estás haciendo, y, espero, seas tentado
+a ((experimentar)) y vayas más allá de los ejercicios.
 
 {{if interactive
 
