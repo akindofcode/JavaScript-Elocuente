@@ -10,39 +10,41 @@ hacer no siempre es fácil.
 Si la tarea que tienes para tu computadora es común, y bien entendida,
 como mostrar tu correo electrónico o funcionar como una calculadora,
 puedes abrir la ((aplicación)) apropiada y ponerte a trabajar. Pero para
-tareas únicas o abiertas, es posible que no haya una aplicación disponible.
+tareas únicas o mas abiertas, es posible que no haya una aplicación disponible.
 
-Ahí es donde la _((programación))_ podria entrar. La programación es el acto de
-construir un programa: un conjunto de instrucciones precisas, que le dicen a una
-computadora qué hacer. Porque las computadoras son bestias tontas y pedantes,
-la programación es fundamentalmente tediosa y frustrante.
+Ahí es donde la ((programación)) podria entrar en juego. La _programación_
+es el acto de construir un _programa_—un conjunto de instrucciones precisas, 
+que le dicen a una computadora qué hacer. Ya que las computadoras son bestias
+tontas y pedantes, la programación es fundamentalmente tediosa y frustrante.
 
 {{index [programming, "joy of"], speed}}
 
 Afortunadamente, si puedes superar eso, y tal vez incluso disfrutar el rigor
 de pensar en términos que las máquinas tontas puedan manejar, la programación
-puede ser muy gratificante. Te permite hacer en segundos cosas que
+puede ser muy gratificante. Te permite hacer en segundos, cosas que
 tardarian _para siempre_ a mano. Es una forma de hacer que tu herramienta
-computadora haga cosas que antes no podía hacer. Y proporciona un maravilloso
+computadora pueda hacer cosas que antes no podía hacer. Y proporciona un maravilloso
 ejercicio en pensamiento abstracto.
 
 La mayoría de la programación se realiza con ((lenguajes de programación)).
-Un lenguaje de programación es un lenguaje construido artificialmente
-utilizado para instruir ordenadores. Es interesante que la forma más efectiva
+Un _lenguaje de programación_ es un lenguaje construido artificialmente
+que se utiliza para instruir computadoras. Es interesante que la forma más efectiva
 que hemos encontrado para comunicarnos con una computadora es bastante
 parecida a la forma que usamos para comunicarnos entre nosotros.
-Al igual que los idiomas humanos, los lenguajes de computación permiten
-que las palabras y frases se combinen de nuevas maneras,
-permitiendote expresar siempre nuevos conceptos.
+Al igual que los lenguajes humanos, los lenguajes de computación permiten
+que las palabras y oraciones se combinen de nuevas maneras,
+lo que permite expresar siempre nuevos conceptos.
 
 {{index [JavaScript, "availability of"], "casual computing"}}
 
-Las interfaces basadas en lenguajes, que en un momento fueron la principal
-forma de interactuar con las computadoras para la mayoria de las personas,
-han sido en gran parte reemplazadas con interfaces más simples y limitadas.
-Pero todavía están allí, si sabes dónde mirar. Uno de esos idiomas,
-JavaScript, está integrado en cada ((navegador)) web moderno y,
-por lo tanto, está disponible en casi todos los dispositivos.
+En un punto, las interfaces basadas en lenguajes, como las terminales
+BASIC y DOS de los años 80 y 90, eran el principal método de 
+interactuar con las computadoras. Estas han sido reemplazados en gran 
+parte por interfaces visuales, que son más fáciles de aprender pero que
+ofrecen menos libertad. Los lenguajes de computación todavía están allí, 
+si sabes dónde mirar. Uno de estos lenguajes, JavaScript, está integrado en 
+todos los navegadores web modernos y, por lo tanto, está disponible en 
+casi todos los dispositivos.
 
 {{indexsee "web browser", browser}}
 
