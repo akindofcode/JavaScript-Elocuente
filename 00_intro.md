@@ -176,7 +176,7 @@ y disciplina. Los complejos eran casi inconcebibles.
 {{index bit, "wizard (mighty)"}}
 
 Por supuesto, ingresar manualmente estos patrones arcanos de bits (los unos
-y ceros) le dieron al programador un profundo sentido de ser un poderoso
+y ceros) le daban al programador un profundo sentido de ser un poderoso
 mago. Y eso tiene que valer algo en términos de satisfacción laboral.
 
 {{index memory, instruction}}
@@ -184,8 +184,6 @@ mago. Y eso tiene que valer algo en términos de satisfacción laboral.
 Cada línea del programa anterior contiene una sola instrucción. Podría
 ser escrito en español así:
 
-
-```{lang: "text/plain"}
 1. Almacenar el número 0 en la ubicación de memoria 0.
 2. Almacenar el número 1 en la ubicación de memoria 1.
 3. Almacenar el valor de la ubicación de memoria 1 en la ubicación de memoria 2.
@@ -196,7 +194,6 @@ ser escrito en español así:
 7. Sumar el número 1 al valor de la ubicación de memoria 1.
 8. Continuar con la instrucción 3.
 9. Imprimir el valor de la ubicación de memoria 0.
-```
 
 {{index readability, naming, variable}}
 
@@ -252,11 +249,12 @@ Esta versión nos da algunas mejoras más. Lo más importante, ya
 no es necesario especificar la forma en que queremos que el programa salte
 hacia adelante y hacia atrás. El constructo del lenguaje `while` se ocupa
 de eso. Este continúa ejecutando el bloque de código (envuelto en llaves)
-debajo de el, siempre y cuando la condición que se le dio se mantenga.
-Esa condición es `cuenta <= 10`, lo que significa "_cuenta_ es menor o igual a
-10". Ya no tenemos que crear un valor temporal y compararlo con cero,
-lo cual era un detalle sin interés. Parte del poder de los lenguajes de
-programación es que se encargan de los detalles sin interés por nosotros.
+debajo de el, siempre y cuando la condición que se le dio se mantenga como
+verdadera. Esa condición es `cuenta <= 10`, lo que significa "_cuenta_ 
+es menor o igual a 10". Ya no tenemos que crear un valor temporal y 
+compararlo con cero, lo cual era un detalle poco interesante. Parte del poder 
+de los lenguajes de programación es que se encargan de los detalles que poseen
+de poco interés para nosotros.
 
 {{index "console.log"}}
 
@@ -265,10 +263,10 @@ la operación `console.log` se usa para mostrar el resultado.
 
 {{index "sum function", "range function", abstraction, function}}
 
-Finalmente, aquí está cómo se vería el programa si tuvieramos acceso a las
-las convenientes operaciones `rango` y `suma` disponibles, que
-respectivamente crea una ((colección)) de números dentro de un rango y
-calcula la suma de una colección de números:
+Finalmente, aquí está cómo se vería el programa si tuvieramos acceso a
+las convenientes operaciones `rango` y `suma`, que
+respectivamente crean una ((colección)) de números dentro de un rango y
+calculan la suma de una colección de números:
 
 ```{startCode: true}
 console.log(suma(rango(1, 10)));
@@ -287,7 +285,7 @@ como `suma` y `rango`)
 {{index ["programming language", "power of"], composability}}
 
 Un buen lenguaje de programación ayuda al programador permitiéndole
-hablar sobre las acciones que la computadora tiene que realizar en un nivel
+hablar acerca de las acciones que la computadora tiene que realizar en un nivel
 superior. Ayuda a omitir detalles poco interesantes, proporciona bloques
 de construcción convenientes (como `while` y `console.log`), te permite
 que definas tus propios bloques de construcción (como `suma` y `rango`),
