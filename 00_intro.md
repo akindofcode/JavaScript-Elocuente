@@ -444,30 +444,30 @@ programar JavaScript.
 
 A lo largo del libro, hay cinco _capítulos de proyectos_, que describen
 programas de ejemplo más grandes para darte una idea de la programación real. En
-orden de aparición, trabajaremos en la construcción de un [robot](robot), un
+orden de aparición, trabajaremos en la construcción de un [robot de entregas](robot), un
 [lenguaje de programación](lenguaje), un [juego de plataforma](juego), un 
-[programa de paint](paint) y un [sitio web dinámico](skillsharing).
+[programa de paint con pixeles](paint) y un [sitio web dinámico](skillsharing).
 
 La parte del lenguaje del libro comienza con cuatro capítulos para presentar
-la estructura básica del lenguaje de JavaScript. Estos introducen
-[estrocturas de control](estructura_de_programa) (como la palabra `while`
+la estructura básica del lenguaje JavaScript. Estos introducen
+[estructuras de control](estructura_de_programa) (como la palabra `while`
 que ya viste en esta introducción), [funciones](funciones) (escribir tus propios
 bloques de construcción), y [estructuras de datos](datos). Después de estos, seras
-capaz de escribir programas simples. Luego, los Capítulos 5(orden_superior) y
-6(objeto) introducen técnicas para usar funciones y objetos y asi escribir
-código más _abstracto_ y de manera que puedas mantener la complejidad bajo control.
+capaz de escribir programas simples. Luego, los Capítulos [5](orden_superior) y
+[6](objeto) introducen técnicas para usar funciones y objetos para escribir
+código más _abstracto_ de manera que puedas mantener a la complejidad bajo control.
 
-Después de un [primer capítulo de proyecto](robot), la primera parte del libro
-continúa con los capítulos sobre [manejo y solución de errores](error), en
+Después de un [primer capítulo de proyecto](robot), la parte de lenguaje del libro
+continúa con los capítulos sobre [manejo y solución de errores](error),
 [expresiones regulares](regexp) (una herramienta importante para trabajar con
-texto), en [modularidad](modulos) (otra defensa contra la complejidad),
-y en [programación asincrónica](async) (que se encarga de eventos que
+texto), [modularidad](modulos) (otra defensa contra la complejidad),
+y [programación asincrónica](async) (que se encarga de eventos que
 toman tiempo). El [segundo capítulo de proyecto](lenguaje) concluye la primera
 parte del libro.
 
-La segunda parte, Capítulos 13(navegador) a 19(paint), describe las
+En la segunda parte, Capítulos [13](navegador) a [19](paint), describen las
 herramientas a las que el JavaScript en un navegador tiene acceso. Aprenderás a mostrar
-cosas en la pantalla (Capítulos 14(dom) y 17(canvas)), responder a
+cosas en la pantalla (Capítulos [14](dom) y [17](canvas)), responder a
 entradas de usuario ([Capitulo 15](evento)), y a comunicarte a través de la red
 ([Capitulo 18](http)). Hay dos capítulos de proyectos en este parte.
 
@@ -485,7 +485,7 @@ if}}
 {{index "factorial function"}}
 
 En este libro, el texto escrito en una fuente 'monoespaciada' representará
-elementos de programas — a veces son fragmentos autosuficientes, y
+elementos de programas—a veces son fragmentos autosuficientes, y
 a veces solo se refieren a partes de un programa cercano. Los programas (de
 los que ya has visto algunos), se escriben de la siguiente manera:
 
@@ -502,7 +502,7 @@ function factorial(numero) {
 {{index "console.log"}}
 
 Algunas veces, para mostrar el resultado que produce un programa,
-la salida esperada se escribe después de el, con dos slashes y una flecha en
+la salida esperada se escribira después de el, con dos slashes y una flecha en
 frente.
 
 ```
