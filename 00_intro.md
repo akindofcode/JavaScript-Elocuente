@@ -2,6 +2,12 @@
 
 # Introducción
 
+{{quote {author: "Ellen Ullman", title: "Close to the Machine: Technophilia and its Discontents", chapter: true}
+
+Nosotros creemos que estamos creando el sistema para nuestros propios propósitos. Creemos que lo estamos haciendo a nuestra propia imagen... Pero la computadora no es realmente como nosotros. Es una proyección de una parte muy delgada de nosotros mismos: esa porción dedicada a la lógica, el orden, la reglas y la claridad.
+
+quote}}
+
 Este es un libro acerca de instruir ((computadora))s. Las computadoras son tan
 comunes como los destornilladores hoy en dia. Pero son bastante más complejas
 que los destornilladores, y hacer que hagan la cosa precisa que tu quieres
