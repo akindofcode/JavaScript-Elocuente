@@ -17,19 +17,19 @@ quote}}
 
 {{index "binary data", data, bit, memory}}
 
-Dentro de la realidad de la computadora, solo existe información. 
-Puedes leer información, modificar información, crear nueva 
-información-pero eso que no es información, no puede ser mencionado.
-Toda esta información está almacenada en forma de largas secuencias 
-de bits, y es por consecuencia fundamentalmente igual.
+Dentro del mundo de la computadora, solo existen datos. 
+Puedes leer datos, modificar datos, crear nuevos
+datos—pero todo lo que no sean datos, no puede ser mencionado.
+Toda estos datos estan almacenados como largas secuencias 
+de bits, y por lo tanto, son fundamentalmente parecidos.
 
 {{index CD, signal}}
 
-Los bits son cualquier tipo de cosa de dos valores. Usualmente descritos
-en ceros y unos. Dentro de la computadora, toman formas como cargas
+Los _bits_ son cualquier tipo de cosa que pueda tener dos valores, usualmente descritos
+como ceros y unos. Dentro de la computadora, toman formas como cargas
 eléctricas altas y bajas, una señal fuerte o débil, o un punto brillante 
 u opaco en la superficie de un CD. Cualquier pedazo de información discreta
-puede ser reducido a una secuencia de ceros y unos y así ser representado en bits.
+puede ser reducida a una secuencia de ceros y unos y, así ser representada en bits.
 
 {{index "binary number", radix, "decimal number"}}
 
