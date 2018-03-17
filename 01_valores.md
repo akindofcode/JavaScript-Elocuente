@@ -4,7 +4,7 @@
 
 {{quote {author: "Master Yuan-Ma", title: "The Book of Programming", chapter: true}
 
-El programa se mueve debajo de la superficie de la máquina. Sin esfuerzo,
+Debajo de la superficie de la máquina, el programa se mueve. Sin esfuerzo,
 se expande y se contrae. En gran armonía, los electrones se dispersan y
 se reagrupan. Las figuras en el monitor son tan solo ondas sobre el agua.
 La esencia se mantiene invisible debajo de la superficie. 
