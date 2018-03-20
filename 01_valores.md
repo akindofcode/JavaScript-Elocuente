@@ -242,7 +242,7 @@ significante.
 
 El próximo tipo de dato básico es el _((string))_. Los Strings 
 son usados para representar texto. Son escritos encerrando su contenido
-en comillas.
+en comillas:
 
 ```
 `Debajo en el océano`
@@ -258,23 +258,23 @@ y al final concuerden.
 
 Casi todo puede ser colocado entre comillas, y JavaScript construirá 
 un valor string a partir de ello. Pero algunos caracteres son mas difíciles.
-Te puedes imaginar que colocar comillas entre comillas podría ser difíciles.
-_Newlines_ (los caracteres que obtienes cuando presionas la tecla de Enter)
+Te puedes imaginar que colocar comillas entre comillas podría ser difícil.
+Los _Newlines_ (los caracteres que obtienes cuando presionas la tecla de Enter)
 solo pueden ser incluidos cuando el string está encapsulado con comillas
-invertidas (`` ` ``), los otros tipos de string deben de quedarse en una 
+invertidas (`` ` ``), los otros tipos de string deben de mantenerse en una 
 sola linea.
 
 {{index [escaping, "in strings"], "backslash character"}}
 
 Para hacer posible incluir tales caracteres en un string, la siguiente 
-notación es utilizada: cuando una barra invertida es encontrada dentro de
+notación es utilizada: cuando una barra invertida (\) es encontrada dentro de
 un texto entre comillas, indica que el carácter que le sigue tiene un
 significado especial. Esto es referido como _escapando_ el carácter. 
 Una comilla que es precedida por una barra invertida no representará
 el final del string sino que formara parte del string. Cuando el 
-carácter de `n` ocurre después de la barra invertida, es representado
+carácter de `n` es precedido por una barra invertida, este se interpreta
 como un Newline (salto de linea). De la mima forma, `t` después de una barra
-invertida, significa un character de tabulación.
+invertida, se interpreta como un character de tabulación.
 Toma como referencia el siguiente string: 
 
 ```
@@ -303,27 +303,29 @@ Un carácter de salto de linea es escrito así: \"\\n\"."
 
 {{index [string, representation], Unicode, character}}
 
-También strings deben de ser moldeados como una serie de bits para poder
+También los strings deben de ser modelados como una serie de bits para poder
 existir dentro del computador. La forma en la que JavaScript hace esto
 es basada en el estándar _((Unicode))_. Este estándar asigna un número a
 todo carácter que alguna vez pudieras necesitar, incluyendo caracteres en
-griego, Árabe, Japones, Armenio, y muchos más. Si tenemos un numero que 
-representa cualquier carácter, un string puede ser representado por una
+Griego, Árabe, Japones, Armenio, y asi sucesivamente. Si tenemos un numero para 
+representar cada carácter, un string puede ser descrito como una
 secuencia de números. 
 
 {{index "UTF-16", emoji}}
 
 Y eso es lo que hace JavaScript. Pero hay una complicación:
-La representación de JavaScript usa 16 bits por número, y hay más
-de 2^16^ caracteres diferentes en Unicode (aproximadamente el doble).
-Entonces algunos caracteres, como muchos emoji, necesitan ocupar el
-espacio de dos caracteres en strings JavaScript.
+La representación de JavaScript usa 16 bits por cada elemento string, en
+el cual caben 2^16^ numeros diferentes. Pero Unicode define mas caracteres
+que aquellos—aproximadamente el doble, en este momento.
+Entonces algunos caracteres, como muchos emojis, necesitan ocupar dos
+"posiciones de caracteres" en los strings de JavaScript. Volveremos a este
+tema en el [Capitulo 5](orden_superior).
 
 {{index "+ operator", concatenation}}
 
-Los strings no pueden ser divididos, multiplicados, o restados, pero
+Los strings no pueden ser divididos, multiplicados, o substraidos, pero
 el operador `+` _puede_ ser utilizado en ellos. No los agrega, sino que 
-los _concatena_-pega dos strings juntos. La siguiente línea producirá
+los _concatena_—pega dos strings juntos. La siguiente línea producirá
 el string `"concatenar"`:
 
 ```
@@ -331,16 +333,16 @@ el string `"concatenar"`:
 ```
 
 Los valores string tienen un conjunto de funciones (_métodos_) asociadas,
-que pueden ser usadas para ejecutar operaciones en ellos. Regresaremos
-a estas en el [Capítulo ?](data#metodos).
+que pueden ser usadas para realizar operaciones en ellos. Regresaremos
+a estas en el [Capítulo 4](data#metodos).
 
 {{index interpolation, backtick}}
 
-Los strings escritos con una comilla simple o doble se comportan 
-casi de la misma manera-salvo el tipo de comilla que necesitamos 
-para escapar dentro de ellos. Strings de comillas inversas, usualmente
-llamados _((plantillas literales))_, pueden realizar unos cuantos trucos
-más. Fuera de permitir saltos de lineas, pueden también incrustar otros
+Los strings escritos con comillas simples o dobles se comportan 
+casi de la misma manera—La unica diferencia es el tipo de comilla que necesitamos 
+para escapar dentro de ellos. Los strings de comillas inversas, usualmente
+llamados _((plantillas literales))_, pueden realizar algunos trucos
+más. Mas alla de permitir saltos de lineas, pueden también incrustar otros
 valores.
 
 ```
