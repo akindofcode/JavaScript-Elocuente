@@ -50,15 +50,15 @@ Entonces ese es el numero binario 00001101, o 8 + 4 + 1, o 13.
 
 {{index memory, "volatile data storage", "hard drive"}}
 
-Imagina un mar de bits. Un océano de ellos. Una computadora moderna 
-tradicional tiene mas de 30 billones de bits en su almacenamiento 
-volátil (memoria volátil). Almacenamiento no volátil (disco duro o equivalente)
+Imagina un mar de bits—un océano de ellos. Una computadora moderna 
+tradicional tiene mas de 30 billones de bits en su almacenamiento de datos
+volátiles (memoria funcional). El almacenamiento no volátil (disco duro o equivalente)
 tiende a tener unas cuantas mas ordenes de magnitud. 
 
 Para poder trabajar con tales cantidades de bits sin perdernos,
 debemos separarlos en porciones que representen pedazos de información.
-En el entorno de JavaScript, esas porciones se llaman _((valores))_. Aunque todos 
-los valores están hechos de bits, juegan un papel diferente. Cada valor
+En un entorno de JavaScript, esas porciones son llamadas _((valores))_. Aunque todos 
+los valores están hechos de bits, estos juegan papeles diferentes. Cada valor
 tiene un tipo que determina su rol. Algunos valores son números, otros
 son porciones de texto, otros son funciones, y asi sucesivamente.
 
@@ -67,15 +67,15 @@ son porciones de texto, otros son funciones, y asi sucesivamente.
 Para crear un valor, solo debemos de invocar su nombre. Esto es
 conveniente. No tenemos que recopilar materiales de construcción para nuestros
 valores, o pagar por ellos. Solo llamamos su nombre, y _woosh_, lo tenemos.
-No son realmente creados de la nada, por supuesto. Cada valor tiene que estar
+Aunque estos no son realmente creados de la nada, por supuesto. Cada valor tiene que ser
 almacenado en algún sitio, y si quieres usar una cantidad gigante de ellos al
 mismo tiempo, puede que te quedes sin memoria. Afortunadamente esto es un 
-problema solamente si los necesitas todos al mismo tiempo. Tan pronto como 
-no utilices un valor, se disipará, dejando atrás sus bits para ser reciclados
-como material de construcción para la próxima generación de valores. 
+problema solamente si los necesitas todos al mismo tiempo. Tan pronto como dejes
+de utilizar un valor, este se disipará, dejando atrás sus bits para que estos
+sean reciclados como material de construcción para la próxima generación de valores. 
 
-Este capitulo introduce los elementos atómicos de programas JavaScript.
-Esto es, los tipos de valores simples y los operadores que actúan en 
+Este capitulo introduce los elementos atómicos de los programas en JavaScript,
+estos son, los tipos de valores simples y los operadores que actúan en 
 tales valores.
 
 ## Números
@@ -105,28 +105,28 @@ representados es 10^N^. Del mismo modo, dados 64 dígitos binarios, podemos
 representar 2^64^ números diferentes, lo que es alrededor de 18 mil trillones
 (un 18 con 18 ceros después). Esto es muchísimo.
 
-La memoria de un computados solía ser mucho mas pequeña que en la actualidad,
+La memoria de un computador solía ser mucho mas pequeña que en la actualidad,
 y las personas tendían a utilizar grupos de 8 o 16 bits para representar sus 
-números. Era común accidentalmente _((desbordar))_ esta limitación, y terminar
+números. Era común accidentalmente _((desbordar))_ esta limitación— terminando
 con un numero que no cupiera dentro de la cantidad dada de bits. Hoy en día, 
-aún computadoras que caben en nuestro bolsillo tienen abundante memoria, por tanto
-somos libres de usar pedazos de memoria de 64 bits, y no nos tenemos que preocupar 
-por desbordamiento de memoria, solamente cuando lidiamos con números verdaderamente
-astronómicos.
+incluso computadoras que cabe dentro de tu bolsillo poseen de abundante memoria, 
+por lo tanto somos libres de usar pedazos de memoria de 64 bits, y solamente 
+nos tenemos que preocupar por desbordamientos de memoria cuando lidiamos 
+con números verdaderamente astronómicos.
 
 {{index sign, "floating-point number", "fractional number", "sign bit"}}
 
 A pesar de esto, no todos los números enteros por debajo de 18 mil trillones caben en un
-numero de JavaScript. Esos bits también almacenan números negativos, entonces un bit
-indica el signo de un numero. Un problema mayor es que números no enteros tienen también
-que ser representados. Para hacer esto, algunos de los bits son usados para
-almacenar la promisión del punto decimal. El numero entero mas grande que puede ser
-almacenado está en el rango de 9 trillones (15 ceros)-lo cual es todavía placenteramente 
+numero de JavaScript. Esos bits también almacenan números negativos, por lo que un bit
+indica el signo de un numero. Un problema mayor es que los números no enteros tienen
+que ser representados también. Para hacer esto, algunos de los bits son usados para
+almacenar la posición del punto decimal. El numero entero mas grande que puede ser
+almacenado está en el rango de 9 trillones (15 ceros)—lo cual es todavía placenteramente 
 inmenso. 
 
 {{index [number, notation]}}
 
-Los números fraccionarios se escriben usando un punto.
+Los números fraccionarios se escriben usando un punto:
 
 ```
 9.81
@@ -146,22 +146,23 @@ Eso es 2.998 × 10^8^ = 299,800,000.
 
 {{index pi, [number, "precision of"], "floating-point number"}}
 
-Cálculos con números enteros (también llamados _((integer))s_)
-mas pequeños de los anteriormente mencionados 9 trillones están
-garantizadas a ser siempre precisas. Desafortunadamente, calculos
-con números fraccionarios generalmente no lo son. Así como π (pi) no puede
+Los cálculos con números enteros (también llamados _((integer))s_)
+mas pequeños a los 9 trillones anteriormente mencionados están
+garantizados a ser siempre precisos. Desafortunadamente, los calculos
+con números fraccionarios, generalmente no lo son. Así como π (pi) no puede
 ser precisamente expresado por un numero finito de números decimales, 
-muchos numeros pierden alguna precisión cuando solo hay 64 bits disponibles
-para almacenarlos. Esto es una pena, pero solo causa problemas en situaciones
-especificas. Lo importante que debemos recordar es de estar consciente de esto
-y tratar números fraccionarios como aproximaciones, y no como valores precisos. 
+muchos numeros pierden algo de precisión cuando solo hay 64 bits disponibles
+para almacenarlos. Esto es una pena, pero solo causa problemas pr'acticos
+en situaciones especificas. Lo importante que debemos ser consciente de estas 
+limitaciones y tratar a los números fraccionarios como aproximaciones, 
+no como valores precisos. 
 
 ### Aritmética
 
 {{index syntax, operator, "binary operator", arithmetic, addition, multiplication}}
 
-Lo que mayormente se hace con números es aritmética. Operaciones aritméticas
-como adición y multiplicación, toman dos valores numéricos y producen un nuevo
+Lo que mayormente se hace con los números es aritmética. Operaciones aritméticas
+tales como adición y multiplicación, toman dos valores numéricos y producen un nuevo
 valor a raíz de lo provisto. Asi lucen en JavaScript:
 
 ```
@@ -170,13 +171,13 @@ valor a raíz de lo provisto. Asi lucen en JavaScript:
 
 {{index [operator, application], asterisk, "plus character", "* operator", "+ operator"}}
 
-Los símbolos `+` y `*` son llamados _operadores_. El primero representa
-adición, y el segundo representa multiplicación. Colocar un operador entre
-dos valores aplicará la operación asociada y producirá un nuevo valor. 
+Los símbolos `+` y `*` son llamados _operadores_. El primero representa a la
+adición, y el segundo representa a la multiplicación. Colocar un operador entre
+dos valores aplicará la operación asociada a esos valores y producirá un nuevo valor. 
 
 {{index grouping, parentheses, precedence}}
 
-¿Significa el ejemplo "agrega 4 y 100, y multiplica el resultado por 11",
+¿Pero el ejemplo significa "agrega 4 y 100, y multiplica el resultado por 11",
 o es la multiplicación aplicada antes de la adición? Como quizás hayas
 podido adivinar, la multiplicación sucede primero. Pero como en matemáticas,
 puedes cambiar esto envolviendo la adición en paréntesis.
@@ -191,21 +192,22 @@ Para sustraer, existe el operador `-`, y para dividir existe `/`.
 
 Cuando operadores aparecen juntos sin paréntesis, el orden en el cual
 son aplicados es determinado por la _((precedencia))_ de los operadores.
+El ejemplo muestra que la multiplicación es aplicada antes que la adición.
 El operador `/` tiene la misma precedencia que `*`. Lo mismo aplica para
-`+` y `-`. Cuando operadores con la misma precedencia aparecen al lado 
-del otro, como en `1 - 2 + 1`, son aplicados de izquierda a derecha.
+`+` y `-`. Cuando operadores con la misma precedencia aparecen uno al lado 
+del otro, como en `1 - 2 + 1`, son aplicados de izquierda a derecha: `(1 - 2) + 1`.
 
-Estas reglas de precedencia no son algo de lo que debieras preocuparte.
+Estas reglas de precedencia no son algo de lo que deberias preocuparte.
 Cuando no estés seguro, solo agrega un paréntesis. 
 
 {{index "modulo operator", division, "remainder operator", "% operator"}}
 
-Existe otro operador aritmético que quizás no reconocerías inmediatamente.
+Existe otro operador aritmético que quizás no reconozcas inmediatamente.
 El símbolo `%` es utilizado para representar la operación de _residuo_.
 `X % Y` es el residuo de dividir `X` entre `Y`. Por ejemplo, `314 % 100`
 produce `14`, y `144 % 12` produce `0`. La precedencia del residuo es la 
-la misma que la multiplicación y la división. Frecuente mente este operador
-es referido como _modulo_.
+la misma que la de la multiplicación y la división. Frecuentemente veras
+que este operador es tambien referido como _modulo_.
 
 ### Números especiales
 
