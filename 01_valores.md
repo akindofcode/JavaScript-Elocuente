@@ -218,17 +218,18 @@ números pero no se comportan como números normales.
 
 {{index infinity}}
 
-Los primeros dos son `Infinity` y `-Intinity`, los cuales representan
-infinidad positiva e infinidad negativa. `Infinity - 1` es todavía
+Los primeros dos son `Infinity` y `-Infinity`, los cuales representan
+infinidad positiva e infinidad negativa. `Infinity - 1` aun es
 `Infinity`, y asi sucesivamente. A pesar de esto, no confíes mucho 
-en computaciones que dependen en infinidades. Esto no es matemáticamente 
+en computaciones que dependan de infinidades. Esto no es matemáticamente 
 confiable, y puede que muy rápidamente nos resulte en el próximo numero
 especial: `NaN`.
 
 {{index NaN, "not a number", "division by zero"}}
 
-`NaN` significa "no es un numero", aunque _sea_ un valor del tipo numérico.
-Obtendremos este resultado cuando, por ejemplo, tratamos de calcular
+`NaN` significa "no es un numero" ("not a number"), 
+aunque _sea_ un valor del tipo numérico.
+Obtendremos este resultado cuando, por ejemplo, tratemos de calcular
 `0 / 0` (cero dividido entre cero), `Infinity - Infinity`, o cualquier 
 otra cantidad de operaciones numéricas que no producen un resultado
 significante.
