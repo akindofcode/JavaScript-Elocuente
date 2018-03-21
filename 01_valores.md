@@ -34,9 +34,9 @@ puede ser reducida a una secuencia de ceros y unos y, así ser representada en b
 {{index "binary number", radix, "decimal number"}}
 
 Por ejemplo, podemos expresar el numero 13 en bits. Funciona de la misma 
-manera que un numero decimal, pero en vez de 10 diferentes dígitos, solo
+manera que un número decimal, pero en vez de 10 diferentes dígitos, solo
 tienes 2, y el peso de cada uno aumenta por un factor de 2 de derecha a 
-izquierda. Aquí tenemos los bits que conforman el numero 13, con el peso
+izquierda. Aquí tenemos los bits que conforman el número 13, con el peso
 de cada dígito mostrado debajo:
 
 ```{lang: null}
@@ -44,7 +44,7 @@ de cada dígito mostrado debajo:
  128  64  32  16   8   4   2   1
 ```
 
-Entonces ese es el numero binario 00001101, o 8 + 4 + 1, o 13.
+Entonces ese es el número binario 00001101, o 8 + 4 + 1, o 13.
 
 ## Valores
 
@@ -92,11 +92,11 @@ En un programa JavaScript, se escriben de la siguiente manera:
 {{index "binary number"}}
 
 Utiliza eso en un programa, y ocasionara que el patron de bits
-que representa el numero 13 sea creado dentro de la memoria del computador.
+que representa el número 13 sea creado dentro de la memoria del computador.
 
 {{index [number, representation], bit}}
 
-JavaScript utiliza un numero fijo de bits, específicamente 64 de ellos,
+JavaScript utiliza un número fijo de bits, específicamente 64 de ellos,
 para almacenar un solo valor numérico. Solo existen una cantidad finita de 
 patrones que podemos crear con 64 bits, lo que significa que la cantidad de
 números diferentes que pueden ser representados es limitada. Para una 
@@ -108,7 +108,7 @@ representar 2^64^ números diferentes, lo que es alrededor de 18 mil trillones
 La memoria de un computador solía ser mucho mas pequeña que en la actualidad,
 y las personas tendían a utilizar grupos de 8 o 16 bits para representar sus 
 números. Era común accidentalmente _((desbordar))_ esta limitación— terminando
-con un numero que no cupiera dentro de la cantidad dada de bits. Hoy en día, 
+con un número que no cupiera dentro de la cantidad dada de bits. Hoy en día, 
 incluso computadoras que cabe dentro de tu bolsillo poseen de abundante memoria, 
 por lo tanto somos libres de usar pedazos de memoria de 64 bits, y solamente 
 nos tenemos que preocupar por desbordamientos de memoria cuando lidiamos 
@@ -117,10 +117,10 @@ con números verdaderamente astronómicos.
 {{index sign, "floating-point number", "fractional number", "sign bit"}}
 
 A pesar de esto, no todos los números enteros por debajo de 18 mil trillones caben en un
-numero de JavaScript. Esos bits también almacenan números negativos, por lo que un bit
-indica el signo de un numero. Un problema mayor es que los números no enteros tienen
+número de JavaScript. Esos bits también almacenan números negativos, por lo que un bit
+indica el signo de un número. Un problema mayor es que los números no enteros tienen
 que ser representados también. Para hacer esto, algunos de los bits son usados para
-almacenar la posición del punto decimal. El numero entero mas grande que puede ser
+almacenar la posición del punto decimal. El número entero mas grande que puede ser
 almacenado está en el rango de 9 trillones (15 ceros)—lo cual es todavía placenteramente 
 inmenso. 
 
@@ -136,7 +136,7 @@ Los números fraccionarios se escriben usando un punto:
 
 Para números muy grandes o muy pequeños, pudiéramos también usar notación 
 científica agregando una "e" (de "exponente"), seguida por el exponente 
-del numero:
+del número:
 
 ```
 2.998e8
@@ -150,8 +150,8 @@ Los cálculos con números enteros (también llamados _((integer))s_)
 mas pequeños a los 9 trillones anteriormente mencionados están
 garantizados a ser siempre precisos. Desafortunadamente, los calculos
 con números fraccionarios, generalmente no lo son. Así como π (pi) no puede
-ser precisamente expresado por un numero finito de números decimales, 
-muchos numeros pierden algo de precisión cuando solo hay 64 bits disponibles
+ser precisamente expresado por un número finito de números decimales, 
+muchos números pierden algo de precisión cuando solo hay 64 bits disponibles
 para almacenarlos. Esto es una pena, pero solo causa problemas pr'acticos
 en situaciones especificas. Lo importante que debemos ser consciente de estas 
 limitaciones y tratar a los números fraccionarios como aproximaciones, 
@@ -222,12 +222,12 @@ Los primeros dos son `Infinity` y `-Infinity`, los cuales representan
 infinidad positiva e infinidad negativa. `Infinity - 1` aun es
 `Infinity`, y asi sucesivamente. A pesar de esto, no confíes mucho 
 en computaciones que dependan de infinidades. Esto no es matemáticamente 
-confiable, y puede que muy rápidamente nos resulte en el próximo numero
+confiable, y puede que muy rápidamente nos resulte en el próximo número
 especial: `NaN`.
 
 {{index NaN, "not a number", "division by zero"}}
 
-`NaN` significa "no es un numero" ("not a number"), 
+`NaN` significa "no es un número" ("not a number"), 
 aunque _sea_ un valor del tipo numérico.
 Obtendremos este resultado cuando, por ejemplo, tratemos de calcular
 `0 / 0` (cero dividido entre cero), `Infinity - Infinity`, o cualquier 
@@ -307,7 +307,7 @@ También los strings deben de ser modelados como una serie de bits para poder
 existir dentro del computador. La forma en la que JavaScript hace esto
 es basada en el estándar _((Unicode))_. Este estándar asigna un número a
 todo carácter que alguna vez pudieras necesitar, incluyendo caracteres en
-Griego, Árabe, Japones, Armenio, y asi sucesivamente. Si tenemos un numero para 
+Griego, Árabe, Japones, Armenio, y asi sucesivamente. Si tenemos un número para 
 representar cada carácter, un string puede ser descrito como una
 secuencia de números. 
 
@@ -315,7 +315,7 @@ secuencia de números.
 
 Y eso es lo que hace JavaScript. Pero hay una complicación:
 La representación de JavaScript usa 16 bits por cada elemento string, en
-el cual caben 2^16^ numeros diferentes. Pero Unicode define mas caracteres
+el cual caben 2^16^ números diferentes. Pero Unicode define mas caracteres
 que aquellos—aproximadamente el doble, en este momento.
 Entonces algunos caracteres, como muchos emojis, necesitan ocupar dos
 "posiciones de caracteres" en los strings de JavaScript. Volveremos a este
@@ -449,7 +449,7 @@ console.log("Manzana" == "Naranja")
 {{index [comparison, "of NaN"], NaN}}
 
 Solo hay un valor en JavaScript que no es igual a si mismo, y este es
-`NaN` ("no es un numero").
+`NaN` ("no es un número").
 
 ```
 console.log(NaN == NaN)
@@ -577,14 +577,14 @@ calladamente convertirá ese valor al tipo que necesita, utilizando una
 serie de reglas que frecuentemente no dan el resultado que quisieras
 o esperarías. Esto es llamado _((coercion de tipo))_. El `null`
 en la primera expresión se torna `0`, y el `"5"`en la segunda expresión
-se torna `5` (de string a numero). Sin embargo, en la tercera expresión,
+se torna `5` (de string a número). Sin embargo, en la tercera expresión,
 `+` intenta realizar una concatenación de string antes que una adición numérica, 
-entonces el `1` es convertido a `"1"` (de numero a string)
+entonces el `1` es convertido a `"1"` (de número a string)
 
 {{index "type coercion", [number, "conversion to"]}}
 
-Cuando algo que no se traduce a un numero en una manera obvia (tal como
-`"cinco"` o `undefined`) es convertido a un numero, obtenemos el valor
+Cuando algo que no se traduce a un número en una manera obvia (tal como
+`"cinco"` o `undefined`) es convertido a un número, obtenemos el valor
 `NaN`. Operaciones aritméticas subsecuentes con `NaN`, continúan
 produciendo `NaN`, asi que si te encuentras obteniendo uno de estos en
 lugares inesperados, busca por coerciones de tipo accidentales.
@@ -688,7 +688,7 @@ o valor (`13`, `"abc"`). Puedes combinar y transformar valores con
 operadores. Vimos operadores binarios para aritmética (`+`, `-`, `*`, `/`,
 y `%`), concatenación de strings (`+`), comparaciones (`==`, `!=`, `===`, 
 `!==`, `<`, `>`, `<=`, `>=`), y lógica (`&&`, `||`), así también como 
-varios otros operadores unarios (`-` para negar un numero, `!` para negar
+varios otros operadores unarios (`-` para negar un número, `!` para negar
 lógicamente, y `typeof` para encontrar el valor de un tipo) y un operador 
 ternario (`?:`) para elegir uno de dos valores basándose en un tercer valor.
 
