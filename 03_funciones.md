@@ -950,55 +950,55 @@ Algunas operaciones también son más fáciles de expresar en una manera
 eficiente cuando usamos efectos secundarios, por lo que la velocidad de
 computación puede ser una razón para evitar la pureza.
 
-## Summary
+## Resumen
 
-This chapter taught you how to write your own functions. The
-`function` keyword, when used as an expression, can create a function
-value. When used as a statement, it can be used to declare a binding
-and give it a function as its value. Arrow functions are yet another
-way to create functions.
+Este capítulo te enseñó a escribir tus propias funciones. La palabra clave 
+`function`, cuando se usa como una expresión, puede crear un valor de función. 
+Cuando se usa como una declaración, se puede usar para declarar un enlace
+y darle una función como su valor. Las funciones de flecha son otra forma 
+más de crear funciones.
 
 ```
-// Create a function value f
+// Crea un valor de función f
 const f = function(a) {
   console.log(a + 2);
 };
 
-// Declare g to be a function
+// Declara g para ser una función
 function g(a, b) {
   return a * b * 3.5;
 }
 
-// A less verbose function value
+// Un valor de función menos verboso
 let h = a => a % 3;
 ```
 
-A key aspect in understanding functions is understanding scopes. Each
-block creates a new scope. Parameters and bindings declared in a given
-scope are local, and not visible from the outside. Bindings declared
-with `var` behave differently—they end up in the nearest function
-scope or the global scope.
+Un aspecto clave en la comprensión de funciones es comprender los alcances. Cada
+bloque crea un nuevo alcance. Los parámetros y enlaces declarados en un determinado
+alcance son locales y no son visibles desde el exterior. Enlaces declarados
+con `var` se comportan de manera diferente—terminan en el alcance de
+la función más cercana o en el alcance global.
 
-Separating the tasks your program performs into different functions is
-helpful. You won't have to repeat yourself as much, and functions can
-help organize a program by grouping code into pieces that do specific
-things.
+Separar las tareas que realiza tu programa en diferentes funciones es
+util. No tendrás que repetirte tanto, y las funciones pueden
+ayudar a organizar un programa agrupando el código en piezas que hacen
+cosas especificas.
 
-## Exercises
+## Ejercicios
 
-### Minimum
+### Mínimo
 
 {{index "Math object", "minimum (exercise)", "Math.min function", minimum}}
 
-The [previous chapter](program_structure#return_values) introduced the
-standard function `Math.min` that returns its smallest argument. We
-can build something like that now. Write a function `min` that takes
-two arguments and returns their minimum.
+El [capítulo anterior](estructura_de_programa#valores_de_devolución) introdujo
+la función estándar `Math.min` que devuelve su argumento más pequeño. Nosotros
+podemos construir algo como eso ahora. Escribe una función `min` que tome
+dos argumentos y retorne su mínimo.
 
 {{if interactive
 
 ```{test: no}
-// Your code here.
+// Tu codigo aqui.
 
 console.log(min(0, 10));
 // → 0
@@ -1011,50 +1011,50 @@ if}}
 
 {{index "minimum (exercise)"}}
 
-If you have trouble putting braces and
-parentheses in the right place to get a valid function definition,
-start by copying one of the examples in this chapter and modifying it.
+Si tienes problemas para poner llaves y
+paréntesis en los lugares correctos para obtener una definición válida de función,
+comienza copiando uno de los ejemplos en este capítulo y modificándolo.
 
 {{index "return keyword"}}
 
-A function may contain multiple `return` statements.
+Una función puede contener múltiples declaraciones de `return`.
 
 hint}}
 
-### Recursion
+### Recursión
 
 {{index recursion, "isEven (exercise)", "even number"}}
 
-We've seen that `%` (the remainder operator) can be used to test
-whether a number is even or odd by using `% 2` to see whether it's
-divisible by two. Here's another way to define whether a positive
-whole number is even or odd:
+Hemos visto que `%` (el operador de residuo) se puede usar para probar
+si un número es par o impar usando `% 2` para ver si es
+divisible por dos. Aquí hay otra manera de definir si un
+número entero positivo es par o impar:
 
-- Zero is even.
+- Zero es par.
 
-- One is odd.
+- Uno es impar.
 
-- For any other number _N_, its evenness is the same as _N_ - 2.
+- Para cualquier otro número _N_, su paridad es la misma que _N_ - 2.
 
-Define a recursive function `isEven` corresponding to this
-description. The function should accept a single parameter (a
-positive, whole number) and return a Boolean.
+Define una función recursiva `esPar` que corresponda a esta
+descripción. La función debe aceptar un solo parámetro (un
+número entero, positivo) y devuelve un booleano.
 
 {{index "stack overflow"}}
 
-Test it on 50 and 75. See how it behaves on -1. Why? Can you think of
-a way to fix this?
+Pruébalo en 50 y 75. Observa cómo se comporta con -1. ¿Por qué? 
+Puedes pensar en una forma de arreglar esto?
 
 {{if interactive
 
 ```{test: no}
-// Your code here.
+// Tu codigo aqui.
 
-console.log(isEven(50));
+console.log(esPar(50));
 // → true
-console.log(isEven(75));
+console.log(esPar(75));
 // → false
-console.log(isEven(-1));
+console.log(esPar(-1));
 // → ??
 ```
 
@@ -1064,52 +1064,52 @@ if}}
 
 {{index "isEven (exercise)", ["if keyword", chaining], recursion}}
 
-Your function will likely look somewhat similar to the inner `find`
-function in the recursive `findSolution`
-[example](functions#recursive_puzzle) in this chapter, with an
-`if`/`else if`/`else` chain that tests which of the three cases
-applies. The final `else`, corresponding to the third case, makes the
-recursive call. Each of the branches should contain a `return`
-statement or in some other way arrange for a specific value to be
-returned.
+Es probable que tu función se vea algo similar a la función interna 
+`encontrar` en la función recursiva `encontrarSolucion` de
+[ejemplo](funciones#recursive_puzzle) en este capítulo, con una cadena
+`if`/`else if`/`else` que prueba cuál de los tres casos
+aplica. El `else` final, correspondiente al tercer caso, hace la
+llamada recursiva. Cada una de las ramas debe contener una declaración
+de `return` u organizarse de alguna otra manera para que un valor específico 
+sea retornado.
 
 {{index "stack overflow"}}
 
-When given a negative number, the function will recurse again and
-again, passing itself an ever more negative number, thus getting
-further and further away from returning a result. It will eventually
-run out of stack space and abort.
+Cuando se le dé un número negativo, la función volverá a repetirse una y
+otra vez, pasándose a si misma un número cada vez más negativo, quedando así
+más y más lejos de devolver un resultado. Eventualmente
+quedandose sin espacio en la pila y abortando el programa.
 
 hint}}
 
-### Bean counting
+### Conteo de frijoles
 
 {{index "bean counting (exercise)", [string, indexing], "zero-based counting", ["length property", "for string"]}}
 
-You can get the Nth character, or letter, from a string by writing
-`"string"[N]`. The returned value will be a string containing only one
-character (for example, `"b"`). The first character has position zero,
-which causes the last one to be found at position `string.length - 1`.
-In other words, a two-character string has length 2, and its
-characters have positions 0 and 1.
+Puedes obtener el N-ésimo carácter o letra de un string escribiendo
+`"string"[N]`. El valor devuelto será un string que contiene solo un
+carácter (por ejemplo, `"b"`). El primer carácter tiene posición cero,
+lo que hace que el último se encuentre en la posición `string.length - 1`.
+En otras palabras, un string de dos caracteres tiene una longitud de 2, 
+y sus carácteres tendrán las posiciones 0 y 1.
 
-Write a function `countBs` that takes a string as its only argument
-and returns a number that indicates how many uppercase "B" characters
-there are in the string.
+Escribe una función `contarFs` que tome un string como su único argumento
+y devuelva un número que indica cuántos caracteres "F" en mayúsculas
+haya en el string.
 
-Next, write a function called `countChar` that behaves like `countBs`,
-except it takes a second argument that indicates the character that is
-to be counted (rather than counting only uppercase "B" characters).
-Rewrite `countBs` to make use of this new function.
+Despues, escribe una función llamada `contarCaracteres` que se comporte 
+como `contarFs`, excepto que toma un segundo argumento que indica el carácter 
+que debe ser contado (en lugar de contar solo caracteres "F" en mayúscula).
+Reescribe `contarFs` para que haga uso de esta nueva función.
 
 {{if interactive
 
 ```{test: no}
-// Your code here.
+// Tu código aquí.
 
-console.log(countBs("BBC"));
+console.log(contarFs("FFC"));
 // → 2
-console.log(countChar("kakkerlak", "k"));
+console.log(contarCaracteres("kakkerlak", "k"));
 // → 4
 ```
 
@@ -1119,15 +1119,15 @@ if}}
 
 {{index "bean counting (exercise)", ["length property", "for string"], "counter variable"}}
 
-Your function will need a ((loop)) that looks at every character in
-the string. It can run an index from zero to one below its length (`<
-string.length`). If the character at the current position is the same
-as the one the function is looking for, it adds 1 to a counter
-variable. Once the loop has finished, the counter can be returned.
+TU función necesitará de un ((loop)) que examine cada carácter en
+el string. Puede correr desde un índice de cero a uno por debajo de su longitud (`<
+string.length`). Si el carácter en la posición actual es el mismo 
+al que se está buscando en la función, agrega 1 a una variable contador. 
+Una vez que el loop haya terminado, puedes devolver el contador.
 
 {{index "local binding"}}
 
-Take care to make all the bindings used in the function _local_ to the
-function by using the `let` keyword.
+Ten cuidado de hacer que todos los enlaces utilizados en la función sean
+_locales_ a la función usando la palabra clave `let`.
 
 hint}}
