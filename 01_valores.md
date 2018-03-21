@@ -20,7 +20,7 @@ quote}}
 Dentro del mundo de la computadora, solo existen datos. 
 Puedes leer datos, modificar datos, crear nuevos
 datos—pero todo lo que no sean datos, no puede ser mencionado.
-Toda estos datos estan almacenados como largas secuencias 
+Toda estos datos están almacenados como largas secuencias 
 de bits, y por lo tanto, son fundamentalmente parecidos.
 
 {{index CD, signal}}
