@@ -359,7 +359,7 @@ posición. El ejemplo anterior produce "_la mitad de 100 es 50_".
 
 No todo los operadores son simbolos. Algunos se escriben como palabras.
 Un ejemplo es el operador `typeof`, que produce un string con el nombre
-del tipo de valor que le mandemos.
+del tipo de valor que le demos.
 
 ```
 console.log(typeof 4.5)
@@ -373,16 +373,16 @@ console.log(typeof "x")
 {{id "console.log"}}
 
 Usaremos `console.log` en los ejemplos de código para indicar que
-lo que queremos es ver es el resultado de alguna evaluación.
-Expandiremos en esto en el [proximo capitulo](program_structure).
+que queremos ver el resultado de alguna evaluación.
+Mas acerca de esto esto en el [proximo capitulo](estructura_de_programa).
 
 {{index negation, "- operator", "binary operator", "unary operator"}}
 
-Los operadores que hemos visto hasta ahora todos operaban en does valores,
+En los otros operadores que hemos visto hasta ahora, todos operaban en dos valores,
 pero `typeof` sola opera con un valor. Los operadores que usan dos valores
-son llamados _binarios_, mientras que aquellos operadores que usan uno son
-llamados _unarios_. El operador menos puede ser usado como operador binario
-o como operador unario.
+son llamados operadores _binarios_, mientras que aquellos operadores que usan uno son
+llamados operadores _unarios_. El operador menos puede ser usado tanto
+como un operador binario o como un operador unario.
 
 ```
 console.log(- (10 - 2))
@@ -393,9 +393,9 @@ console.log(- (10 - 2))
 
 {{index Boolean, operator, true, false, bit}}
 
-Es frecuentemente util tener un valor que se distingue entre solo dos
+Es frecuentemente util tener un valor que distingue entre solo dos
 posibilidades, como "si", y "no", o "encendido" y "apagado". Para este
-propósito, JavaScript tiene el tipo _Boolean_, que tiene dos valores:
+propósito, JavaScript tiene el tipo _Boolean_, que tiene solo dos valores:
 verdadero (`true`) y falso (`false`) que se escriben de la misma forma.
 
 ### Compraración
@@ -429,18 +429,18 @@ console.log("Aardvark" < "Zoroaster")
 
 La forma en la que los strings son ordenados, es aproximadamente alfabético,
 aunque no realmente de la misma forma que esperaríamos ver en un diccionario:
-letras mayúsculas son siempre "menores que" letras minúsculas, así que `"Z" < "a"`,
-y caracteres no alfabéticos como `!`, `-`, y demás, son también incluidos en el 
+las letras mayúsculas son siempre "menores que" las letras minúsculas, así que `"Z" < "a"`,
+y caracteres no alfabéticos (como `!`, `-` y demás) son también incluidos en el 
 ordenamiento. Cuando comparamos strings, JavaScript evalúa los caracteres 
 de izquierda a derecha, comparando los códigos ((Unicode)) uno por uno.
 
 {{index equality, ">= operator", "<= operator", "== operator", "!= operator"}}
 
-Otros operadores similares son `>=` (mayor o igual que), `<=` (menor y igual que),
+Otros operadores similares son `>=` (mayor o igual que), `<=` (menor o igual que),
 `==` (igual a), y `!=` (no igual a).
 
 ```
-console.log("Irritante" != "Arañoso")
+console.log("Itchy" != "Scratchy")
 // → true
 console.log("Manzana" == "Naranja")
 // → false
@@ -449,16 +449,14 @@ console.log("Manzana" == "Naranja")
 {{index [comparison, "of NaN"], NaN}}
 
 Solo hay un valor en JavaScript que no es igual a si mismo, y este es
-`NaN` ("no es numero").
-There is only one value in JavaScript that is not equal to itself, and
-that is `NaN` ("not a number").
+`NaN` ("no es un numero").
 
 ```
 console.log(NaN == NaN)
 // → false
 ```
 
-`NaN` esta supuesto a denotar el resultado de una computación sin sentido,
+Se supone que `NaN` denota el resultado de una computación sin sentido,
 y como tal, no es igual al resultado de ninguna _otra_ computación sin sentido.
 
 ### Operadores lógicos
@@ -467,7 +465,7 @@ y como tal, no es igual al resultado de ninguna _otra_ computación sin sentido.
 
 También existen algunas operaciones que pueden ser aplicadas a valores
 Boolean. JavaScript soporta tres operadores lógicos: _and_, _or_, y _not_.
-Estos pueden ser usados para "razonar" valores Boolean.
+Estos pueden ser usados para "razonar" acerca de valores Boolean.
 
 {{index "&& operator", "logical and"}}
 
@@ -497,19 +495,19 @@ console.log(false || false)
 {{index negation, "! operator"}}
 
 _Not_ se escribe como un signo de exclamación (`!`). Es un operador
-unario que voltea el valor dado-`!true` produce `false` y `!false`
+unario que voltea el valor dado—`!true` produce `false` y `!false`
 produce `true`.
 
 {{index precedence}}
 
-Cuando estos operadores Boolean son mezclados con otro tipo de
-operadores, no es siempre obvio cuando son necesarios los paréntesis.
-En la práctica, puedes usualmente manejarte bien sabiendo que de
-los operadores que hemos visto hasta ahora, `||` tiene menor precedencia,
+Cuando estos operadores Boolean son mezclados con otros tipos de
+operadores, no siempre es obvio cuando son necesarios los paréntesis.
+En la práctica, usualmente puedes manejarte bien sabiendo que de
+los operadores que hemos visto hasta ahora, `||` tiene la menor precedencia,
 luego le sigue `&&`, luego le siguen los operadores de comparación
 (`>`, `==`, y demás), y luego el resto. Este orden ha sido determinado para
-que en expresiones como la siguiente, la menos cantidad de paréntesis es
-requerida:
+que en expresiones como la siguiente, la menor cantidad de paréntesis posible sea
+necesaria:
 
 ```
 1 + 1 == 2 && 10 * 10 > 50
@@ -518,7 +516,7 @@ requerida:
 {{index "conditional execution", "ternary operator", "?: operator", "conditional operator", "colon character", "question mark"}}
 
 El ultimo operador lógico que discutiremos no es unario, tampoco binario,
-pero ternario, esto es, que opera en tres valores. Es escrito con un
+sino _ternario_, esto es, que opera en tres valores. Es escrito con un
 signo de interrogación y dos puntos, de esta forma: 
 
 ```
@@ -538,15 +536,15 @@ falso, el valor de la derecha.
 
 {{index undefined, null}}
 
-Existen dos valores especiales, escritos `null` y `undefined`, que son
-usados para denotar la ausencia de un valor _significativo_. Son en si mismo
+Existen dos valores especiales, escritos como `null` y `undefined`, que son
+usados para denotar la ausencia de un valor _significativo_. Son en si mismos
 valores, pero no traen consigo información.
 
-Muchos de los operadores en el lenguaje que no producen un valor significativo
-(veremos algunos mas adelante), producen `undefined` simplemente porque tienen
+Muchas operaciones en el lenguaje que no producen un valor significativo
+(veremos algunas mas adelante), producen `undefined` simplemente porque tienen
 que producir _algún_ valor.
 
-La diferencia en significado entre `undefined`y `null`es un accidente del
+La diferencia en significado entre `undefined` y `null` es un accidente del
 diseño de JavaScript, y realmente no importa la mayor parte del tiempo. 
 En los casos donde realmente tendríamos que preocuparnos por estos valores, 
 mayormente recomiendo tratarlos como intercambiables.
@@ -555,9 +553,9 @@ mayormente recomiendo tratarlos como intercambiables.
 
 {{index NaN, "type coercion"}}
 
-En la introducción, he mencionado que JavaScript trata mucho de aceptar
-casi cualquier programa que le demos, aún programas que hacen cosas
-extrañas. Esto es bien demostrado por la proxima expresión:
+En la Introducción, mencione que JavaScript tiende a salirse de su camino para
+aceptar casi cualquier programa que le demos, incluso programas que hacen cosas
+extrañas. Esto es bien demostrado por las siguientes expresiones:
 
 ```
 console.log(8 * null)
@@ -574,19 +572,18 @@ console.log(false == 0)
 
 {{index "+ operator", arithmetic, "* operator", "- operator"}}
 
-Cuando un operador es aplicado el tipo de valor "incorrecto", JvasScript
+Cuando un operador es aplicado el tipo de valor "incorrecto", JavaScript
 calladamente convertirá ese valor al tipo que necesita, utilizando una
-seria de reglas que frecuentemente no dan el resultado que quisieras
+serie de reglas que frecuentemente no dan el resultado que quisieras
 o esperarías. Esto es llamado _((coercion de tipo))_. El `null`
 en la primera expresión se torna `0`, y el `"5"`en la segunda expresión
 se torna `5` (de string a numero). Sin embargo, en la tercera expresión,
-`+` trata concatenación de string antes de adición numérica, entonces
-el `1` es convertido a `"1"` (de numero a string)
+`+` intenta realizar una concatenación de string antes que una adición numérica, 
+entonces el `1` es convertido a `"1"` (de numero a string)
 
 {{index "type coercion", [number, "conversion to"]}}
 
-
-Cuando algo que no se traduce a un numero de manera obvia (tal como
+Cuando algo que no se traduce a un numero en una manera obvia (tal como
 `"cinco"` o `undefined`) es convertido a un numero, obtenemos el valor
 `NaN`. Operaciones aritméticas subsecuentes con `NaN`, continúan
 produciendo `NaN`, asi que si te encuentras obteniendo uno de estos en
@@ -598,7 +595,7 @@ Cuando se utiliza `==` para comparar valores del mismo tipo, el desenlace
 es fácil de predecir: debemos de obtener verdadero cuando ambos valores
 son lo mismo, excepto en el caso de `NaN`. Pero cuando los tipos difieren,
 JavaScript utiliza una serie de reglas complicadas y confusas para determinar
-que hacer. En el mayor de los casos, solo trata de convertir uno de estos valores
+que hacer. En la mayoria de los casos, solo tratara de convertir uno de estos valores
 al tipo del otro valor. Sin embargo, cuando `null` o `undefined` ocurren en
 cualquiera de los extremos del operador, produce verdadero solo si el otro lado
 es o `null` o `undefined`.
@@ -616,7 +613,7 @@ compararlos con `null` usando el operador `==` (o `!=`).
 
 {{index "type coercion", [Boolean, "conversion to"], "=== operator", "!== operator", comparison}}
 
-Pero que pasa si queremos probar algo que se refiere precisamente
+Pero que pasa si queremos probar que algo se refiere precisamente
 al valor `false`? Las reglas para convertir strings y números a valores
 Boolean, dice que `0`, `NaN`, y el string vació (`""`) cuentan como `false`,
 mientras que todos los otros valores cuentan como `true`. Debido a esto, 
@@ -636,7 +633,7 @@ utilizar los operadores cortos.
 {{index "type coercion", [Boolean, "conversion to"], operator}}
 
 Los operadores lógicos `&&` y `||`, manejan valores de diferentes tipos
-de una forma peculiar. No convertirán el valor en su lado izquierdo a un
+de una forma peculiar. Ellos convertirán el valor en su lado izquierdo a un
 tipo Boolean para decidir que hacer, pero dependiendo del operador y el
 resultado de la conversión, devolverán o el valor _original_ de la izquierda
 o el valor de la derecha.
@@ -671,8 +668,8 @@ ese valor, y de lo contrario, devuelve el valor a su derecha.
 
 Otra propiedad importante de estos dos operadores es que la parte
 de su derecha solo es evaluada si es necesario. En el caso de
-de `true || X`, no importa que sea `X`, aun si es un programa
-que hace algo _terrible_-el resultado será verdadero, y `X` nunca
+de `true || X`, no importa que sea `X`—aun si es una pieza del programa
+que hace algo _terrible_—el resultado será verdadero, y `X` nunca
 es evaluado. Lo mismo sucede con `false && X`, que es falso e ignorará
 `X`. Esto es llamado _((evaluación de corto circuito))_.
 
@@ -684,17 +681,18 @@ tercer valor, solo el que es seleccionado es evaluado.
 ## Resumen
 
 Observamos cuatro tipos de valores JavaScript en este capítulo: números,
-textos (`strings`), Booleans, y valores indefinidos (`undefined`)
+textos (`strings`), Booleans, y valores indefinidos.
 
 Tales valores son creados escribiendo su nombre (`true`, `null`)
 o valor (`13`, `"abc"`). Puedes combinar y transformar valores con
 operadores. Vimos operadores binarios para aritmética (`+`, `-`, `*`, `/`,
-y `%`), y lógica (`&&`, `||`), así también como varios otros operadores
-unarios (`-` para negar un numero, `!` para negar lógica, y `typeof`
-para encontrar el valor de un tipo) y un operador ternario (`?:`) para
-elegir uno de dos valores basándose en un tercer valor.
+y `%`), concatenación de strings (`+`), comparaciones (`==`, `!=`, `===`, 
+`!==`, `<`, `>`, `<=`, `>=`), y lógica (`&&`, `||`), así también como 
+varios otros operadores unarios (`-` para negar un numero, `!` para negar
+lógicamente, y `typeof` para encontrar el valor de un tipo) y un operador 
+ternario (`?:`) para elegir uno de dos valores basándose en un tercer valor.
 
 Esto te dá la información suficiente para usar JavaScript como una
 calculadora de bolsillo, pero no para mucho más. El [próximo 
-capitulo](estructura_de_programa) empezará amarrando estas expresiones
-juntas para formar programas básicos.
+capitulo](estructura_de_programa) empezará a juntar estas expresiones
+para formar programas básicos.
